@@ -1,0 +1,10 @@
+{
+  "description": "This platform offers comprehensive digital solutions including website development, e-commerce, mobile apps, SEO, and digital marketing for businesses.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
