@@ -1,0 +1,1022 @@
+{
+  "site": {
+    "name": "MapleCodix",
+    "tagline": "Ideas, designed and developed with purpose.",
+    "email": "hello@maplecodix.com",
+    "copyright": "MapleCodix. All rights reserved.",
+    "whatsapp": {
+      "phoneNumber": "+1234567890",
+      "displayNumber": "+1 (234) 567-890",
+      "message": "Hello MapleCodix! I would like to discuss a project with your team.",
+      "label": "Chat with us on WhatsApp",
+      "tooltip": "Need quick help? Chat with us on WhatsApp",
+      "supportTitle": "MapleCodix Studio",
+      "supportStatus": "Online · Typically replies in ~15 mins",
+      "greeting": "Hi there! 👋 Welcome to MapleCodix. How can we help bring your digital vision to life today?",
+      "starterPrompts": [
+        {
+          "id": "web",
+          "label": "💻 Web Development",
+          "message": "Hi MapleCodix, I would like to inquire about building a new website."
+        },
+        {
+          "id": "packages",
+          "label": "📦 Packages & Pricing",
+          "message": "Hi MapleCodix, I have a question about your development and marketing packages."
+        },
+        {
+          "id": "webapp",
+          "label": "🚀 Custom Web App / SaaS",
+          "message": "Hi MapleCodix, I want to discuss building a custom web application or SaaS platform."
+        },
+        {
+          "id": "mobile",
+          "label": "📱 Mobile App",
+          "message": "Hi MapleCodix, I would like to discuss developing a mobile app for iOS and Android."
+        },
+        {
+          "id": "growth",
+          "label": "📈 SEO & Growth",
+          "message": "Hi MapleCodix, I am interested in your SEO and digital marketing services."
+        }
+      ]
+    }
+  },
+  "seo": {
+    "siteUrl": "https://maplecodix.com",
+    "home": {
+      "title": "MapleCodix | Digital Studio — Websites, Web Apps & Growth",
+      "description": "MapleCodix is a full-service digital studio creating high-performing websites, web apps, e-commerce, and growth strategies for ambitious businesses.",
+      "keywords": "web development, website design, web applications, mobile apps, digital marketing, SEO, e-commerce",
+      "canonicalPath": "/"
+    },
+    "services": {
+      "title": "Digital Capabilities & Services | MapleCodix",
+      "description": "Explore MapleCodix's full digital services: custom web development, mobile apps, e-commerce platforms, SEO, digital marketing, and brand systems.",
+      "keywords": "web development services, mobile app development, e-commerce development, technical SEO, digital marketing agency",
+      "canonicalPath": "/services"
+    },
+    "packages": {
+      "title": "Website Development Packages & Pricing | MapleCodix",
+      "description": "Transparent website development packages tailored for startups and growing businesses. From fast launch sites to full dynamic digital platforms.",
+      "keywords": "website packages, web design pricing, startup website cost, custom web development quote",
+      "canonicalPath": "/packages"
+    },
+    "about": {
+      "title": "About Us — Technology with a Human Point of View | MapleCodix",
+      "description": "Learn about MapleCodix's multidisciplinary team, our philosophy of clarity and craft, and how we bring strategy, design, and engineering together.",
+      "keywords": "about maplecodix, digital studio, creative agency team, software engineering studio",
+      "canonicalPath": "/about"
+    },
+    "careers": {
+      "title": "Careers at MapleCodix | Join Our Digital Craft Team",
+      "description": "Build high-impact digital experiences with people who care. Explore remote-friendly engineering, design, and strategy opportunities at MapleCodix.",
+      "keywords": "developer jobs, designer careers, digital studio jobs, remote frontend developer",
+      "canonicalPath": "/careers"
+    },
+    "notFound": {
+      "title": "Page Not Found (404) | MapleCodix",
+      "description": "The page you are looking for does not exist. Return to MapleCodix homepage.",
+      "keywords": "404 not found, page not found",
+      "canonicalPath": "/404"
+    }
+  },
+  "navigation": {
+    "items": [
+      {
+        "label": "Home",
+        "to": "/"
+      },
+      {
+        "label": "Services",
+        "to": "/services"
+      },
+      {
+        "label": "Packages",
+        "to": "/packages"
+      },
+      {
+        "label": "About",
+        "to": "/about"
+      }
+    ],
+    "cta": {
+      "label": "Start a project",
+      "href": "mailto:hello@maplecodix.com"
+    }
+  },
+  "hero": {
+    "badge": "Digital experiences, thoughtfully made",
+    "titlePrefix": "We turn bold ideas into ",
+    "titleHighlight": "digital impact.",
+    "description": "MapleCodix is a full-service digital studio creating high-performing websites, apps, commerce, and growth strategies for ambitious businesses.",
+    "primaryCta": {
+      "text": "Let's build something",
+      "href": "mailto:hello@maplecodix.com"
+    },
+    "secondaryCta": {
+      "text": "Explore our services",
+      "to": "/services"
+    },
+    "showcase": {
+      "image": "https://images.unsplash.com/photo-1681949287382-052ea3954a51?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=85&w=1200",
+      "alt": "A creative team collaborating around a table in a sunlit office",
+      "tag": "One creative partner",
+      "title": "From first sketch to lasting growth.",
+      "statNumber": "7 core",
+      "statLabel": "digital services"
+    }
+  },
+  "ticker": {
+    "items": [
+      "Strategy",
+      "Web Development",
+      "E-Commerce",
+      "Mobile Apps",
+      "SEO",
+      "Digital Marketing",
+      "Copywriting",
+      "Strategy",
+      "Web Development",
+      "E-Commerce",
+      "Mobile Apps"
+    ]
+  },
+  "servicesSection": {
+    "eyebrow": "What we do",
+    "heading": "Everything you need to move forward.",
+    "description": "Strategy, technology, and creativity—working together under one roof to build experiences that perform beautifully.",
+    "services": [
+      {
+        "number": "01",
+        "title": "Website Development",
+        "description": "Fast, responsive websites shaped around your brand and built to turn visits into real business.",
+        "icon": "globe"
+      },
+      {
+        "number": "02",
+        "title": "E-Commerce Solutions",
+        "description": "Frictionless online stores with intuitive shopping experiences and scalable foundations.",
+        "icon": "commerce"
+      },
+      {
+        "number": "03",
+        "title": "Web Applications",
+        "description": "Powerful, secure web products that make complex workflows feel refreshingly simple.",
+        "icon": "code"
+      },
+      {
+        "number": "04",
+        "title": "Mobile Applications",
+        "description": "Thoughtful iOS, Android, Flutter, Native, Hybrid, and React Native experiences.",
+        "icon": "mobile"
+      },
+      {
+        "number": "05",
+        "title": "SEO Services",
+        "description": "Technical and content-led search strategies designed for sustainable organic growth.",
+        "icon": "search"
+      },
+      {
+        "number": "06",
+        "title": "Digital Marketing",
+        "description": "Data-informed campaigns that earn attention, build trust, and create measurable demand.",
+        "icon": "marketing"
+      },
+      {
+        "number": "07",
+        "title": "Creative Copywriting",
+        "description": "Clear, distinctive brand language that sounds human and inspires people to act.",
+        "icon": "pen"
+      }
+    ]
+  },
+  "servicesPage": {
+    "filterCategories": [
+      {
+        "id": "all",
+        "label": "All Capabilities"
+      },
+      {
+        "id": "engineering",
+        "label": "Engineering & Web"
+      },
+      {
+        "id": "mobile",
+        "label": "Mobile Ecosystem"
+      },
+      {
+        "id": "growth",
+        "label": "Growth & SEO"
+      },
+      {
+        "id": "creative",
+        "label": "Brand & Copy"
+      }
+    ],
+    "detailedServices": [
+      {
+        "id": "website-development",
+        "category": "engineering",
+        "number": "01",
+        "title": "Website Development",
+        "tagline": "Fast, responsive web experiences shaped around your brand and built to convert.",
+        "description": "We build fast, responsive, and search-optimized websites designed around your business goals. From marketing sites to enterprise platforms, our sites combine clean code with stunning visual identity.",
+        "icon": "globe",
+        "timeline": "2 - 4 Weeks",
+        "outcome": "4x Faster Page Loads",
+        "deliverables": [
+          "Bespoke Responsive Layouts & Design Systems",
+          "Clean Tailwind CSS & React Architecture",
+          "Headless or Custom CMS Integration",
+          "Enterprise Technical SEO & Structured Data",
+          "Rigorous Cross-Device & Browser QA Testing"
+        ],
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Next.js",
+          "Vite"
+        ],
+        "processPhases": [
+          {
+            "phase": "01",
+            "name": "Blueprint",
+            "desc": "Information architecture, wireframes, and UX journey mapping."
+          },
+          {
+            "phase": "02",
+            "name": "UI Craft",
+            "desc": "Figma design system, responsive styling, and micro-animations."
+          },
+          {
+            "phase": "03",
+            "name": "Build",
+            "desc": "Clean, typed components, API integration, and CMS wiring."
+          },
+          {
+            "phase": "04",
+            "name": "Launch",
+            "desc": "Performance tuning, 95+ Lighthouse score audit, and deployment."
+          }
+        ]
+      },
+      {
+        "id": "ecommerce-solutions",
+        "category": "engineering",
+        "number": "02",
+        "title": "E-Commerce Solutions",
+        "tagline": "Frictionless online stores with intuitive shopping experiences and scalable checkout foundations.",
+        "description": "High-converting digital storefronts that make browsing enjoyable and purchasing effortless. We integrate scalable payment gateways, inventory sync, and conversion-first user flows.",
+        "icon": "commerce",
+        "timeline": "3 - 6 Weeks",
+        "outcome": "+35% Average Cart Size",
+        "deliverables": [
+          "Custom Shopify Plus or Headless Commerce",
+          "Stripe & Multi-Currency Payment Integration",
+          "Frictionless 1-Page Checkout Optimization",
+          "Automated Inventory & Order Sync",
+          "Upsell, Cross-Sell & Retention Mechanics"
+        ],
+        "technologies": [
+          "Shopify Plus",
+          "Stripe",
+          "Next.js Commerce",
+          "Tailwind",
+          "REST APIs"
+        ],
+        "processPhases": [
+          {
+            "phase": "01",
+            "name": "Funnel Plan",
+            "desc": "Catalog hierarchy, purchase flow, and payment provider setup."
+          },
+          {
+            "phase": "02",
+            "name": "Storefront",
+            "desc": "Custom theme development with high-res product galleries."
+          },
+          {
+            "phase": "03",
+            "name": "Integrations",
+            "desc": "Secure payment routing, tax calculation, and shipping rules."
+          },
+          {
+            "phase": "04",
+            "name": "Optimization",
+            "desc": "Speed audit, cart abandonment flows, and live transaction tests."
+          }
+        ]
+      },
+      {
+        "id": "web-applications",
+        "category": "engineering",
+        "number": "03",
+        "title": "Web Applications",
+        "tagline": "Powerful, secure web products that turn complex workflows into intuitive software.",
+        "description": "We engineer robust SaaS platforms, internal business tools, and customer portals. Built with type-safe modern frameworks, our applications deliver security, stability, and speed.",
+        "icon": "code",
+        "timeline": "4 - 8 Weeks",
+        "outcome": "99.9% Uptime Stability",
+        "deliverables": [
+          "Custom React / TypeScript Architecture",
+          "Role-Based Access Control (RBAC) & Auth",
+          "RESTful & GraphQL API Integrations",
+          "Real-Time Data Sync & Dashboards",
+          "Scalable Cloud Hosting (AWS, Vercel, Supabase)"
+        ],
+        "technologies": [
+          "React 19",
+          "Node.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Supabase"
+        ],
+        "processPhases": [
+          {
+            "phase": "01",
+            "name": "System Arch",
+            "desc": "Database schema modeling and API contract definition."
+          },
+          {
+            "phase": "02",
+            "name": "Interactive UI",
+            "desc": "Component-driven design with state management and error states."
+          },
+          {
+            "phase": "03",
+            "name": "Backend Sync",
+            "desc": "Authentication, authorization, and database query optimization."
+          },
+          {
+            "phase": "04",
+            "name": "Security Audit",
+            "desc": "Penetration testing, encryption checks, and CI/CD pipeline setup."
+          }
+        ]
+      },
+      {
+        "id": "mobile-applications",
+        "category": "mobile",
+        "number": "04",
+        "title": "Mobile Applications",
+        "tagline": "Thoughtful iOS, Android, Flutter, Native, and React Native mobile experiences.",
+        "description": "Native-feeling apps built for iOS and Android with smooth 60fps animations and offline capabilities. We handle the entire lifecycle from prototype to App Store submission.",
+        "icon": "mobile",
+        "timeline": "6 - 10 Weeks",
+        "outcome": "App Store Ready",
+        "deliverables": [
+          "Cross-Platform React Native or Flutter Codebase",
+          "Native iOS & Android Hardware Integrations (Camera, GPS)",
+          "Push Notifications & In-App Messaging",
+          "Offline Data Caching & Instant Sync",
+          "App Store & Google Play Store Submission"
+        ],
+        "technologies": [
+          "React Native",
+          "Flutter",
+          "iOS Swift",
+          "Android Kotlin",
+          "Firebase"
+        ],
+        "processPhases": [
+          {
+            "phase": "01",
+            "name": "Mobile UX",
+            "desc": "Touch gesture choreography and mobile-first wireframing."
+          },
+          {
+            "phase": "02",
+            "name": "App Core",
+            "desc": "State architecture and local database synchronization."
+          },
+          {
+            "phase": "03",
+            "name": "Device Tests",
+            "desc": "Physical device QA on varied screen sizes and iOS/Android versions."
+          },
+          {
+            "phase": "04",
+            "name": "Store Deploy",
+            "desc": "App Store certificates, privacy manifest, and release management."
+          }
+        ]
+      },
+      {
+        "id": "seo-services",
+        "category": "growth",
+        "number": "05",
+        "title": "SEO Services",
+        "tagline": "Technical and content-led search strategies designed for sustainable organic visibility.",
+        "description": "Dominate search engine rankings through clean technical foundations, high-intent keyword mapping, and schema-rich content strategies that attract ready-to-buy customers.",
+        "icon": "search",
+        "timeline": "Ongoing / 3-Month Sprints",
+        "outcome": "+280% Organic Reach",
+        "deliverables": [
+          "Full Core Web Vitals & Technical SEO Audit",
+          "High-Intent Keyword Research & Gap Analysis",
+          "Structured JSON-LD Rich Snippet Deployment",
+          "On-Page Content & Internal Linking Strategy",
+          "Competitor Ranking & Backlink Opportunity Mapping"
+        ],
+        "technologies": [
+          "Google Search Console",
+          "Semrush",
+          "Ahrefs",
+          "Schema.org",
+          "PageSpeed Insights"
+        ],
+        "processPhases": [
+          {
+            "phase": "01",
+            "name": "Tech Audit",
+            "desc": "Crawl error identification, indexing fixes, and speed audit."
+          },
+          {
+            "phase": "02",
+            "name": "Keyword Map",
+            "desc": "Targeting commercial and informational search intent."
+          },
+          {
+            "phase": "03",
+            "name": "Optimization",
+            "desc": "Metadata refinement, schema injection, and heading restructuring."
+          },
+          {
+            "phase": "04",
+            "name": "Monitoring",
+            "desc": "Keyword tracking, traffic growth reporting, and continuous tuning."
+          }
+        ]
+      },
+      {
+        "id": "digital-marketing",
+        "category": "growth",
+        "number": "06",
+        "title": "Digital Marketing",
+        "tagline": "Data-informed campaigns that earn attention, build trust, and create measurable demand.",
+        "description": "Multi-channel paid and organic campaigns engineered to maximize your return on ad spend. We continuously test creatives, targeting segments, and landing page funnels.",
+        "icon": "marketing",
+        "timeline": "Monthly Retainers",
+        "outcome": "4.2x Average ROAS",
+        "deliverables": [
+          "Meta Ads (Facebook & Instagram) & Google Ads",
+          "Creative A/B Ad Copy & Banner Production",
+          "Pixel, CAPI, and GA4 Event Measurement",
+          "Retargeting & Abandoned Funnel Recovery",
+          "Bi-Weekly Growth Strategy & Lead Reviews"
+        ],
+        "technologies": [
+          "Meta Ads Manager",
+          "Google Ads",
+          "GA4",
+          "Klaviyo",
+          "Looker Studio"
+        ],
+        "processPhases": [
+          {
+            "phase": "01",
+            "name": "Audience",
+            "desc": "Ideal customer profile (ICP) modeling and competitor review."
+          },
+          {
+            "phase": "02",
+            "name": "Creatives",
+            "desc": "High-impact visual ads, compelling angles, and video reels."
+          },
+          {
+            "phase": "03",
+            "name": "Campaign Live",
+            "desc": "Precision audience testing and budget allocation."
+          },
+          {
+            "phase": "04",
+            "name": "Scale",
+            "desc": "Doubling down on winning creatives and scaling profitable ad sets."
+          }
+        ]
+      },
+      {
+        "id": "creative-copywriting",
+        "category": "creative",
+        "number": "07",
+        "title": "Creative Copywriting",
+        "tagline": "Clear, distinctive brand language that sounds human and inspires people to act.",
+        "description": "We translate complex value propositions into crisp, memorable language. Every word is tuned to capture attention, build trust, and drive decisive action without fluffy corporate jargon.",
+        "icon": "pen",
+        "timeline": "1 - 2 Weeks",
+        "outcome": "Clear Differentiation",
+        "deliverables": [
+          "Full Website Copywriting (Hero, Services, About, CTA)",
+          "Brand Voice & Messaging Guidelines",
+          "High-Converting Landing Page Sales Copy",
+          "Email Marketing & Welcome Sequence Sequences",
+          "Ad Copy Variations for Meta and Search"
+        ],
+        "technologies": [
+          "Brand Archetype Framework",
+          "Figma",
+          "Conversion Copywriting",
+          "SEO Content"
+        ],
+        "processPhases": [
+          {
+            "phase": "01",
+            "name": "Voice Audit",
+            "desc": "Uncovering customer pain points and brand personality tone."
+          },
+          {
+            "phase": "02",
+            "name": "Core Copy",
+            "desc": "Crafting irresistible headlines, hooks, and value pillars."
+          },
+          {
+            "phase": "03",
+            "name": "Refinement",
+            "desc": "Trimming friction, sharpening clarity, and rhythm polishing."
+          },
+          {
+            "phase": "04",
+            "name": "Handoff",
+            "desc": "Final copy deck formatted directly for development integration."
+          }
+        ]
+      }
+    ],
+    "faqAccordion": [
+      {
+        "id": "faq-1",
+        "question": "How does MapleCodix approach website performance and speed?",
+        "answer": "We prioritize performance from line one. Rather than relying on heavy templates or bloated plugins, we write clean TypeScript, modern Tailwind CSS, and optimized bundle sizes. We test every build with Google PageSpeed Insights targeting 90+ mobile and desktop scores."
+      },
+      {
+        "id": "faq-2",
+        "question": "Can I update content on my website without technical knowledge?",
+        "answer": "Yes. We configure user-friendly Content Management Systems (like headless CMS, Sanity, Strapi, or Shopify) allowing your team to update text, upload images, add blog posts, and modify products through an intuitive visual dashboard."
+      },
+      {
+        "id": "faq-3",
+        "question": "What is the typical timeline for an end-to-end custom build?",
+        "answer": "A standard bespoke website typically takes 2 to 4 weeks from discovery to deployment. More complex platforms, custom SaaS web apps, and native mobile applications range from 4 to 10 weeks depending on custom integrations and scope."
+      },
+      {
+        "id": "faq-4",
+        "question": "Do you handle custom third-party integrations and payment gateways?",
+        "answer": "Absolutely. We routinely integrate Stripe, PayPal, Shopify, HubSpot, Salesforce, custom REST/GraphQL APIs, webhook pipelines, and automated CRM notifications."
+      },
+      {
+        "id": "faq-5",
+        "question": "What happens after launch? Do you offer ongoing maintenance and growth?",
+        "answer": "We never leave our clients stranded after launch. We provide post-launch support warranties, ongoing security and dependency maintenance, and performance marketing retainers to continuously drive traffic and optimize conversions."
+      }
+    ],
+    "techStack": [
+      {
+        "category": "Frontend Craft",
+        "skills": [
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS",
+          "Next.js",
+          "Vite",
+          "Framer Motion"
+        ]
+      },
+      {
+        "category": "Backend & Cloud",
+        "skills": [
+          "Node.js",
+          "Python",
+          "PostgreSQL",
+          "Supabase",
+          "REST & GraphQL",
+          "AWS / Vercel"
+        ]
+      },
+      {
+        "category": "Mobile & Commerce",
+        "skills": [
+          "React Native",
+          "Flutter",
+          "iOS & Android",
+          "Shopify Plus",
+          "Stripe API"
+        ]
+      },
+      {
+        "category": "Growth & SEO",
+        "skills": [
+          "Technical SEO",
+          "Google Search Console",
+          "GA4",
+          "Semrush",
+          "Meta Ads Manager"
+        ]
+      }
+    ]
+  },
+  "brandCalibrationSection": {
+    "eyebrow": "Digital Solutions & Creative Offerings",
+    "headingPrefix": "To ",
+    "headingHighlight1": "Strengthen",
+    "headingMiddle": " The Digital ",
+    "headingHighlight2": "Calibration",
+    "headingSuffix": " Of Your Brand.",
+    "description": "From visuals to voice, we help brands stand out and stay consistent—online and off. Whether you're launching something new or leveling up your look, explore our curated execution styles across core disciplines.",
+    "actionLabel": "Start a project",
+    "actionHref": "mailto:hello@maplecodix.com",
+    "note": "Swipe or click arrows to explore formats"
+  },
+  "aboutSection": {
+    "eyebrow": "Why MapleCodix",
+    "heading": "Big thinking.\nPractical delivery.",
+    "description": "The best digital work happens when smart strategy, expressive design, and solid engineering meet. We bring all three together—so your idea stays clear from conversation to launch.",
+    "badge": {
+      "title": "Full-service",
+      "subtitle": "One team. Zero handoffs."
+    },
+    "pillars": [
+      {
+        "number": "01",
+        "text": "Direct, honest collaboration"
+      },
+      {
+        "number": "02",
+        "text": "Built around business outcomes"
+      },
+      {
+        "number": "03",
+        "text": "Designed to evolve with you"
+      }
+    ]
+  },
+  "processSection": {
+    "eyebrow": "How we work",
+    "heading": "Simple process.\nSerious craft.",
+    "description": "Clear milestones, open communication, and no black boxes along the way.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discover",
+        "description": "We listen, research, and turn your goals into a focused product strategy."
+      },
+      {
+        "number": "02",
+        "title": "Design",
+        "description": "We shape the experience, content, and visual system around your audience."
+      },
+      {
+        "number": "03",
+        "title": "Build",
+        "description": "We develop with care, test thoroughly, and keep you close to the progress."
+      },
+      {
+        "number": "04",
+        "title": "Grow",
+        "description": "We launch, learn, and optimize for stronger performance over time."
+      }
+    ]
+  },
+  "ctaSection": {
+    "eyebrow": "Have an idea in mind?",
+    "heading": "Let's make it matter.",
+    "description": "Tell us what you're building, fixing, or dreaming about. We'll help you find the smartest way forward.",
+    "buttonText": "hello@maplecodix.com",
+    "buttonHref": "mailto:hello@maplecodix.com"
+  },
+  "footer": {
+    "links": [
+      {
+        "label": "Services",
+        "to": "/services"
+      },
+      {
+        "label": "Packages",
+        "to": "/packages"
+      },
+      {
+        "label": "About",
+        "to": "/about"
+      },
+      {
+        "label": "Careers",
+        "to": "/careers"
+      },
+      {
+        "label": "Contact",
+        "href": "mailto:hello@maplecodix.com"
+      }
+    ],
+    "copyright": "MapleCodix. All rights reserved.",
+    "tagline": "Ideas, designed and developed with purpose."
+  },
+  "pageIntros": {
+    "services": {
+      "eyebrow": "Our capabilities",
+      "title": "One team for your whole digital journey.",
+      "description": "From a first idea to a growing digital business, we combine strategy, design, engineering, and marketing to create meaningful momentum."
+    },
+    "packages": {
+      "eyebrow": "Packages",
+      "title": "A clear way to get started.",
+      "description": "Choose the website package that fits your stage—from a fast startup launch to a complete custom site and marketing growth system."
+    },
+    "about": {
+      "eyebrow": "About MapleCodix",
+      "title": "Technology with a human point of view.",
+      "description": "We are a multidisciplinary digital team focused on making complex things clear, useful, and valuable to the people who use them."
+    },
+    "careers": {
+      "eyebrow": "Careers",
+      "title": "Do your best work with people who care.",
+      "description": "We are building a thoughtful, curious team that values excellent craft, direct communication, and a healthy way of working."
+    }
+  },
+  "packageCategories": {
+    "web": {
+      "id": "web",
+      "label": "Web Development",
+      "badge": "Code & Architecture",
+      "subtitle": "Fast, high-converting websites and modern custom web applications",
+      "packages": [
+        {
+          "badge": "Entry Level",
+          "name": "Startup Website",
+          "description": "Ideal for super startup businesses requiring fast deployment.",
+          "originalPrice": "$399",
+          "price": "$99",
+          "features": [
+            "3 Static Webpages",
+            "Custom Design Layout",
+            "2 Stock Images Included",
+            "Content Writing Assistance",
+            "Fully Responsive Design",
+            "1 Custom Banner / Slider",
+            "Interactive Feedback Form",
+            "1 Year Free Hosting",
+            "5 Business Days Delivery",
+            "Satisfaction Guarantee"
+          ]
+        },
+        {
+          "badge": "Popular Choice",
+          "name": "Standard Plan",
+          "description": "Ideal for new businesses or individuals needing online presence.",
+          "originalPrice": "$699",
+          "price": "$399",
+          "features": [
+            "Up to 10 Static Pages",
+            "Custom Responsive Design",
+            "5 Custom Banners / Sliders",
+            "Feedback & Contact Forms",
+            "6 Stock Images Included",
+            "Free Hosting for 1 Year",
+            "Basic Domain Name",
+            "Basic SEO Setup",
+            "Basic Speed Optimization",
+            "Satisfaction Guarantee"
+          ]
+        },
+        {
+          "badge": "Growth Tier",
+          "name": "Elite Package",
+          "description": "For growing businesses needing content control & functions.",
+          "originalPrice": "$1199",
+          "price": "$999",
+          "includesTitle": "All in Standard Plan Plus:",
+          "tone": "blue",
+          "features": [
+            "Dynamic Pages (Up to 10)",
+            "Dedicated Landing Page",
+            "Appointment Booking System",
+            "Advanced Mobile Tuning",
+            "jQuery & CSS Effects",
+            "Conversion Focused Layout",
+            "Payment Gateway Integration",
+            "Social Media Integration"
+          ]
+        },
+        {
+          "badge": "Full Suite",
+          "name": "Elite Plus Marketing",
+          "description": "Complete design, dynamic custom code & full scale growth.",
+          "originalPrice": "$1699",
+          "price": "$1399",
+          "includesTitle": "All Elite Features Plus:",
+          "tone": "dark",
+          "features": [
+            "Extra Pages On Request",
+            "High-End UI & Custom Code",
+            "Content Management System",
+            "Special Hover Effects",
+            "4 Conversion Social Posters",
+            "Meta Ads Management Setup",
+            "15 Reels Promotion Setup",
+            "FB/IG/TikTok Content Plan",
+            "Google Analytics Config"
+          ]
+        }
+      ]
+    },
+    "marketing": {
+      "id": "marketing",
+      "label": "Marketing",
+      "badge": "Campaigns & Growth",
+      "subtitle": "Targeted audience growth, paid acquisition, and ROI-driven demand generation",
+      "packages": [
+        {
+          "badge": "Entry Level",
+          "name": "Social Starter",
+          "description": "Essential social media foundation and audience engagement for emerging brands.",
+          "originalPrice": "$499",
+          "price": "$199",
+          "features": [
+            "2 Social Channels (Meta FB & IG)",
+            "8 Branded High-Quality Posts",
+            "Custom Copywriting & Hashtags",
+            "Monthly Content Calendar Planning",
+            "Bio & Profile Optimization",
+            "Audience Engagement & Monitoring",
+            "Monthly Performance Report",
+            "Dedicated Campaign Manager"
+          ]
+        },
+        {
+          "badge": "Popular Choice",
+          "name": "Growth Accelerator",
+          "description": "Targeted paid ads, short-form reels, and multi-channel audience targeting.",
+          "originalPrice": "$899",
+          "price": "$499",
+          "features": [
+            "Meta Ads (Facebook & Instagram)",
+            "16 Custom Conversion Graphics",
+            "4 Short-Form Video Reels",
+            "Audience Targeting & Competitor Research",
+            "Meta Pixel & GA4 Analytics Setup",
+            "Bi-Weekly Creative A/B Testing",
+            "Ad Spend Management up to $2,000",
+            "Bi-Weekly Lead & ROI Reporting"
+          ]
+        },
+        {
+          "badge": "Growth Tier",
+          "name": "Scale Pro Marketer",
+          "description": "Omnichannel paid acquisition across Google & Meta with conversion retargeting.",
+          "originalPrice": "$1499",
+          "price": "$999",
+          "includesTitle": "All in Growth Accelerator Plus:",
+          "tone": "blue",
+          "features": [
+            "Google Ads (Search & Performance Max)",
+            "Meta & LinkedIn Ads Integration",
+            "8 High-Converting Reels / TikToks",
+            "Landing Page Conversion Tuning",
+            "Automated Email Retargeting (2 Flows)",
+            "Dynamic Product & Lead Retargeting",
+            "Weekly Strategy & Growth Calls",
+            "Custom Real-time Analytics Dashboard"
+          ]
+        },
+        {
+          "badge": "Full Suite",
+          "name": "Enterprise Brand Suite",
+          "description": "Comprehensive full-funnel marketing machine with dedicated creative and SEO.",
+          "originalPrice": "$2199",
+          "price": "$1699",
+          "includesTitle": "All Scale Pro Features Plus:",
+          "tone": "dark",
+          "features": [
+            "Omnichannel Strategy & Execution",
+            "15 Monthly Short-Form Video Reels",
+            "Full Technical & Content SEO Strategy",
+            "Complete Sales Funnel Architecture",
+            "Influencer Outreach & Partnerships",
+            "CRM & Pipeline Integration (HubSpot/Zapier)",
+            "Bi-Weekly Executive Growth Reviews",
+            "Priority 24/7 Creative Turnaround"
+          ]
+        }
+      ]
+    }
+  },
+  "packages": [
+    {
+      "badge": "Entry Level",
+      "name": "Startup Website",
+      "description": "Ideal for super startup businesses requiring fast deployment.",
+      "originalPrice": "$399",
+      "price": "$99",
+      "features": [
+        "3 Static Webpages",
+        "Custom Design Layout",
+        "2 Stock Images Included",
+        "Content Writing Assistance",
+        "Fully Responsive Design",
+        "1 Custom Banner / Slider",
+        "Interactive Feedback Form",
+        "1 Year Free Hosting",
+        "5 Business Days Delivery",
+        "Satisfaction Guarantee"
+      ]
+    },
+    {
+      "badge": "Popular Choice",
+      "name": "Standard Plan",
+      "description": "Ideal for new businesses or individuals needing online presence.",
+      "originalPrice": "$699",
+      "price": "$399",
+      "features": [
+        "Up to 10 Static Pages",
+        "Custom Responsive Design",
+        "5 Custom Banners / Sliders",
+        "Feedback & Contact Forms",
+        "6 Stock Images Included",
+        "Free Hosting for 1 Year",
+        "Basic Domain Name",
+        "Basic SEO Setup",
+        "Basic Speed Optimization",
+        "Satisfaction Guarantee"
+      ]
+    },
+    {
+      "badge": "Growth Tier",
+      "name": "Elite Package",
+      "description": "For growing businesses needing content control & functions.",
+      "originalPrice": "$1199",
+      "price": "$999",
+      "includesTitle": "All in Standard Plan Plus:",
+      "tone": "blue",
+      "features": [
+        "Dynamic Pages (Up to 10)",
+        "Dedicated Landing Page",
+        "Appointment Booking System",
+        "Advanced Mobile Tuning",
+        "jQuery & CSS Effects",
+        "Conversion Focused Layout",
+        "Payment Gateway Integration",
+        "Social Media Integration"
+      ]
+    },
+    {
+      "badge": "Full Suite",
+      "name": "Elite Plus Marketing",
+      "description": "Complete design, dynamic custom code & full scale growth.",
+      "originalPrice": "$1699",
+      "price": "$1399",
+      "includesTitle": "All Elite Features Plus:",
+      "tone": "dark",
+      "features": [
+        "Extra Pages On Request",
+        "High-End UI & Custom Code",
+        "Content Management System",
+        "Special Hover Effects",
+        "4 Conversion Social Posters",
+        "Meta Ads Management Setup",
+        "15 Reels Promotion Setup",
+        "FB/IG/TikTok Content Plan",
+        "Google Analytics Config"
+      ]
+    }
+  ],
+  "packagesCustomQuote": {
+    "title": "Not seeing what you are looking for?",
+    "description": "Developers must route non-standard architectural requirements, bespoke SaaS builds, or custom integrations directly to the technical lead for custom pricing assessment.",
+    "buttonLabel": "Custom Quote Routing",
+    "buttonHref": "mailto:hello@maplecodix.com?subject=Custom%20quote%20request",
+    "disclaimer": "Every project is different. Package details are starting points, and final scope and pricing are confirmed after a discovery conversation."
+  },
+  "aboutPage": {
+    "beliefQuote": "Good work starts with good questions.",
+    "eyebrow": "Our belief",
+    "beliefHeading": "Clarity creates momentum.",
+    "beliefDescription": "We keep strategy close to execution. That means fewer handoffs, better decisions, and a finished product that stays true to the original purpose.",
+    "beliefValues": [
+      "Listen before we solve",
+      "Make every detail useful",
+      "Communicate without jargon",
+      "Build for what comes next"
+    ]
+  },
+  "careersPage": {
+    "values": [
+      "Flexible by design",
+      "Learning encouraged",
+      "Impact over ego"
+    ],
+    "eyebrow": "Open positions",
+    "heading": "Find your next challenge.",
+    "roles": [
+      "Senior Full-Stack Developer",
+      "Product Designer",
+      "SEO & Content Strategist"
+    ],
+    "roleType": "Remote-friendly · Full time"
+  },
+  "notFoundPage": {
+    "eyebrow": "404",
+    "heading": "This page took a detour.",
+    "buttonText": "Back to home",
+    "buttonTo": "/"
+  }
+}

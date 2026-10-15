@@ -1,16 +1,15 @@
 import { useEffect } from "react"
 import { createBrowserRouter, Outlet, useLocation } from "react-router"
 import Home from "../pages/Home"
-import {
-  AboutPage,
-  CareersPage,
-  NotFoundPage,
-  PackagesPage,
-  ServicesPage,
-} from "../pages/InnerPages"
-
+import Services from "../pages/Services"
+import Packages from "../pages/Packages"
+import About from "../pages/About"
+import Careers from "../pages/Careers"
+import NotFound from "../pages/NotFound"
 import ScrollProgress from "../components/ScrollProgress"
 import ScrollToTop from "../components/ScrollToTop"
+import WhatsAppButton from "../components/WhatsAppButton"
+import AIChatBot from "../components/AIChatBot"
 
 function RootLayout() {
   const { pathname } = useLocation()
@@ -23,6 +22,8 @@ function RootLayout() {
     <>
       <ScrollProgress />
       <Outlet />
+      <AIChatBot />
+      <WhatsAppButton />
       <ScrollToTop />
     </>
   )
@@ -33,11 +34,13 @@ export const router = createBrowserRouter([
     Component: RootLayout,
     children: [
       { path: "/", Component: Home },
-      { path: "/services", Component: ServicesPage },
-      { path: "/packages", Component: PackagesPage },
-      { path: "/about", Component: AboutPage },
-      { path: "/careers", Component: CareersPage },
-      { path: "*", Component: NotFoundPage },
+      { path: "/services", Component: Services },
+      { path: "/packages", Component: Packages },
+      { path: "/about", Component: About },
+      { path: "/careers", Component: Careers },
+      { path: "*", Component: NotFound },
     ],
   },
 ])
+
+export default router
