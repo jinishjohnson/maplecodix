@@ -5,6 +5,7 @@ import Services from "../pages/Services"
 import Packages from "../pages/Packages"
 import About from "../pages/About"
 import Careers from "../pages/Careers"
+import Contact from "../pages/Contact"
 import NotFound from "../pages/NotFound"
 import ScrollProgress from "../components/ScrollProgress"
 import ScrollToTop from "../components/ScrollToTop"
@@ -38,6 +39,7 @@ export const router = createBrowserRouter([
       { path: "/packages", Component: Packages },
       { path: "/about", Component: About },
       { path: "/careers", Component: Careers },
+      { path: "/contact", Component: Contact },
       { path: "*", Component: NotFound },
     ],
   },

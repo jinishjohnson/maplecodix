@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router"
+import { NavLink, Link } from "react-router"
 import { Logo } from "./Logo"
 import { Icon } from "./Icon"
 import siteData from "../data/data.json"
@@ -82,16 +82,29 @@ export function SiteHeader({ inverse = false }: SiteHeaderProps) {
             <span className="flex size-2 rounded-full bg-[#c91f26] animate-pulse" />
             <span>Ask AI</span>
           </button>
-          <a
-            className={`inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:scale-[1.03] active:scale-[0.98] ${
-              inverse
-                ? "bg-[#c91f26] hover:bg-[#a9161b] shadow-[0_4px_14px_rgba(201,31,38,0.3)]"
-                : "bg-[#071d35] hover:bg-[#c91f26] shadow-[0_4px_14px_rgba(7,29,53,0.15)]"
-            }`}
-            href={cta.href}
-          >
-            {cta.label} <Icon name="arrow" className="size-4" />
-          </a>
+          {cta.to ? (
+            <Link
+              className={`inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:scale-[1.03] active:scale-[0.98] ${
+                inverse
+                  ? "bg-[#c91f26] hover:bg-[#a9161b] shadow-[0_4px_14px_rgba(201,31,38,0.3)]"
+                  : "bg-[#071d35] hover:bg-[#c91f26] shadow-[0_4px_14px_rgba(7,29,53,0.15)]"
+              }`}
+              to={cta.to}
+            >
+              {cta.label} <Icon name="arrow" className="size-4" />
+            </Link>
+          ) : (
+            <a
+              className={`inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:scale-[1.03] active:scale-[0.98] ${
+                inverse
+                  ? "bg-[#c91f26] hover:bg-[#a9161b] shadow-[0_4px_14px_rgba(201,31,38,0.3)]"
+                  : "bg-[#071d35] hover:bg-[#c91f26] shadow-[0_4px_14px_rgba(7,29,53,0.15)]"
+              }`}
+              href={cta.href}
+            >
+              {cta.label} <Icon name="arrow" className="size-4" />
+            </a>
+          )}
         </div>
         <button
           type="button"
@@ -140,12 +153,22 @@ export function SiteHeader({ inverse = false }: SiteHeaderProps) {
             <span className="flex size-2 rounded-full bg-[#c91f26] animate-pulse" />
             <span>Ask Codix AI</span>
           </button>
-          <a
-            className="mt-1 rounded-2xl bg-[#c91f26] px-4 py-3 font-bold text-white text-center"
-            href={cta.href}
-          >
-            {cta.label}
-          </a>
+          {cta.to ? (
+            <Link
+              className="mt-1 rounded-2xl bg-[#c91f26] px-4 py-3 font-bold text-white text-center"
+              to={cta.to}
+              onClick={closeMenu}
+            >
+              {cta.label}
+            </Link>
+          ) : (
+            <a
+              className="mt-1 rounded-2xl bg-[#c91f26] px-4 py-3 font-bold text-white text-center"
+              href={cta.href}
+            >
+              {cta.label}
+            </a>
+          )}
         </nav>
       )}
     </header>

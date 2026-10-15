@@ -418,7 +418,7 @@ export function Services() {
                         Need tailored architecture or specific compliance needs?
                       </p>
                       <a
-                        href={`mailto:hello@maplecodix.com?subject=${encodeURIComponent(`${activeInspectorService.title} Custom Architecture Enquiry`)}`}
+                        href={`mailto:support@maplecodix.com?subject=${encodeURIComponent(`${activeInspectorService.title} Custom Architecture Enquiry`)}`}
                         className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[#c91f26] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#a9161b]"
                       >
                         <span>Start this project</span>
@@ -585,7 +585,7 @@ export function Services() {
               <div className="mt-8 flex flex-col justify-center gap-3.5 sm:flex-row">
                 <a
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#071d35] px-8 py-4 font-bold text-white shadow-xl transition hover:bg-white hover:text-[#071d35]"
-                  href="mailto:hello@maplecodix.com?subject=Project%20Discovery%20Conversation"
+                  href="mailto:support@maplecodix.com?subject=Project%20Discovery%20Conversation"
                 >
                   <span>Start a discovery conversation</span>
                   <Icon name="arrow" className="size-4" />

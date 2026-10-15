@@ -217,7 +217,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
       const errorMessage: ChatMessage = {
         id: `err-${Date.now()}`,
         sender: "assistant",
-        text: "Sorry, I had trouble formulating a response. Please try again or reach out directly to hello@maplecodix.com.",
+        text: "Sorry, I had trouble formulating a response. Please try again or reach out directly to support@maplecodix.com.",
         timestamp: new Date().toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",

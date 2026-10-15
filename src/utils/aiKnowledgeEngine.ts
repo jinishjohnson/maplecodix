@@ -42,9 +42,11 @@ Pricing Packages:
 - Social Starter: $199 (normally $499). 2 channels (Meta FB & IG), 8 posts, copy & hashtags.
 - Growth Accelerator: $499 (normally $899). Multi-channel paid ads, short-form reels, audience targeting.
 
-Studio Contact:
-- Email: hello@maplecodix.com
-- WhatsApp: +1 (234) 567-890
+Studio Contact & 24*7 Support:
+- 24*7 Helpline & WhatsApp: +1 (506) 312-4135 (5063124135)
+- Email: support@maplecodix.com
+- Address: 20th Floor, 770 Main St, Moncton, NB E1C 1E7, Canada
+- Support SLA: 24*7 around the clock, typically replies within 15 mins.
 - Turnaround: 2-4 weeks for standard websites; 4-10 weeks for custom web apps/mobile platforms.
 `
 
@@ -103,7 +105,7 @@ export async function generateAIResponse(
               {
                 label: "✉️ Email Studio",
                 actionType: "email",
-                value: "hello@maplecodix.com",
+                value: "support@maplecodix.com",
               },
             ],
             followUps: [
@@ -201,7 +203,7 @@ export async function generateAIResponse(
         {
           label: "✉️ Request Technical Scope",
           actionType: "email",
-          value: "hello@maplecodix.com",
+          value: "support@maplecodix.com",
         },
       ],
       followUps: [
@@ -262,7 +264,7 @@ export async function generateAIResponse(
       actions: [
         { label: "📖 About Our Studio", actionType: "navigate", value: "/about" },
         { label: "📦 View Packages", actionType: "navigate", value: "/packages" },
-        { label: "✉️ Email Us Directly", actionType: "email", value: "hello@maplecodix.com" },
+        { label: "✉️ Email Us Directly", actionType: "email", value: "support@maplecodix.com" },
       ],
       followUps: [
         "What packages do you offer?",
@@ -330,7 +332,7 @@ export async function generateAIResponse(
         {
           label: "✉️ Request Free Audit",
           actionType: "email",
-          value: "hello@maplecodix.com",
+          value: "support@maplecodix.com",
         },
       ],
       followUps: [
@@ -442,7 +444,7 @@ export async function generateAIResponse(
         {
           label: "✉️ Book a Discovery Date",
           actionType: "email",
-          value: "hello@maplecodix.com",
+          value: "support@maplecodix.com",
         },
       ],
       followUps: [
@@ -491,9 +493,17 @@ export async function generateAIResponse(
     }
   }
 
-  // Intent: Contact / Hire / Start
+  // Intent: Contact / Support / Hire / Start
   if (
     query.includes("contact") ||
+    query.includes("support") ||
+    query.includes("help") ||
+    query.includes("24*7") ||
+    query.includes("24/7") ||
+    query.includes("address") ||
+    query.includes("location") ||
+    query.includes("moncton") ||
+    query.includes("canada") ||
     query.includes("hire") ||
     query.includes("start") ||
     query.includes("email") ||
@@ -504,27 +514,22 @@ export async function generateAIResponse(
   ) {
     return {
       text:
-        `We'd love to connect and bring your digital vision to life!\n\n` +
-        `📬 **Direct Studio Email:** [hello@maplecodix.com](mailto:hello@maplecodix.com)\n` +
-        `💬 **Direct WhatsApp Line:** +1 (234) 567-890\n` +
-        `⚡ **Response Guarantee:** Typically responds within 15–30 minutes during business hours.\n\n` +
-        `You can click either option below to start immediately:`,
+        `We provide **24*7 Support** and would love to assist you anytime!\n\n` +
+        `📞 **24*7 Phone & WhatsApp Hotline:** [+1 (506) 312-4135](tel:+15063124135)\n` +
+        `📬 **24*7 Dedicated Support Email:** [support@maplecodix.com](mailto:support@maplecodix.com)\n` +
+        `📍 **Studio Headquarters:**\n20th Floor, 770 Main St, Moncton, NB E1C 1E7, Canada\n\n` +
+        `⚡ **Response Guarantee:** 24*7 live support — average response under 15 minutes.\n\n` +
+        `How would you like to connect right now?`,
       actions: [
-        { label: "💬 Message on WhatsApp", actionType: "whatsapp", value: "" },
-        {
-          label: "✉️ Send an Email",
-          actionType: "email",
-          value: "hello@maplecodix.com",
-        },
-        {
-          label: "📦 View Pricing Packages",
-          actionType: "navigate",
-          value: "/packages",
-        },
+        { label: "💬 WhatsApp (+1 506-312-4135)", actionType: "whatsapp", value: "" },
+        { label: "📍 24*7 Support Page", actionType: "navigate", value: "/contact" },
+        { label: "✉️ Send Email", actionType: "email", value: "support@maplecodix.com" },
+        { label: "📦 Pricing Packages", actionType: "navigate", value: "/packages" },
       ],
       followUps: [
-        "What information should I prepare before our call?",
-        "Do you offer free project estimates?",
+        "What is your 24*7 support response time?",
+        "Can I get a project estimate?",
+        "Where is your office in Moncton?",
       ],
     }
   }

@@ -2,17 +2,29 @@
   "site": {
     "name": "MapleCodix",
     "tagline": "Ideas, designed and developed with purpose.",
-    "email": "hello@maplecodix.com",
+    "email": "support@maplecodix.com",
+    "phone": "+1 (506) 312-4135",
+    "phoneRaw": "+15063124135",
+    "supportHeadline": "24*7 Support",
+    "address": {
+      "floor": "20th Floor",
+      "street": "770 Main St",
+      "city": "Moncton",
+      "province": "NB",
+      "postalCode": "E1C 1E7",
+      "country": "Canada",
+      "full": "20th Floor, 770 Main St, Moncton, NB E1C 1E7, Canada"
+    },
     "copyright": "MapleCodix. All rights reserved.",
     "whatsapp": {
-      "phoneNumber": "+1234567890",
-      "displayNumber": "+1 (234) 567-890",
-      "message": "Hello MapleCodix! I would like to discuss a project with your team.",
+      "phoneNumber": "+15063124135",
+      "displayNumber": "+1 (506) 312-4135",
+      "message": "Hello MapleCodix! I would like to connect with your 24*7 support and development team.",
       "label": "Chat with us on WhatsApp",
-      "tooltip": "Need quick help? Chat with us on WhatsApp",
-      "supportTitle": "MapleCodix Studio",
-      "supportStatus": "Online · Typically replies in ~15 mins",
-      "greeting": "Hi there! 👋 Welcome to MapleCodix. How can we help bring your digital vision to life today?",
+      "tooltip": "Need quick help? Chat with us on WhatsApp 24*7",
+      "supportTitle": "MapleCodix 24*7 Studio",
+      "supportStatus": "Online 24*7 · Replies in ~15 mins",
+      "greeting": "Hi there! 👋 Welcome to MapleCodix 24*7 Support. How can we assist your business or project today?",
       "starterPrompts": [
         {
           "id": "web",
@@ -74,6 +86,12 @@
       "keywords": "developer jobs, designer careers, digital studio jobs, remote frontend developer",
       "canonicalPath": "/careers"
     },
+    "contact": {
+      "title": "24*7 Support & Contact | MapleCodix Digital Studio",
+      "description": "24*7 dedicated engineering and digital support. Call +1 (506) 312-4135, WhatsApp, email support@maplecodix.com, or visit our Moncton, NB, Canada studio.",
+      "keywords": "24*7 support, maplecodix contact, moncton web design, support maplecodix, 24/7 web development",
+      "canonicalPath": "/contact"
+    },
     "notFound": {
       "title": "Page Not Found (404) | MapleCodix",
       "description": "The page you are looking for does not exist. Return to MapleCodix homepage.",
@@ -98,11 +116,15 @@
       {
         "label": "About",
         "to": "/about"
+      },
+      {
+        "label": "24*7 Support",
+        "to": "/contact"
       }
     ],
     "cta": {
-      "label": "Start a project",
-      "href": "mailto:hello@maplecodix.com"
+      "label": "24*7 Support",
+      "to": "/contact"
     }
   },
   "hero": {
@@ -112,7 +134,7 @@
     "description": "MapleCodix is a full-service digital studio creating high-performing websites, apps, commerce, and growth strategies for ambitious businesses.",
     "primaryCta": {
       "text": "Let's build something",
-      "href": "mailto:hello@maplecodix.com"
+      "href": "mailto:support@maplecodix.com"
     },
     "secondaryCta": {
       "text": "Explore our services",
@@ -625,7 +647,7 @@
     "headingSuffix": " Of Your Brand.",
     "description": "From visuals to voice, we help brands stand out and stay consistent—online and off. Whether you're launching something new or leveling up your look, explore our curated execution styles across core disciplines.",
     "actionLabel": "Start a project",
-    "actionHref": "mailto:hello@maplecodix.com",
+    "actionHref": "mailto:support@maplecodix.com",
     "note": "Swipe or click arrows to explore formats"
   },
   "aboutSection": {
@@ -679,11 +701,11 @@
     ]
   },
   "ctaSection": {
-    "eyebrow": "Have an idea in mind?",
-    "heading": "Let's make it matter.",
-    "description": "Tell us what you're building, fixing, or dreaming about. We'll help you find the smartest way forward.",
-    "buttonText": "hello@maplecodix.com",
-    "buttonHref": "mailto:hello@maplecodix.com"
+    "eyebrow": "24*7 Support & Inquiries",
+    "heading": "Let's build something remarkable.",
+    "description": "Tell us what you're building, fixing, or dreaming about. Our 24*7 team is always ready to guide you forward.",
+    "buttonText": "support@maplecodix.com",
+    "buttonHref": "mailto:support@maplecodix.com"
   },
   "footer": {
     "links": [
@@ -704,14 +726,19 @@
         "to": "/careers"
       },
       {
-        "label": "Contact",
-        "href": "mailto:hello@maplecodix.com"
+        "label": "24*7 Support",
+        "to": "/contact"
       }
     ],
     "copyright": "MapleCodix. All rights reserved.",
     "tagline": "Ideas, designed and developed with purpose."
   },
   "pageIntros": {
+    "contact": {
+      "eyebrow": "24*7 Dedicated Assistance",
+      "title": "24*7 Support",
+      "description": "Around-the-clock technical engineering, rapid emergency response, and strategic consultations from our Moncton, Canada studio."
+    },
     "services": {
       "eyebrow": "Our capabilities",
       "title": "One team for your whole digital journey.",
@@ -983,7 +1010,7 @@
     "title": "Not seeing what you are looking for?",
     "description": "Developers must route non-standard architectural requirements, bespoke SaaS builds, or custom integrations directly to the technical lead for custom pricing assessment.",
     "buttonLabel": "Custom Quote Routing",
-    "buttonHref": "mailto:hello@maplecodix.com?subject=Custom%20quote%20request",
+    "buttonHref": "mailto:support@maplecodix.com?subject=Custom%20quote%20request",
     "disclaimer": "Every project is different. Package details are starting points, and final scope and pricing are confirmed after a discovery conversation."
   },
   "aboutPage": {

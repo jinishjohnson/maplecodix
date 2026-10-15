@@ -191,7 +191,7 @@ export function Packages() {
                           ? "bg-white text-[#071d35] hover:bg-[#dceaf4]"
                           : "bg-[#071d35] text-white hover:bg-[#c91f26]"
                       }`}
-                      href={`mailto:hello@maplecodix.com?subject=${encodeURIComponent(`${item.name} (${currentCategory.label}) package enquiry`)}`}
+                      href={`mailto:support@maplecodix.com?subject=${encodeURIComponent(`${item.name} (${currentCategory.label}) package enquiry`)}`}
                     >
                       Choose {item.name}{" "}
                       <Icon name="arrow" className="size-4" />
@@ -221,7 +221,7 @@ export function Packages() {
                 <a
                   id="custom-quote-cta"
                   className="relative mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-[#155b96] px-6 py-3.5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#071d35] md:mt-0"
-                  href={`mailto:hello@maplecodix.com?subject=${encodeURIComponent(`Custom ${currentCategory.label} quote request`)}`}
+                  href={`mailto:support@maplecodix.com?subject=${encodeURIComponent(`Custom ${currentCategory.label} quote request`)}`}
                 >
                   {customQuote.buttonLabel}{" "}
                   <Icon name="arrow" className="size-4" />

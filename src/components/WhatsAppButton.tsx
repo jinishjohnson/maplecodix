@@ -10,15 +10,16 @@ export function WhatsAppButton({ className = "" }: WhatsAppButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   const whatsappConfig = siteData.site.whatsapp || {
-    phoneNumber: "+1234567890",
+    phoneNumber: "+15063124135",
+    displayNumber: "+1 (506) 312-4135",
     message:
-      "Hello MapleCodix! I would like to discuss a project with your team.",
-    label: "Chat with us on WhatsApp",
-    tooltip: "Need quick help? Chat with us on WhatsApp",
-    supportTitle: "MapleCodix Studio",
-    supportStatus: "Online · Typically replies in ~15 mins",
+      "Hello MapleCodix! I would like to connect with your 24*7 support and development team.",
+    label: "Chat with us on WhatsApp 24*7",
+    tooltip: "Need quick help? 24*7 WhatsApp Hotline",
+    supportTitle: "MapleCodix 24*7 Support",
+    supportStatus: "Online 24*7 · Typically replies in ~15 mins",
     greeting:
-      "Hi there! 👋 Welcome to MapleCodix. How can we help bring your digital vision to life today?",
+      "Hi there! 👋 Welcome to MapleCodix 24*7 Support. How can we help bring your digital vision to life today?",
     starterPrompts: [
       {
         id: "web",
