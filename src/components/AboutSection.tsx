@@ -1,5 +1,6 @@
 import { ScrollReveal } from "./ScrollReveal"
 import siteData from "../data/data.json"
+import logoSrc from "../assets/maplecodix-logo.jpg"
 
 export function AboutSection() {
   const { aboutSection } = siteData
@@ -12,8 +13,9 @@ export function AboutSection() {
             <div className="aspect-square overflow-hidden rounded-2xl border border-[#071d35]/10 bg-white p-6 shadow-[0_24px_60px_rgba(7,29,53,0.1)] transition duration-500 hover:scale-[1.02]">
               <img
                 className="h-full w-full object-contain"
-                src="/maplecodix-logo.jpg"
+                src={logoSrc}
                 alt="MapleCodix company logo"
+                loading="lazy"
               />
             </div>
             <div className="absolute -bottom-3 -right-3 rounded-xl bg-[#164f86] p-5 text-white shadow-xl">
