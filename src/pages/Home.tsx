@@ -7,6 +7,7 @@ import AboutSection from "../components/AboutSection"
 import ProcessSection, {
   processSteps as process,
 } from "../components/ProcessSection"
+import SocialSection from "../components/SocialSection"
 import CtaSection from "../components/CtaSection"
 import SiteFooter from "../components/SiteFooter"
 import Icon from "../components/Icon"
@@ -52,6 +53,9 @@ function Home() {
 
         {/* Process / Approach Section */}
         <ProcessSection />
+
+        {/* Social Media & Community Section */}
+        <SocialSection />
 
         {/* CTA Section */}
         <CtaSection />

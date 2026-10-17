@@ -52,7 +52,49 @@
           "message": "Hi MapleCodix, I am interested in your SEO and digital marketing services."
         }
       ]
-    }
+    },
+    "social": [
+      {
+        "id": "instagram",
+        "name": "Instagram",
+        "handle": "@maplecodix",
+        "url": "https://instagram.com/maplecodix",
+        "tagline": "Visual Craft & Design Drops",
+        "description": "Daily UI breakdowns, design tokens, motion experiments, and behind-the-scenes engineering from our Moncton studio.",
+        "badge": "UI/UX & Motion",
+        "actionText": "Follow on Instagram"
+      },
+      {
+        "id": "linkedin",
+        "name": "LinkedIn",
+        "handle": "MapleCodix Digital Studio",
+        "url": "https://linkedin.com/company/maplecodix",
+        "tagline": "Enterprise & Tech Architecture",
+        "description": "Product case studies, technical whitepapers, architectural deep dives on React & Cloud, and engineering announcements.",
+        "badge": "Enterprise & Cloud",
+        "actionText": "Connect on LinkedIn"
+      },
+      {
+        "id": "twitter",
+        "name": "X (Twitter)",
+        "handle": "@maplecodix",
+        "url": "https://twitter.com/maplecodix",
+        "tagline": "Speed Benchmarks & Dev Logs",
+        "description": "90+ PageSpeed optimizations, Vite & Tailwind v4 tips, live release changelogs, and real-time studio conversations.",
+        "badge": "Dev Changelog",
+        "actionText": "Follow on X"
+      },
+      {
+        "id": "facebook",
+        "name": "Facebook",
+        "handle": "MapleCodix",
+        "url": "https://facebook.com/maplecodix",
+        "tagline": "Client Success & Community",
+        "description": "Client launches, digital transformation stories, growth playbooks, and community updates from our Canadian studio.",
+        "badge": "Community & Growth",
+        "actionText": "Join on Facebook"
+      }
+    ]
   },
   "seo": {
     "siteUrl": "https://maplecodix.com",
