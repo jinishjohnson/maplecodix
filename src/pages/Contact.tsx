@@ -4,6 +4,7 @@ import { ScrollReveal } from "../components/ScrollReveal"
 import { PageShell } from "../components/PageShell"
 import { SEO } from "../components/SEO"
 import { CustomQuoteModal } from "../components/CustomQuoteModal"
+import { SocialSection } from "../components/SocialSection"
 import siteData from "../data/data.json"
 
 export function Contact() {
@@ -572,6 +573,13 @@ export function Contact() {
             </div>
           </div>
         </section>
+
+        {/* 
+          ========================================================================
+          APPLE-STYLE SOCIAL MEDIA & COMMUNITY SECTION
+          ========================================================================
+        */}
+        <SocialSection />
 
         {/* 
           ========================================================================

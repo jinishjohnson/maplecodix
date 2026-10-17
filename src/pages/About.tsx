@@ -5,6 +5,7 @@ import { ScrollReveal } from "../components/ScrollReveal"
 import { PageShell } from "../components/PageShell"
 import { SEO } from "../components/SEO"
 import { CustomQuoteModal } from "../components/CustomQuoteModal"
+import { SocialSection } from "../components/SocialSection"
 import siteData from "../data/data.json"
 
 interface StoryChapter {
@@ -741,6 +742,13 @@ export function About() {
             </div>
           </div>
         </section>
+
+        {/* 
+          ========================================================================
+          APPLE-STYLE SOCIAL MEDIA & COMMUNITY SECTION
+          ========================================================================
+        */}
+        <SocialSection />
       </PageShell>
 
       {/* Custom Quote Routing Modal */}
