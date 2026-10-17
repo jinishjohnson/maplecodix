@@ -81,6 +81,12 @@ export function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
+                {/* Floating On-Image Studio Chip */}
+                <div className="animate-float-slow absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/25 bg-black/45 px-3.5 py-1.5 backdrop-blur-md text-white shadow-md">
+                  <span className="size-2 rounded-full bg-[#c91f26] animate-ping" />
+                  <span className="text-[11px] font-semibold tracking-wide">{hero.showcase.statNumber} {hero.showcase.statLabel}</span>
+                </div>
+
                 {/* Floating Frosted Glass Card */}
                 <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-white/90 p-5 backdrop-blur-xl shadow-lg">
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#c91f26]">
@@ -93,18 +99,52 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Micro-animated Floating Accent Pills */}
-            <div className="animate-float-slow absolute -left-6 top-16 hidden rounded-2xl border border-black/[0.06] bg-white px-5 py-3.5 shadow-xl sm:block">
-              <p className="text-2xl font-bold tracking-tight text-[#1d1d1f]">
-                {hero.showcase.statNumber}
-              </p>
-              <p className="text-xs font-medium text-[#86868b]">
-                {hero.showcase.statLabel}
-              </p>
+            {/* 1. Floating Photoshop Icon Badge (Top-Right) */}
+            <div className="animate-float-delayed absolute -right-3 -top-4 z-20 flex items-center gap-2.5 rounded-2xl border border-white/20 bg-[#001e36]/95 px-3.5 py-2.5 text-white shadow-[0_16px_32px_rgba(0,30,54,0.35)] backdrop-blur-md transition-transform duration-300 hover:scale-105 sm:-right-6 sm:-top-5">
+              <div className="grid size-9 place-items-center rounded-xl border border-[#31a8ff]/40 bg-[#001424] font-sans text-sm font-extrabold tracking-tight text-[#31a8ff] shadow-inner">
+                Ps
+              </div>
+              <div>
+                <p className="text-xs font-bold leading-tight text-white">Photoshop</p>
+                <p className="text-[10px] font-semibold text-[#31a8ff]">Asset Craft</p>
+              </div>
             </div>
 
-            <div className="animate-float-delayed absolute -right-4 top-32 grid size-14 place-items-center rounded-2xl border border-black/[0.06] bg-[#1d1d1f] text-white shadow-xl sm:grid">
-              <Icon name="code" className="size-6 text-[#ff4d4f]" />
+            {/* 2. Floating Paint Brush Badge (Mid-Left) */}
+            <div className="animate-float-slow absolute -left-4 top-16 z-20 flex items-center gap-3 rounded-2xl border border-black/[0.06] bg-white/95 px-4 py-3 shadow-[0_16px_36px_rgba(0,0,0,0.12)] backdrop-blur-md transition-transform duration-300 hover:scale-105 sm:-left-7">
+              <div className="grid size-10 place-items-center rounded-xl bg-gradient-to-tr from-[#c91f26] via-[#e24a50] to-[#ff6b6b] text-white shadow-sm">
+                <svg
+                  className="size-5 fill-none stroke-current stroke-[2.2]"
+                  viewBox="0 0 24 24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m18 2 4 4" />
+                  <path d="m17 7 3-3" />
+                  <path d="M19 9 8.7 19.3c-1 1-2.5 1.7-4.2 1.7H3v-1.5c0-1.7.7-3.2 1.7-4.2L15 5" />
+                  <path d="m14 6 4 4" />
+                  <path d="M6 18c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2Z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs font-bold text-[#1d1d1f]">Paint &amp; Brush</p>
+                <p className="text-[10px] font-semibold text-[#c91f26]">Visual Design</p>
+              </div>
+            </div>
+
+            {/* 3. Floating Coding Tools Badge (Lower-Right) */}
+            <div className="animate-float-gentle absolute -right-3 bottom-24 z-20 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1d1d1f]/95 px-4 py-3 text-white shadow-[0_16px_40px_rgba(0,0,0,0.28)] backdrop-blur-md transition-transform duration-300 hover:scale-105 sm:-right-6 sm:bottom-28">
+              <div className="grid size-10 place-items-center rounded-xl border border-white/10 bg-[#2a2a2e] font-mono text-xs font-bold text-[#34c759] shadow-inner">
+                &lt;/&gt;
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="size-1.5 rounded-full bg-[#34c759] animate-pulse" />
+                  <p className="text-xs font-bold text-white">Coding Tools</p>
+                </div>
+                <p className="font-mono text-[10px] text-[#a1a1a6]">React · TS · Cloud</p>
+              </div>
             </div>
           </div>
         </ScrollReveal>
