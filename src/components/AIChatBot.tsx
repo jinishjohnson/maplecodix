@@ -303,7 +303,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
           const renderedLine = parts.map((part, pIdx) => {
             if (part.startsWith("**") && part.endsWith("**")) {
               return (
-                <strong key={pIdx} className="font-extrabold text-[#071d35]">
+                <strong key={pIdx} className="font-bold text-[#1d1d1f]">
                   {part.slice(2, -2)}
                 </strong>
               )
@@ -350,17 +350,17 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
         <div
           role="dialog"
           aria-label="MapleCodix AI Assistant"
-          className={`absolute bottom-16 left-0 mb-2 flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_25px_60px_-15px_rgba(7,29,53,0.3)] ring-1 ring-black/5 animate-fadeIn transition-all duration-300 ${
+          className={`absolute bottom-16 left-0 mb-2 flex flex-col overflow-hidden rounded-[2rem] border border-black/[0.08] bg-white shadow-[0_24px_60px_rgba(0,0,0,0.15)] ring-1 ring-black/5 animate-fadeIn transition-all duration-300 ${
             isExpanded
               ? "h-[640px] w-[92vw] max-w-[680px] sm:h-[680px]"
               : "h-[560px] w-[340px] max-w-[calc(100vw-2.5rem)] sm:w-[400px]"
           }`}
         >
           {/* Header Bar */}
-          <div className="relative flex items-center justify-between border-b border-black/8 bg-gradient-to-r from-[#071d35] via-[#102a45] to-[#071d35] px-4 py-3.5 text-white shadow-sm">
+          <div className="relative flex items-center justify-between border-b border-white/[0.08] bg-[#1d1d1f] px-4 py-3.5 text-white shadow-xs">
             <div className="flex items-center gap-3">
               {/* AI Avatar */}
-              <div className="relative flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#c91f26] to-[#e03138] shadow-md ring-2 ring-white/20">
+              <div className="relative flex size-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#c91f26] to-[#e03138] shadow-sm">
                 <svg
                   className="size-5 fill-none stroke-current stroke-[2.2]"
                   viewBox="0 0 24 24"
@@ -370,14 +370,14 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                 {/* Blinking Live indicator */}
                 <span className="absolute -bottom-0.5 -right-0.5 flex size-3">
                   <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex size-3 rounded-full border-2 border-[#071d35] bg-emerald-500" />
+                  <span className="relative inline-flex size-3 rounded-full border-2 border-[#1d1d1f] bg-emerald-500" />
                 </span>
               </div>
 
               {/* Bot Info */}
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-extrabold tracking-tight text-white">
+                  <h3 className="text-sm font-bold tracking-tight text-white">
                     Codix AI
                   </h3>
                   <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-bold text-white/90 uppercase tracking-wider backdrop-blur-xs">
@@ -399,7 +399,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                 aria-label={
                   isExpanded ? "Collapse chat view" : "Expand chat view"
                 }
-                className="hidden rounded-lg p-1.5 text-white/70 hover:bg-white/10 hover:text-white sm:flex"
+                className="hidden rounded-full p-1.5 text-white/70 hover:bg-white/10 hover:text-white sm:flex"
                 title={isExpanded ? "Collapse" : "Maximize"}
               >
                 {isExpanded ? (
@@ -437,7 +437,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                   setShowSettings(!showSettings)
                 }}
                 aria-label="Chat settings"
-                className={`rounded-lg p-1.5 transition-colors ${
+                className={`rounded-full p-1.5 transition-colors ${
                   showSettings
                     ? "bg-white/20 text-white"
                     : "text-white/70 hover:bg-white/10 hover:text-white"
@@ -461,7 +461,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                 type="button"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close AI chat"
-                className="rounded-lg p-1.5 text-white/70 hover:bg-white/10 hover:text-white"
+                className="rounded-full p-1.5 text-white/70 hover:bg-white/10 hover:text-white"
               >
                 <svg
                   className="size-4"
@@ -478,14 +478,14 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
           </div>
 
           {/* Mode Switcher Tabs */}
-          <div className="flex border-b border-black/6 bg-[#f1f5f9] px-2 py-1.5">
+          <div className="flex border-b border-black/[0.06] bg-[#f5f5f7] p-1.5 gap-1">
             <button
               type="button"
               onClick={() => setMode("advisor")}
-              className={`flex-1 rounded-lg py-1 text-[11px] font-bold transition-all ${
+              className={`flex-1 rounded-full py-1 text-[11px] font-semibold transition-all ${
                 mode === "advisor"
-                  ? "bg-white text-[#071d35] shadow-xs"
-                  : "text-[#526273] hover:text-[#071d35]"
+                  ? "bg-white text-[#1d1d1f] shadow-xs"
+                  : "text-[#6e6e73] hover:text-[#1d1d1f]"
               }`}
             >
               💼 Advisor
@@ -493,10 +493,10 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
             <button
               type="button"
               onClick={() => setMode("architect")}
-              className={`flex-1 rounded-lg py-1 text-[11px] font-bold transition-all ${
+              className={`flex-1 rounded-full py-1 text-[11px] font-semibold transition-all ${
                 mode === "architect"
-                  ? "bg-white text-[#071d35] shadow-xs"
-                  : "text-[#526273] hover:text-[#071d35]"
+                  ? "bg-white text-[#1d1d1f] shadow-xs"
+                  : "text-[#6e6e73] hover:text-[#1d1d1f]"
               }`}
             >
               ⚡ Architect
@@ -504,10 +504,10 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
             <button
               type="button"
               onClick={() => setMode("growth")}
-              className={`flex-1 rounded-lg py-1 text-[11px] font-bold transition-all ${
+              className={`flex-1 rounded-full py-1 text-[11px] font-semibold transition-all ${
                 mode === "growth"
-                  ? "bg-white text-[#071d35] shadow-xs"
-                  : "text-[#526273] hover:text-[#071d35]"
+                  ? "bg-white text-[#1d1d1f] shadow-xs"
+                  : "text-[#6e6e73] hover:text-[#1d1d1f]"
               }`}
             >
               💡 Growth
@@ -518,13 +518,13 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
             SETTINGS DRAWER / OVERLAY
           */}
           {showSettings && (
-            <div className="border-b border-black/8 bg-white p-4 text-xs shadow-md">
-              <div className="flex items-center justify-between font-bold text-[#071d35]">
+            <div className="border-b border-black/[0.06] bg-white p-4 text-xs shadow-xs">
+              <div className="flex items-center justify-between font-bold text-[#1d1d1f]">
                 <span>⚙️ Chat Preferences & API</span>
                 <button
                   type="button"
                   onClick={() => setShowSettings(false)}
-                  className="text-xs text-[#526273] hover:text-black"
+                  className="text-xs text-[#86868b] hover:text-[#1d1d1f]"
                 >
                   ✕ Done
                 </button>
@@ -532,7 +532,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
 
               {/* Custom Gemini API Key */}
               <div className="mt-3">
-                <label className="block text-[11px] font-semibold text-[#526273]">
+                <label className="block text-[11px] font-medium text-[#6e6e73]">
                   Custom Gemini API Key (Optional):
                 </label>
                 <div className="mt-1 flex gap-2">
@@ -541,25 +541,25 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                     value={tempApiKey}
                     onChange={(e) => setTempApiKey(e.target.value)}
                     placeholder="AIzaSy... (leave empty for built-in AI)"
-                    className="flex-1 rounded-lg border border-black/10 px-2.5 py-1.5 text-xs text-[#071d35] placeholder:text-[#526273]/50 focus:border-[#c91f26] focus:outline-hidden"
+                    className="flex-1 rounded-xl border border-black/[0.08] bg-[#f5f5f7] px-3 py-1.5 text-xs text-[#1d1d1f] placeholder:text-[#86868b] focus:border-[#1d1d1f] focus:bg-white focus:outline-hidden"
                   />
                   <button
                     type="button"
                     onClick={handleSaveApiKey}
-                    className="rounded-lg bg-[#071d35] px-3 py-1.5 font-bold text-white hover:bg-[#c91f26]"
+                    className="rounded-full bg-[#1d1d1f] px-4 py-1.5 font-bold text-white hover:bg-black transition"
                   >
                     Save
                   </button>
                 </div>
-                <p className="mt-1 text-[10px] text-[#526273]">
+                <p className="mt-1 text-[10px] text-[#86868b]">
                   MapleCodix has built-in local intelligence by default. Adding
                   a free Gemini key provides unconstrained reasoning.
                 </p>
               </div>
 
               {/* Sound & Clear actions */}
-              <div className="mt-3 flex items-center justify-between border-t border-black/6 pt-3">
-                <label className="flex items-center gap-2 cursor-pointer text-[11px] font-semibold text-[#263f57]">
+              <div className="mt-3 flex items-center justify-between border-t border-black/[0.06] pt-3">
+                <label className="flex items-center gap-2 cursor-pointer text-[11px] font-medium text-[#1d1d1f]">
                   <input
                     type="checkbox"
                     checked={soundEnabled}
@@ -572,7 +572,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                 <button
                   type="button"
                   onClick={handleClearChat}
-                  className="rounded px-2.5 py-1 text-[11px] font-bold text-red-600 hover:bg-red-50"
+                  className="rounded-full px-3 py-1 text-[11px] font-semibold text-[#c91f26] hover:bg-[#c91f26]/10 transition"
                 >
                   🗑️ Clear History
                 </button>
@@ -583,7 +583,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
           {/* 
             MESSAGES CONTAINER
           */}
-          <div className="flex-1 space-y-4 overflow-y-auto p-4 bg-[#f8fafc]">
+          <div className="flex-1 space-y-4 overflow-y-auto p-4 bg-[#fbfbfd]">
             {messages.map((msg) => {
               const isUser = msg.sender === "user"
 
@@ -595,22 +595,22 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                   }`}
                 >
                   <div
-                    className={`group relative max-w-[85%] rounded-2xl px-4 py-3 shadow-xs transition-all ${
+                    className={`group relative max-w-[85%] rounded-[1.25rem] px-4 py-3 shadow-xs transition-all ${
                       isUser
-                        ? "bg-gradient-to-r from-[#071d35] to-[#1a365d] text-white rounded-br-xs"
-                        : "border border-black/8 bg-white text-[#263f57] rounded-tl-xs shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+                        ? "bg-[#1d1d1f] text-white rounded-br-xs"
+                        : "border border-black/[0.06] bg-white text-[#1d1d1f] rounded-tl-xs shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
                     }`}
                   >
                     {/* Message Header (for AI messages) */}
                     {!isUser && (
-                      <div className="mb-1.5 flex items-center justify-between gap-2 border-b border-black/5 pb-1">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#c91f26]">
+                      <div className="mb-1.5 flex items-center justify-between gap-2 border-b border-black/[0.05] pb-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#c91f26]">
                           Codix AI
                         </span>
                         <button
                           type="button"
                           onClick={() => handleCopy(msg.id, msg.text)}
-                          className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#526273] hover:text-[#071d35]"
+                          className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-[#86868b] hover:text-[#1d1d1f]"
                           title="Copy text"
                         >
                           {copiedId === msg.id ? "✓ Copied" : "Copy"}
@@ -620,7 +620,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
 
                     {/* Content */}
                     {isUser ? (
-                      <p className="text-xs leading-relaxed font-medium">
+                      <p className="text-xs leading-relaxed font-normal">
                         {msg.text}
                       </p>
                     ) : (
@@ -629,13 +629,13 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
 
                     {/* Action Buttons inside message */}
                     {msg.actions && msg.actions.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-1.5 border-t border-black/6 pt-2.5">
+                      <div className="mt-3 flex flex-wrap gap-1.5 border-t border-black/[0.05] pt-2.5">
                         {msg.actions.map((act, aIdx) => (
                           <button
                             key={aIdx}
                             type="button"
                             onClick={() => handleActionClick(act)}
-                            className="rounded-full border border-[#071d35]/15 bg-[#f1f5f9] px-2.5 py-1 text-[11px] font-bold text-[#071d35] shadow-xs transition-all hover:border-[#c91f26] hover:bg-[#c91f26] hover:text-white active:scale-95"
+                            className="rounded-full border border-black/[0.08] bg-[#f5f5f7] px-3 py-1 text-[11px] font-semibold text-[#1d1d1f] shadow-xs transition-all hover:border-[#c91f26] hover:bg-[#c91f26] hover:text-white active:scale-95"
                           >
                             {act.label}
                           </button>
@@ -648,7 +648,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                       className={`mt-1.5 block text-[9px] ${
                         isUser
                           ? "text-white/60 text-right"
-                          : "text-[#526273]/70"
+                          : "text-[#86868b]"
                       }`}
                     >
                       {msg.timestamp}
@@ -660,16 +660,16 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
 
             {/* Typing Indicator */}
             {isTyping && (
-              <div className="flex items-center gap-2 text-xs text-[#526273]">
-                <div className="flex size-7 items-center justify-center rounded-lg bg-white border border-black/8 shadow-xs">
+              <div className="flex items-center gap-2 text-xs text-[#86868b]">
+                <div className="flex size-7 items-center justify-center rounded-xl bg-white border border-black/[0.06] shadow-xs">
                   <span className="size-2 rounded-full bg-[#c91f26] animate-ping" />
                 </div>
-                <div className="flex items-center gap-1 rounded-2xl border border-black/8 bg-white px-3.5 py-2 shadow-xs">
+                <div className="flex items-center gap-1 rounded-full border border-black/[0.06] bg-white px-3.5 py-2 shadow-xs">
                   <span className="size-1.5 rounded-full bg-[#c91f26] animate-bounce [animation-delay:-0.3s]" />
                   <span className="size-1.5 rounded-full bg-[#c91f26] animate-bounce [animation-delay:-0.15s]" />
                   <span className="size-1.5 rounded-full bg-[#c91f26] animate-bounce" />
-                  <span className="ml-1 text-[11px] font-semibold text-[#526273]">
-                    Codix AI is typing...
+                  <span className="ml-1 text-[11px] font-medium text-[#6e6e73]">
+                    Codix AI is thinking...
                   </span>
                 </div>
               </div>
@@ -681,7 +681,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
           {/* 
             QUICK SUGGESTION CHIPS BAR
           */}
-          <div className="border-t border-black/6 bg-white px-3 py-2">
+          <div className="border-t border-black/[0.06] bg-white px-3 py-2">
             <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
               <button
                 type="button"
@@ -690,7 +690,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                     "What website packages do you offer and how much are they?",
                   )
                 }
-                className="shrink-0 rounded-full border border-black/10 bg-[#f8fafc] px-2.5 py-1 text-[11px] font-semibold text-[#263f57] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
+                className="shrink-0 rounded-full border border-black/[0.08] bg-[#f5f5f7] px-3 py-1 text-[11px] font-semibold text-[#1d1d1f] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
               >
                 💰 Packages & Pricing
               </button>
@@ -701,7 +701,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                     "Can you estimate a custom web application with React and Node.js?",
                   )
                 }
-                className="shrink-0 rounded-full border border-black/10 bg-[#f8fafc] px-2.5 py-1 text-[11px] font-semibold text-[#263f57] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
+                className="shrink-0 rounded-full border border-black/[0.08] bg-[#f5f5f7] px-3 py-1 text-[11px] font-semibold text-[#1d1d1f] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
               >
                 🚀 Custom Web App Scope
               </button>
@@ -712,7 +712,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                     "How do you guarantee 90+ PageSpeed and high SEO rank?",
                   )
                 }
-                className="shrink-0 rounded-full border border-black/10 bg-[#f8fafc] px-2.5 py-1 text-[11px] font-semibold text-[#263f57] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
+                className="shrink-0 rounded-full border border-black/[0.08] bg-[#f5f5f7] px-3 py-1 text-[11px] font-semibold text-[#1d1d1f] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
               >
                 ⚡ 90+ PageSpeed & SEO
               </button>
@@ -723,7 +723,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                     "Do you develop cross-platform mobile apps for iOS and Android?",
                   )
                 }
-                className="shrink-0 rounded-full border border-black/10 bg-[#f8fafc] px-2.5 py-1 text-[11px] font-semibold text-[#263f57] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
+                className="shrink-0 rounded-full border border-black/[0.08] bg-[#f5f5f7] px-3 py-1 text-[11px] font-semibold text-[#1d1d1f] transition-colors hover:border-[#c91f26] hover:bg-[#c91f26]/5 hover:text-[#c91f26]"
               >
                 📱 Mobile Apps (iOS/Android)
               </button>
@@ -738,7 +738,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
               e.preventDefault()
               handleSendMessage()
             }}
-            className="flex items-center gap-2 border-t border-black/8 bg-white p-3"
+            className="flex items-center gap-2 border-t border-black/[0.06] bg-white p-3"
           >
             <input
               ref={inputRef}
@@ -746,14 +746,14 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Ask Codix AI anything..."
-              className="flex-1 rounded-xl border border-black/10 bg-[#f8fafc] px-3.5 py-2.5 text-xs text-[#071d35] placeholder:text-[#526273]/60 focus:border-[#c91f26] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#c91f26]/20"
+              className="flex-1 rounded-full border border-black/[0.08] bg-[#f5f5f7] px-4 py-2.5 text-xs text-[#1d1d1f] placeholder:text-[#86868b] focus:border-[#1d1d1f] focus:bg-white focus:outline-hidden focus:ring-4 focus:ring-black/5 transition"
             />
 
             <button
               type="submit"
               disabled={!inputText.trim() || isTyping}
               aria-label="Send message to AI"
-              className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-r from-[#071d35] to-[#c91f26] text-white shadow-md transition-all hover:brightness-110 active:scale-95 disabled:pointer-events-none disabled:opacity-40"
+              className="flex size-10 items-center justify-center rounded-full bg-[#1d1d1f] text-white shadow-sm transition-all hover:bg-black active:scale-95 disabled:pointer-events-none disabled:opacity-40"
             >
               <svg
                 className="size-4"
@@ -796,8 +796,8 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
           aria-label={isOpen ? "Close AI chat" : "Open MapleCodix AI chat"}
           className={`relative flex size-14 items-center justify-center rounded-full text-white transition-all duration-300 focus:outline-hidden focus:ring-2 focus:ring-[#c91f26] focus:ring-offset-2 active:scale-95 ${
             isOpen
-              ? "bg-[#071d35] shadow-[0_8px_24px_rgba(7,29,53,0.3)] hover:bg-[#c91f26]"
-              : "bg-gradient-to-tr from-[#071d35] via-[#102a45] to-[#c91f26] shadow-[0_8px_24px_rgba(201,31,38,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(201,31,38,0.6)]"
+              ? "bg-[#1d1d1f] shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:bg-black"
+              : "bg-[#1d1d1f] shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-black"
           }`}
         >
           {isOpen ? (
@@ -824,7 +824,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
                 <path d="m12 3-1.8 5.2L5 10l5.2 1.8L12 17l1.8-5.2L19 10l-5.2-1.8L12 3ZM5 17l-.7 2.3L2 20l2.3.7L5 23l.7-2.3L8 20l-2.3-.7L5 17Z" />
               </svg>
 
-              {/* Online status indicator dot */}
+              {/* Online status indicator dot with Canadian Maple red */}
               <span className="absolute right-0.5 top-0.5 flex size-3.5">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-red-400 opacity-75" />
                 <span className="relative inline-flex size-3.5 rounded-full border-2 border-white bg-[#c91f26]" />
@@ -837,7 +837,7 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
         {!isOpen && (
           <div
             role="tooltip"
-            className={`pointer-events-none absolute left-16 hidden whitespace-nowrap rounded-xl border border-black/8 bg-[#071d35] px-3.5 py-2 text-xs font-semibold text-white shadow-xl transition-all duration-300 md:block ${
+            className={`pointer-events-none absolute left-16 hidden whitespace-nowrap rounded-full border border-black/8 bg-[#1d1d1f] px-4 py-2 text-xs font-medium text-white shadow-xl transition-all duration-300 md:block ${
               isHovered
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-2 opacity-0"
@@ -847,8 +847,6 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
               <span className="size-2 rounded-full bg-[#c91f26]" />
               <span>Ask Codix AI · Studio Assistant</span>
             </div>
-            {/* Tooltip Arrow pointing to the left */}
-            <div className="absolute -left-1 top-1/2 -translate-y-1/2 border-4 border-transparent border-r-[#071d35]" />
           </div>
         )}
       </div>

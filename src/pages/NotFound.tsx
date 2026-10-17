@@ -16,19 +16,25 @@ export function NotFound() {
         keywords={seo.keywords}
         canonicalPath={seo.canonicalPath}
       />
-      <div className="grid min-h-screen place-items-center bg-[#071d35] px-5 text-center text-white">
+      <div className="grid min-h-screen place-items-center bg-[#fbfbfd] px-5 text-center text-[#1d1d1f]">
         <ScrollReveal animation="zoom-in">
           <div>
-            <p className="eyebrow text-[#e24a50]">{notFound.eyebrow}</p>
-            <h1 className="mt-5 text-6xl font-extrabold tracking-[-0.06em]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
+              {notFound.eyebrow}
+            </p>
+            <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em] text-[#1d1d1f] sm:text-7xl">
               {notFound.heading}
             </h1>
+            <p className="mt-4 text-base text-[#6e6e73] max-w-md mx-auto">
+              The page you are looking for doesn't exist or has moved to a new URL.
+            </p>
             <Link
               id="not-found-return-home"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#c91f26] px-7 py-4 font-bold transition hover:bg-[#a9161b]"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1d1d1f] px-8 py-4 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#c91f26] hover:scale-[1.02]"
               to={notFound.buttonTo}
             >
-              {notFound.buttonText} <Icon name="arrow" className="size-4" />
+              <span>{notFound.buttonText}</span>
+              <Icon name="arrow" className="size-4" />
             </Link>
           </div>
         </ScrollReveal>

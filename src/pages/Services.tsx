@@ -5,6 +5,7 @@ import { ScrollReveal } from "../components/ScrollReveal"
 import { PageShell } from "../components/PageShell"
 import { SEO } from "../components/SEO"
 import { ServiceIllustration } from "../components/ServiceIllustration"
+import { CustomQuoteModal } from "../components/CustomQuoteModal"
 import siteData from "../data/data.json"
 
 export interface ServiceDetailItem {
@@ -35,10 +36,12 @@ export function Services() {
     "website-development",
   )
   const [openFaqId, setOpenFaqId] = useState<string | null>("faq-1")
+  const [isCustomQuoteOpen, setIsCustomQuoteOpen] = useState(false)
+  const [quoteCategory, setQuoteCategory] = useState("webapp")
 
   const filteredServices: ServiceDetailItem[] =
     activeFilter === "all"
-      ? servicesPage.detailedServices as ServiceDetailItem[]
+      ? (servicesPage.detailedServices as ServiceDetailItem[])
       : (servicesPage.detailedServices as ServiceDetailItem[]).filter(
           (s) => s.category === activeFilter,
         )
@@ -46,10 +49,19 @@ export function Services() {
   const activeInspectorService: ServiceDetailItem =
     (servicesPage.detailedServices as ServiceDetailItem[]).find(
       (s) => s.id === selectedServiceId,
-    ) || servicesPage.detailedServices[0] as ServiceDetailItem
+    ) || (servicesPage.detailedServices[0] as ServiceDetailItem)
 
   const toggleFaq = (id: string) => {
     setOpenFaqId((prev) => (prev === id ? null : id))
+  }
+
+  const handleOpenQuoteForService = (category: string) => {
+    if (category === "mobile") {
+      setQuoteCategory("mobile")
+    } else {
+      setQuoteCategory("webapp")
+    }
+    setIsCustomQuoteOpen(true)
   }
 
   return (
@@ -62,19 +74,19 @@ export function Services() {
       />
       <PageShell intro={siteData.pageIntros.services}>
         {/* 
-          SECTION 1: DISCIPLINE FILTER TABS 
+          SECTION 1: APPLE-STYLE STICKY SEGMENTED FILTER BAR 
         */}
         <section
           id="capabilities-overview"
           aria-label="Capabilities overview and filter"
-          className="border-b border-black/8 bg-white py-8"
+          className="sticky top-20 z-30 border-b border-black/[0.06] bg-white/80 py-4 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
         >
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-5 md:px-8 lg:px-10">
-            {/* Category Filter Tabs */}
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 md:px-8 lg:px-10">
+            {/* Category Filter Pills */}
             <div
               role="tablist"
               aria-label="Filter capabilities by discipline"
-              className="flex flex-wrap items-center gap-2"
+              className="flex flex-wrap items-center gap-2 overflow-x-auto no-scrollbar py-0.5"
             >
               {servicesPage.filterCategories.map((category) => {
                 const isActive = activeFilter === category.id
@@ -85,10 +97,10 @@ export function Services() {
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => setActiveFilter(category.id)}
-                    className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all duration-300 md:text-sm ${
+                    className={`rounded-full px-4 py-2 text-xs font-medium transition-all duration-300 md:text-sm whitespace-nowrap ${
                       isActive
-                        ? "bg-[#071d35] text-white shadow-sm ring-1 ring-[#071d35]"
-                        : "border border-black/8 bg-[#f7f9fb] text-[#526273] hover:border-black/20 hover:bg-white hover:text-[#071d35]"
+                        ? "bg-[#1d1d1f] text-white shadow-sm ring-1 ring-[#1d1d1f]"
+                        : "bg-[#f5f5f7] text-[#6e6e73] hover:bg-[#e8e8ed] hover:text-[#1d1d1f]"
                     }`}
                   >
                     {category.label}
@@ -98,36 +110,36 @@ export function Services() {
             </div>
 
             {/* Results counter pill */}
-            <div className="flex items-center gap-2 text-xs font-semibold text-[#526273]">
+            <div className="flex items-center gap-2 text-xs font-medium text-[#86868b]">
               <span className="size-2 rounded-full bg-[#c91f26] animate-pulse" />
               <span>
-                Showing <strong>{filteredServices.length}</strong> specialized{" "}
-                {filteredServices.length === 1 ? "service" : "services"}
+                Showing <strong className="text-[#1d1d1f]">{filteredServices.length}</strong> specialized{" "}
+                {filteredServices.length === 1 ? "discipline" : "disciplines"}
               </span>
             </div>
           </div>
         </section>
 
         {/* 
-          SECTION 2: DETAILED ILLUSTRATED SERVICES DECK 
-          Card deck with custom vector illustrations, deliverables flexbox, and tech badges
+          SECTION 2: APPLE-STANDARD ILLUSTRATED SERVICES DECK 
+          Crisp white cards on off-white canvas with soft ambient shadow
         */}
         <section
           id="detailed-capabilities"
           aria-label="Detailed service specifications"
-          className="py-16 md:py-24"
+          className="bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
-            <div className="mb-12">
+            <div className="mb-14">
               <ScrollReveal animation="fade-up">
-                <p className="eyebrow text-[#c91f26]">Specialized Offerings</p>
-                <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.04em] md:text-5xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
+                  Specialized Offerings
+                </p>
+                <h2 className="mt-3 text-4xl font-semibold tracking-[-0.035em] text-[#1d1d1f] sm:text-5xl md:text-6xl">
                   Built with care. Designed to scale.
                 </h2>
-                <p className="mt-3 max-w-2xl text-base text-[#526273] md:text-lg">
-                  Every capability includes full-lifecycle delivery—from UX
-                  wireframing to performance engineering and post-launch
-                  analytics.
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#6e6e73] md:text-lg">
+                  Every capability includes full-lifecycle delivery—from UX wireframing to performance engineering, sub-200ms APIs, and post-launch analytics.
                 </p>
               </ScrollReveal>
             </div>
@@ -142,28 +154,28 @@ export function Services() {
                 >
                   <article
                     id={`service-${service.id}`}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/8 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#164f86]/30 hover:shadow-xl"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-black/[0.05] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
                   >
                     {/* Header Bar with Category Badge & Number */}
-                    <div className="flex items-center justify-between border-b border-black/5 bg-[#fafcfd] px-6 py-4">
+                    <div className="flex items-center justify-between border-b border-black/[0.04] bg-[#fbfbfd] px-7 py-4.5">
                       <div className="flex items-center gap-3">
-                        <span className="grid size-9 place-items-center rounded-lg bg-[#fbeaec] text-[#c91f26]">
+                        <span className="grid size-10 place-items-center rounded-2xl bg-[#f5f5f7] text-[#1d1d1f] shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:bg-[#c91f26] group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(201,31,38,0.25)]">
                           <Icon
                             name={service.icon as IconName}
                             className="size-5"
                           />
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#526273]">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-[#86868b]">
                           {service.category.toUpperCase()}
                         </span>
                       </div>
-                      <span className="font-mono text-xs font-extrabold text-black/30">
+                      <span className="font-mono text-xs font-semibold text-[#86868b]">
                         {service.number}
                       </span>
                     </div>
 
                     {/* Vector Illustration Canvas */}
-                    <div className="border-b border-black/5 bg-gradient-to-b from-[#f8fafc] to-[#edf3f7] p-4">
+                    <div className="border-b border-black/[0.04] bg-gradient-to-b from-[#fbfbfd] to-[#f5f5f7] p-5">
                       <ServiceIllustration
                         id={service.id}
                         className="h-44 w-full transition-transform duration-500 group-hover:scale-[1.02]"
@@ -171,29 +183,29 @@ export function Services() {
                     </div>
 
                     {/* Content Body */}
-                    <div className="flex flex-1 flex-col p-6 md:p-8">
-                      <h3 className="text-2xl font-extrabold tracking-tight text-[#071d35] group-hover:text-[#c91f26] transition-colors">
+                    <div className="flex flex-1 flex-col p-7 md:p-9">
+                      <h3 className="text-2xl font-semibold tracking-tight text-[#1d1d1f] transition-colors group-hover:text-[#c91f26] md:text-3xl">
                         {service.title}
                       </h3>
-                      <p className="mt-2 text-sm font-semibold text-[#164f86]">
+                      <p className="mt-2 text-sm font-semibold text-[#0066cc]">
                         {service.tagline}
                       </p>
-                      <p className="mt-4 leading-relaxed text-[#526273]">
+                      <p className="mt-4 leading-relaxed text-[#6e6e73]">
                         {service.description}
                       </p>
 
-                      {/* Deliverables Checklist (Flexbox items) */}
-                      <div className="mt-6 border-t border-black/8 pt-5">
-                        <p className="text-xs font-extrabold uppercase tracking-wider text-[#071d35]">
+                      {/* Deliverables Checklist (Apple Style) */}
+                      <div className="mt-6 border-t border-black/[0.06] pt-5">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#1d1d1f]">
                           Key Inclusions &amp; Scope:
                         </p>
                         <ul className="mt-3 space-y-2">
                           {service.deliverables.map((del) => (
                             <li
                               key={del}
-                              className="flex items-start gap-2.5 text-xs font-medium text-[#263f57]"
+                              className="flex items-start gap-2.5 text-xs font-medium text-[#1d1d1f]"
                             >
-                              <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-[#fbeaec] text-[9px] font-bold text-[#c91f26]">
+                              <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-[#f5f5f7] text-[10px] font-bold text-[#c91f26]">
                                 ✓
                               </span>
                               <span>{del}</span>
@@ -203,15 +215,15 @@ export function Services() {
                       </div>
 
                       {/* Tech Stack Pills (Flexbox Wrap) */}
-                      <div className="mt-6 border-t border-black/8 pt-5">
-                        <p className="text-xs font-extrabold uppercase tracking-wider text-[#526273]">
+                      <div className="mt-6 border-t border-black/[0.06] pt-5">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#86868b]">
                           Technologies:
                         </p>
                         <div className="mt-2.5 flex flex-wrap gap-1.5">
                           {service.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="rounded-md border border-black/5 bg-[#f4f7fa] px-2.5 py-1 text-[11px] font-bold text-[#071d35]"
+                              className="rounded-full border border-black/[0.04] bg-[#f5f5f7] px-3 py-1 text-xs font-medium text-[#1d1d1f]"
                             >
                               {tech}
                             </span>
@@ -219,32 +231,34 @@ export function Services() {
                         </div>
                       </div>
 
-                      {/* Card Footer: Metrics & Interactive Action */}
-                      <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t border-black/8 pt-6">
+                      {/* Card Footer: Metrics & Interactive Actions */}
+                      <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t border-black/[0.06] pt-6">
                         <div className="flex items-center gap-3">
-                          <span className="rounded-full bg-[#e8f1f8] px-3 py-1 text-xs font-extrabold text-[#155b96]">
+                          <span className="rounded-full bg-[#e8f2fc] px-3 py-1 text-xs font-semibold text-[#0066cc]">
                             {service.outcome}
                           </span>
-                          <span className="text-xs font-medium text-[#526273]">
+                          <span className="text-xs font-medium text-[#86868b]">
                             ⏱️ {service.timeline}
                           </span>
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setSelectedServiceId(service.id)
-                            const el = document.getElementById(
-                              "architecture-inspector",
-                            )
-                            if (el) {
-                              el.scrollIntoView({ behavior: "smooth" })
-                            }
-                          }}
-                          className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#c91f26] transition-colors hover:text-[#071d35]"
-                        >
-                          <span>Explore Workflow</span>
-                          <Icon name="arrow" className="size-3.5" />
-                        </button>
+                        <div className="flex items-center gap-3">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedServiceId(service.id)
+                              const el = document.getElementById(
+                                "architecture-inspector",
+                              )
+                              if (el) {
+                                el.scrollIntoView({ behavior: "smooth" })
+                              }
+                            }}
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0066cc] transition-colors hover:text-[#0077ed]"
+                          >
+                            <span>Inspect Workflow</span>
+                            <Icon name="arrow" className="size-3.5" />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </article>
@@ -255,35 +269,36 @@ export function Services() {
         </section>
 
         {/* 
-          SECTION 3: INTERACTIVE ARCHITECTURAL INSPECTOR (TABS + WORKBENCH)
-          Allows clicking any service to view its 4-phase delivery pipeline and scope
+          SECTION 3: INTERACTIVE ARCHITECTURAL INSPECTOR (APPLE PRO STUDIO DECK)
+          Dark Space-Black / Titanium workbench with tactile execution pipeline
         */}
         <section
           id="architecture-inspector"
           aria-label="Interactive architecture and delivery inspector"
-          className="border-y border-black/8 bg-[#071d35] py-20 text-white md:py-28"
+          className="bg-[#1d1d1f] py-24 text-white md:py-32"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <p className="eyebrow text-[#e24a50]">Interactive Studio</p>
-                <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.04em] md:text-5xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff4d4f]">
+                  Interactive Studio
+                </p>
+                <h2 className="mt-3 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
                   Delivery Architecture &amp; Lifecycle
                 </h2>
               </div>
-              <p className="max-w-md text-sm text-white/60 md:text-base">
-                Click any discipline below to inspect our phased engineering
-                approach, verification milestones, and tangible handoffs.
+              <p className="max-w-md text-base leading-relaxed text-[#86868b]">
+                Click any discipline below to inspect our phased engineering approach, verification milestones, and tangible handoffs.
               </p>
             </div>
 
             {/* Split Workbench: Service Tabs (Left) & Live Architecture Deck (Right) */}
-            <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_2fr]">
+            <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_2fr]">
               {/* Left Column: Interactive Service Selector Tabs */}
               <div
                 role="tablist"
                 aria-label="Select discipline to inspect"
-                className="flex flex-row gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0"
+                className="flex flex-row gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0 no-scrollbar"
               >
                 {(servicesPage.detailedServices as ServiceDetailItem[]).map(
                   (service) => {
@@ -295,15 +310,15 @@ export function Services() {
                         role="tab"
                         aria-selected={isSelected}
                         onClick={() => setSelectedServiceId(service.id)}
-                        className={`group flex shrink-0 items-center justify-between rounded-xl border p-4 text-left transition-all duration-300 md:p-5 ${
+                        className={`group flex shrink-0 items-center justify-between rounded-2xl border p-4 text-left transition-all duration-300 md:p-5 ${
                           isSelected
-                            ? "border-[#c91f26] bg-white/10 text-white shadow-md ring-1 ring-[#c91f26]"
-                            : "border-white/10 bg-transparent text-white/60 hover:bg-white/5 hover:text-white"
+                            ? "border-white/20 bg-white/15 text-white shadow-lg ring-1 ring-white/25"
+                            : "border-white/8 bg-white/[0.04] text-white/60 hover:bg-white/[0.08] hover:text-white"
                         }`}
                       >
                         <div className="flex items-center gap-3.5">
                           <span
-                            className={`grid size-8 place-items-center rounded-lg transition-colors ${
+                            className={`grid size-9 place-items-center rounded-xl transition-colors ${
                               isSelected
                                 ? "bg-[#c91f26] text-white"
                                 : "bg-white/10 text-white/70 group-hover:text-white"
@@ -315,13 +330,13 @@ export function Services() {
                             />
                           </span>
                           <div>
-                            <p className="text-sm font-bold">{service.title}</p>
+                            <p className="text-sm font-semibold">{service.title}</p>
                             <p className="text-xs text-white/40">
                               {service.timeline}
                             </p>
                           </div>
                         </div>
-                        <span className="hidden font-mono text-xs font-bold text-white/30 lg:inline">
+                        <span className="hidden font-mono text-xs font-semibold text-white/30 lg:inline">
                           {service.number}
                         </span>
                       </button>
@@ -331,24 +346,24 @@ export function Services() {
               </div>
 
               {/* Right Column: Live Technical Blueprint */}
-              <div className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-xl md:p-10">
+              <div className="rounded-[2.25rem] border border-white/10 bg-white/[0.06] p-7 backdrop-blur-2xl shadow-2xl md:p-10">
                 <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
                   <div>
-                    <span className="inline-flex items-center gap-2 rounded-full bg-[#c91f26]/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#e24a50]">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-[#c91f26]/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#ff4d4f]">
                       Active Blueprint · {activeInspectorService.number}
                     </span>
-                    <h3 className="mt-3 text-2xl font-extrabold text-white md:text-3xl">
+                    <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
                       {activeInspectorService.title}
                     </h3>
-                    <p className="mt-2 text-sm text-white/70">
+                    <p className="mt-2 text-sm text-[#86868b]">
                       {activeInspectorService.tagline}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs font-bold uppercase tracking-wider text-white/40">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-white/40">
                       Targeted Impact
                     </p>
-                    <p className="mt-1 text-xl font-extrabold text-[#10b981]">
+                    <p className="mt-1 text-xl font-bold text-emerald-400">
                       {activeInspectorService.outcome}
                     </p>
                   </div>
@@ -356,19 +371,19 @@ export function Services() {
 
                 {/* 4-Phase Delivery Timeline (Flexbox Grid) */}
                 <div className="mt-8">
-                  <p className="text-xs font-extrabold uppercase tracking-widest text-[#e24a50]">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#ff4d4f]">
                     4-Phase Execution Pipeline:
                   </p>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                     {activeInspectorService.processPhases.map((phase) => (
                       <div
                         key={phase.phase}
-                        className="rounded-xl border border-white/10 bg-white/5 p-4 transition duration-300 hover:bg-white/10"
+                        className="rounded-2xl border border-white/8 bg-white/[0.04] p-4 transition duration-300 hover:bg-white/[0.08]"
                       >
-                        <span className="text-xs font-mono font-bold text-[#c91f26]">
+                        <span className="text-xs font-mono font-bold text-[#ff4d4f]">
                           Phase {phase.phase}
                         </span>
-                        <h4 className="mt-1 text-base font-bold text-white">
+                        <h4 className="mt-1 text-base font-semibold text-white">
                           {phase.name}
                         </h4>
                         <p className="mt-2 text-xs leading-relaxed text-white/60">
@@ -382,7 +397,7 @@ export function Services() {
                 {/* Deliverables & Technology Badges */}
                 <div className="mt-8 grid gap-6 border-t border-white/10 pt-6 sm:grid-cols-2">
                   <div>
-                    <p className="text-xs font-extrabold uppercase tracking-widest text-white/50">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-white/50">
                       Tangible Deliverables
                     </p>
                     <ul className="mt-3 space-y-2">
@@ -391,7 +406,7 @@ export function Services() {
                           key={del}
                           className="flex items-start gap-2.5 text-xs text-white/80"
                         >
-                          <span className="text-[#e24a50]">✦</span>
+                          <span className="text-[#ff4d4f]">✦</span>
                           <span>{del}</span>
                         </li>
                       ))}
@@ -399,31 +414,32 @@ export function Services() {
                   </div>
 
                   <div>
-                    <p className="text-xs font-extrabold uppercase tracking-widest text-white/50">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-white/50">
                       Stack &amp; Frameworks
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {activeInspectorService.technologies.map((t) => (
                         <span
                           key={t}
-                          className="rounded-lg border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white"
+                          className="rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-xs font-medium text-white"
                         >
                           {t}
                         </span>
                       ))}
                     </div>
 
-                    <div className="mt-6 rounded-xl bg-white/10 p-4">
+                    <div className="mt-6 rounded-2xl bg-white/[0.06] p-4 border border-white/8">
                       <p className="text-xs text-white/70">
                         Need tailored architecture or specific compliance needs?
                       </p>
-                      <a
-                        href={`mailto:support@maplecodix.com?subject=${encodeURIComponent(`${activeInspectorService.title} Custom Architecture Enquiry`)}`}
-                        className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[#c91f26] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#a9161b]"
+                      <button
+                        type="button"
+                        onClick={() => handleOpenQuoteForService(activeInspectorService.category)}
+                        className="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-[#1d1d1f] transition-all hover:bg-[#f5f5f7] hover:scale-[1.02] cursor-pointer"
                       >
-                        <span>Start this project</span>
+                        <span>Start this project scope</span>
                         <Icon name="arrow" className="size-3.5" />
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -433,51 +449,53 @@ export function Services() {
         </section>
 
         {/* 
-          SECTION 4: INTERACTIVE ACCORDION (FAQS & TECHNICAL SCOPE)
+          SECTION 4: APPLE-STYLE INDEPENDENT CARD ACCORDION (FAQS)
         */}
         <section
           id="service-faqs"
           aria-label="Frequently asked questions about services"
-          className="bg-white py-20 md:py-28"
+          className="bg-[#fbfbfd] py-24 md:py-32"
         >
           <div className="mx-auto max-w-4xl px-5 md:px-8">
             <div className="text-center">
               <ScrollReveal animation="fade-up">
-                <p className="eyebrow text-[#c91f26]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
                   Clarity &amp; Assurance
                 </p>
-                <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.04em] md:text-5xl">
+                <h2 className="mt-3 text-4xl font-semibold tracking-[-0.035em] text-[#1d1d1f] sm:text-5xl">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-3 text-base text-[#526273] md:text-lg">
-                  Everything you need to know about our engineering standards,
-                  ownership, and post-launch guarantees.
+                <p className="mt-3 text-base text-[#6e6e73] md:text-lg">
+                  Everything you need to know about our engineering standards, ownership, and post-launch guarantees.
                 </p>
               </ScrollReveal>
             </div>
 
-            {/* Accordion Panels */}
-            <div className="mt-12 divide-y divide-black/8 rounded-2xl border border-black/8 bg-[#fdfefe]">
+            {/* Apple Card Accordion Panels */}
+            <div className="mt-12 space-y-3.5">
               {servicesPage.faqAccordion.map((faq) => {
                 const isOpen = openFaqId === faq.id
                 return (
-                  <div key={faq.id} className="transition-colors">
+                  <div
+                    key={faq.id}
+                    className="overflow-hidden rounded-2xl border border-black/[0.05] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)]"
+                  >
                     <button
                       type="button"
                       id={`faq-btn-${faq.id}`}
                       aria-expanded={isOpen}
                       aria-controls={`faq-panel-${faq.id}`}
                       onClick={() => toggleFaq(faq.id)}
-                      className="flex w-full items-center justify-between gap-4 p-6 text-left transition hover:bg-black/[0.015]"
+                      className="flex w-full items-center justify-between gap-4 p-6 text-left transition hover:bg-[#f5f5f7]/40 cursor-pointer"
                     >
-                      <span className="text-base font-extrabold text-[#071d35] md:text-lg">
+                      <span className="text-base font-semibold text-[#1d1d1f] md:text-lg">
                         {faq.question}
                       </span>
                       <span
                         className={`grid size-8 shrink-0 place-items-center rounded-full border transition-all duration-300 ${
                           isOpen
-                            ? "rotate-180 border-[#c91f26] bg-[#c91f26] text-white"
-                            : "border-black/10 bg-white text-[#526273]"
+                            ? "rotate-180 border-[#1d1d1f] bg-[#1d1d1f] text-white"
+                            : "border-black/10 bg-[#f5f5f7] text-[#6e6e73]"
                         }`}
                       >
                         <svg
@@ -499,7 +517,7 @@ export function Services() {
                         id={`faq-panel-${faq.id}`}
                         role="region"
                         aria-labelledby={`faq-btn-${faq.id}`}
-                        className="px-6 pb-6 pt-1 text-sm leading-relaxed text-[#526273] md:text-base animate-fadeIn"
+                        className="px-6 pb-6 pt-1 text-sm leading-relaxed text-[#6e6e73] md:text-base border-t border-black/[0.04]"
                       >
                         {faq.answer}
                       </div>
@@ -512,28 +530,29 @@ export function Services() {
         </section>
 
         {/* 
-          SECTION 5: TECHNOLOGY STACK (FLEXBOX CLOUD)
+          SECTION 5: TECHNOLOGY STACK (APPLE ECOSYSTEM CARDS)
         */}
         <section
           id="tech-stack-cloud"
           aria-label="Technology and engineering ecosystem"
-          className="border-t border-black/8 bg-[#edf3f7] py-16 md:py-24"
+          className="border-t border-black/[0.05] bg-[#f5f5f7] py-20 md:py-28"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
             <div className="text-center">
               <ScrollReveal animation="fade-up">
-                <p className="eyebrow text-[#155b96]">Tech &amp; Tooling</p>
-                <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.04em] md:text-5xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0066cc]">
+                  Tech &amp; Tooling
+                </p>
+                <h2 className="mt-3 text-4xl font-semibold tracking-[-0.035em] text-[#1d1d1f] sm:text-5xl">
                   Built on modern, proven foundations.
                 </h2>
-                <p className="mt-2 text-sm text-[#526273] md:text-base">
-                  Zero vendor lock-in. 100% full code ownership transferred upon
-                  launch.
+                <p className="mt-2 text-base text-[#6e6e73]">
+                  Zero vendor lock-in. 100% full code ownership transferred upon launch.
                 </p>
               </ScrollReveal>
             </div>
 
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {servicesPage.techStack.map((cluster, idx) => (
                 <ScrollReveal
                   key={cluster.category}
@@ -541,15 +560,15 @@ export function Services() {
                   delay={idx * 80}
                   duration={650}
                 >
-                  <div className="h-full rounded-2xl border border-black/8 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <p className="text-xs font-mono font-extrabold uppercase tracking-wider text-[#c91f26]">
+                  <div className="h-full rounded-[2rem] border border-black/[0.05] bg-white p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
+                    <p className="text-xs font-mono font-semibold uppercase tracking-wider text-[#c91f26]">
                       0{idx + 1} / {cluster.category}
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {cluster.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="rounded-lg border border-black/5 bg-[#f7f9fb] px-3 py-1.5 text-xs font-bold text-[#071d35]"
+                          className="rounded-full border border-black/[0.04] bg-[#f5f5f7] px-3 py-1.5 text-xs font-medium text-[#1d1d1f]"
                         >
                           {skill}
                         </span>
@@ -563,35 +582,35 @@ export function Services() {
         </section>
 
         {/* 
-          SECTION 6: READY TO BUILD CTA 
+          SECTION 6: APPLE KEYNOTE READY TO BUILD CTA 
         */}
         <section
           id="services-cta"
           aria-label="Start a project CTA"
-          className="bg-[#c91f26] py-16 text-white md:py-24"
+          className="mx-5 my-16 overflow-hidden rounded-[2.5rem] bg-[#1d1d1f] py-20 text-white shadow-[0_25px_60px_rgba(0,0,0,0.18)] sm:mx-8 md:py-28 lg:mx-10"
         >
-          <div className="mx-auto max-w-5xl px-5 text-center md:px-8">
+          <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
             <ScrollReveal animation="zoom-in" duration={700}>
-              <span className="mx-auto grid size-12 place-items-center rounded-full bg-white/15">
+              <span className="mx-auto grid size-12 place-items-center rounded-2xl bg-white/10 text-white">
                 <Icon name="spark" className="size-6" />
               </span>
-              <h2 className="mt-6 text-3xl font-extrabold tracking-[-0.05em] md:text-6xl">
+              <h2 className="mt-6 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl md:text-6xl">
                 Ready to transform your digital presence?
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base text-white/85 md:text-lg">
-                Let&apos;s evaluate your goals and map the right architecture,
-                timeline, and package for your brand.
+              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[#86868b] md:text-lg">
+                Let&apos;s evaluate your goals and map the right architecture, timeline, and package for your brand.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3.5 sm:flex-row">
-                <a
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#071d35] px-8 py-4 font-bold text-white shadow-xl transition hover:bg-white hover:text-[#071d35]"
-                  href="mailto:support@maplecodix.com?subject=Project%20Discovery%20Conversation"
+              <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={() => setIsCustomQuoteOpen(true)}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#1d1d1f] shadow-lg transition-all hover:bg-[#f5f5f7] hover:scale-[1.02] cursor-pointer"
                 >
-                  <span>Start a discovery conversation</span>
+                  <span>Start your project scope</span>
                   <Icon name="arrow" className="size-4" />
-                </a>
+                </button>
                 <Link
-                  className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-4 font-bold text-white backdrop-blur transition hover:bg-white hover:text-[#c91f26]"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
                   to="/packages"
                 >
                   <span>Explore transparent packages</span>
@@ -601,6 +620,13 @@ export function Services() {
           </div>
         </section>
       </PageShell>
+
+      {/* Custom Quote Routing Modal */}
+      <CustomQuoteModal
+        isOpen={isCustomQuoteOpen}
+        onClose={() => setIsCustomQuoteOpen(false)}
+        initialCategory={quoteCategory}
+      />
     </>
   )
 }

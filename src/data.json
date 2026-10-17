@@ -69,9 +69,9 @@
       "canonicalPath": "/services"
     },
     "packages": {
-      "title": "Website Development Packages & Pricing | MapleCodix",
-      "description": "Transparent website development packages tailored for startups and growing businesses. From fast launch sites to full dynamic digital platforms.",
-      "keywords": "website packages, web design pricing, startup website cost, custom web development quote",
+      "title": "Websites, Web Apps & Mobile Apps Packages & Pricing | MapleCodix",
+      "description": "Transparent pricing packages tailored for startups and growing businesses. From high-converting websites and custom SaaS web applications to native iOS/Android mobile apps.",
+      "keywords": "website packages, web application pricing, mobile app development cost, SaaS MVP pricing, react native app, flutter mobile app, digital marketing agency",
       "canonicalPath": "/packages"
     },
     "about": {
@@ -745,9 +745,9 @@
       "description": "From a first idea to a growing digital business, we combine strategy, design, engineering, and marketing to create meaningful momentum."
     },
     "packages": {
-      "eyebrow": "Packages",
+      "eyebrow": "Packages & Pricing",
       "title": "A clear way to get started.",
-      "description": "Choose the website package that fits your stage—from a fast startup launch to a complete custom site and marketing growth system."
+      "description": "Choose the package that fits your stage—from high-converting websites and scalable SaaS web applications to cross-platform mobile apps and growth marketing systems."
     },
     "about": {
       "eyebrow": "About MapleCodix",
@@ -842,6 +842,170 @@
             "15 Reels Promotion Setup",
             "FB/IG/TikTok Content Plan",
             "Google Analytics Config"
+          ]
+        }
+      ]
+    },
+    "webapp": {
+      "id": "webapp",
+      "label": "Web Applications",
+      "badge": "Full-Stack & Cloud",
+      "subtitle": "Bespoke SaaS platforms, client portals, and cloud web applications engineered with Next.js, Node & PostgreSQL",
+      "packages": [
+        {
+          "badge": "SaaS Launchpad",
+          "name": "Web App MVP",
+          "description": "Rapid-launch prototype or internal portal with user authentication, database, and core logic.",
+          "originalPrice": "$1499",
+          "price": "$999",
+          "features": [
+            "React 19 & Next.js Responsive UI",
+            "User Authentication (Email, Google OAuth)",
+            "PostgreSQL / Supabase Database Architecture",
+            "Core CRUD Workflows & Interactive Dashboard",
+            "Role-Based Access Control (Admin / User)",
+            "Automated REST API Endpoints",
+            "SSL & High-Performance Vercel Deployment",
+            "3 Weeks Fast-Track Delivery"
+          ]
+        },
+        {
+          "badge": "Popular Choice",
+          "name": "Growth SaaS Platform",
+          "description": "Production-ready SaaS software equipped with recurring subscription billing and real-time features.",
+          "originalPrice": "$2499",
+          "price": "$1899",
+          "includesTitle": "All in Web App MVP Plus:",
+          "tone": "blue",
+          "features": [
+            "Stripe Subscriptions & Multi-tier Billing",
+            "Multi-Tenant Organization Workspaces",
+            "Real-time Data Updates & WebSockets",
+            "Admin Management Console & User Audits",
+            "Automated Transactional Emails (Resend)",
+            "Interactive Data Visualizations & Charts",
+            "Interactive Swagger / OpenAPI Documentation",
+            "30 Days Post-Launch Warranty & Support"
+          ]
+        },
+        {
+          "badge": "Scale Architecture",
+          "name": "Business Portal Pro",
+          "description": "Comprehensive full-stack enterprise portal with third-party software integrations and CRM pipelines.",
+          "originalPrice": "$3499",
+          "price": "$2699",
+          "includesTitle": "All Growth SaaS Features Plus:",
+          "tone": "blue",
+          "features": [
+            "Custom ERP / CRM / Zapier Integrations",
+            "Automated Background Job Processing (Redis)",
+            "Complex Workflow & Approval Engines",
+            "Granular Permissions & Enterprise Audit Logs",
+            "Automated PDF / Invoice / Report Generation",
+            "Comprehensive Automated Unit & E2E Tests",
+            "Database Read-Replicas & Auto-backup Setup",
+            "6-Week Milestone Delivery with Staging Demos"
+          ]
+        },
+        {
+          "badge": "Full Suite",
+          "name": "Enterprise Cloud Suite",
+          "description": "Mission-critical, high-concurrency cloud ecosystem with AI integration and 24/7 dedicated engineering.",
+          "originalPrice": "$4499",
+          "price": "$3499",
+          "includesTitle": "All Business Portal Features Plus:",
+          "tone": "dark",
+          "features": [
+            "AI Integration (Gemini / OpenAI LLM Pipelines)",
+            "Microservices or Serverless High-Scale Setup",
+            "SOC-2 Compliant Security & Data Encryption",
+            "Dedicated Tech Lead & Direct Slack/WhatsApp Channel",
+            "Zero-Downtime CI/CD Automated Pipelines",
+            "Global CDN & Multi-Region Failover Architecture",
+            "Performance Guarantee (<200ms API Latency)",
+            "Priority 24/7 Production SLA & Bug Fixes"
+          ]
+        }
+      ]
+    },
+    "mobile": {
+      "id": "mobile",
+      "label": "Mobile Apps",
+      "badge": "iOS & Android",
+      "subtitle": "High-performance native and cross-platform mobile apps for App Store and Google Play using React Native & Flutter",
+      "packages": [
+        {
+          "badge": "Cross-Platform",
+          "name": "Mobile App MVP",
+          "description": "Fast-to-market cross-platform iOS and Android app built with React Native or Flutter.",
+          "originalPrice": "$1899",
+          "price": "$1299",
+          "features": [
+            "iOS & Android Unified Cross-Platform Codebase",
+            "Modern Fluid UI/UX Designed for Mobile Gestures",
+            "User Authentication (Apple, Google, Biometrics)",
+            "Cloud Backend Integration (Supabase / Firebase)",
+            "Native Device Access (Camera, GPS, Media)",
+            "Push Notification Architecture Setup",
+            "App Store & Google Play Submission Prep",
+            "4 Weeks Delivery with TestFlight Demos"
+          ]
+        },
+        {
+          "badge": "Top Choice",
+          "name": "Pro Mobile App",
+          "description": "Feature-rich mobile experience with in-app purchases, offline sync, and real-time user engagement.",
+          "originalPrice": "$2999",
+          "price": "$2199",
+          "includesTitle": "All in Mobile MVP Plus:",
+          "tone": "blue",
+          "features": [
+            "In-App Purchases & Subscriptions (Apple Pay / Google Pay)",
+            "Offline-First SQLite / WatermelonDB Persistence",
+            "Dynamic Deep Linking & Universal Social Links",
+            "Smooth 60fps Micro-interactions & Haptic Feedback",
+            "Automated Error Tracking & Analytics (Sentry / GA4)",
+            "Over-The-Air (OTA) Instant App Updates (Expo EAS)",
+            "Guaranteed App Store & Google Play Approval",
+            "45 Days Post-Launch Maintenance & Bug Warranty"
+          ]
+        },
+        {
+          "badge": "Unified Platform",
+          "name": "Mobile + Web Suite",
+          "description": "Complete consumer mobile app paired with an administrative web portal for team operations.",
+          "originalPrice": "$3999",
+          "price": "$2999",
+          "includesTitle": "All Pro Mobile Features Plus:",
+          "tone": "blue",
+          "features": [
+            "Connected Web Admin Dashboard for Internal Staff",
+            "Real-Time Chat or Live Activity Feed (WebSockets)",
+            "Interactive Geo-location, Maps & Route Optimization",
+            "Granular Push Notification Marketing Segments",
+            "Multi-language (i18n) Localization Support",
+            "Custom REST / GraphQL Node.js Backend API",
+            "Automated App Testing on Real Physical Devices",
+            "Bi-Weekly Executive Sprint Demos"
+          ]
+        },
+        {
+          "badge": "Enterprise Tier",
+          "name": "Flagship Mobile Ecosystem",
+          "description": "End-to-end mobile enterprise solution with bespoke backend architecture and white-glove deployment.",
+          "originalPrice": "$5499",
+          "price": "$3999",
+          "includesTitle": "All Mobile + Web Suite Plus:",
+          "tone": "dark",
+          "features": [
+            "Dual-Platform Native Performance Optimization",
+            "AI-Powered Smart Features (Vision / Recommendation)",
+            "High-Security Vault & Biometric Key Storage",
+            "Enterprise MDM Support & Custom Deployment",
+            "Full Source Code Ownership & IP Assignment",
+            "Automated CI/CD Store Release Pipelines",
+            "Dedicated Project Manager & Mobile Architect",
+            "90 Days Extended Priority Maintenance & SLA"
           ]
         }
       ]

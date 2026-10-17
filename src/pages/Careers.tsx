@@ -7,7 +7,7 @@ import siteData from "../data/data.json"
 export const roles = siteData.careersPage.roles
 
 export function Careers() {
-  const seo = siteData.seo.careers
+  const seo = siteData.careersPage ? siteData.seo.careers : { title: "Careers | MapleCodix", description: "Careers at MapleCodix" }
   const careers = siteData.careersPage
 
   return (
@@ -22,10 +22,11 @@ export function Careers() {
         <section
           id="careers-content"
           aria-label="MapleCodix career opportunities"
-          className="py-20 md:py-28"
+          className="bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
         >
           <div className="mx-auto max-w-5xl px-5 md:px-8">
-            <div className="mb-14 grid gap-5 sm:grid-cols-3">
+            {/* Apple-Style Values Cards */}
+            <div className="mb-16 grid gap-6 sm:grid-cols-3">
               {careers.values.map((value, index) => (
                 <ScrollReveal
                   key={value}
@@ -35,16 +36,12 @@ export function Careers() {
                 >
                   <div
                     id={`career-value-${index + 1}`}
-                    className={`h-full rounded-xl border p-7 transition duration-300 hover:-translate-y-1 hover:shadow-md ${
-                      index === 1
-                        ? "border-[#c8dbe8] bg-[#dceaf4]"
-                        : "border-black/5 bg-white"
-                    }`}
+                    className="h-full rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
                   >
-                    <span className="text-xs font-extrabold tracking-wider text-[#c91f26]">
+                    <span className="font-mono text-xs font-bold tracking-wider text-[#c91f26]">
                       0{index + 1}
                     </span>
-                    <p className="mt-10 text-xl font-extrabold tracking-tight">
+                    <p className="mt-8 text-xl font-semibold tracking-tight text-[#1d1d1f]">
                       {value}
                     </p>
                   </div>
@@ -52,18 +49,20 @@ export function Careers() {
               ))}
             </div>
 
+            {/* Section Header */}
             <ScrollReveal animation="fade-up">
-              <div className="flex items-end justify-between border-b border-black/10 pb-6">
-                <div>
-                  <p className="eyebrow text-[#c91f26]">{careers.eyebrow}</p>
-                  <h2 className="mt-3 text-4xl font-extrabold tracking-[-0.05em]">
-                    {careers.heading}
-                  </h2>
-                </div>
+              <div className="border-b border-black/[0.06] pb-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
+                  {careers.eyebrow}
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d1d1f] md:text-5xl">
+                  {careers.heading}
+                </h2>
               </div>
             </ScrollReveal>
 
-            <div id="open-positions-list" className="mt-4">
+            {/* Apple-Style Role Rows */}
+            <div id="open-positions-list" className="mt-6 space-y-4">
               {roles.map((role, index) => (
                 <ScrollReveal
                   key={role}
@@ -73,19 +72,20 @@ export function Careers() {
                 >
                   <a
                     id={`job-role-${index + 1}`}
-                    className="group flex items-center justify-between border-b border-black/10 py-7 transition duration-300 hover:px-2"
+                    className="group flex items-center justify-between rounded-2xl border border-black/[0.05] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-black/[0.09] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] md:p-7"
                     href={`mailto:careers@maplecodix.com?subject=${encodeURIComponent(`Application: ${role}`)}`}
                   >
                     <div>
-                      <h3 className="text-xl font-extrabold tracking-tight md:text-2xl transition-colors group-hover:text-[#c91f26]">
+                      <h3 className="text-xl font-semibold tracking-tight text-[#1d1d1f] transition-colors group-hover:text-[#c91f26] md:text-2xl">
                         {role}
                       </h3>
-                      <p className="mt-2 text-sm text-[#526273]">
-                        {careers.roleType}
+                      <p className="mt-2 text-xs font-medium text-[#86868b]">
+                        {careers.roleType} · Moncton Studio or Remote
                       </p>
                     </div>
-                    <span className="grid size-11 place-items-center rounded-full bg-white text-[#c91f26] shadow-sm transition group-hover:bg-[#c91f26] group-hover:text-white">
-                      <Icon name="arrow" />
+                    
+                    <span className="grid size-10 place-items-center rounded-full bg-[#f5f5f7] text-[#1d1d1f] shadow-xs transition-all duration-300 group-hover:bg-[#c91f26] group-hover:text-white group-hover:scale-105">
+                      <Icon name="arrow" className="size-4" />
                     </span>
                   </a>
                 </ScrollReveal>

@@ -8,20 +8,26 @@ export interface PageIntroProps {
 
 export function PageIntro({ eyebrow, title, description }: PageIntroProps) {
   return (
-    <section className="relative overflow-hidden bg-[#071d35] pb-24 pt-40 text-white md:pb-32 md:pt-48">
-      <div className="hero-grid absolute inset-0 opacity-20" />
-      <div className="absolute -right-32 top-16 size-[32rem] rounded-full bg-[#164f86]/25 blur-3xl" />
+    <section className="relative overflow-hidden bg-[#fbfbfd] pb-20 pt-36 text-[#1d1d1f] border-b border-black/[0.05] md:pb-28 md:pt-44">
+      {/* Subtle Apple ambient radial lighting */}
+      <div className="pointer-events-none absolute -right-32 top-10 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/5 via-[#0066cc]/5 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-0 size-80 rounded-full bg-gradient-to-tr from-[#f5f5f7] to-transparent blur-2xl" />
+
       <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
         <ScrollReveal animation="fade-down" delay={60}>
-          <p className="eyebrow text-[#e24a50]">{eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
+            {eyebrow}
+          </p>
         </ScrollReveal>
+        
         <ScrollReveal animation="fade-up" delay={140}>
-          <h1 className="mt-6 max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-[-0.055em] md:text-7xl">
+          <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-[#1d1d1f] sm:text-6xl md:text-7xl">
             {title}
           </h1>
         </ScrollReveal>
+        
         <ScrollReveal animation="fade-up" delay={220}>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#6e6e73] md:text-xl">
             {description}
           </p>
         </ScrollReveal>

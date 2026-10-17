@@ -18,67 +18,55 @@ export function ProcessSection({ steps = processSteps }: ProcessSectionProps) {
   const { processSection } = siteData
 
   return (
-    <section id="approach" className="bg-[#edf3f7] py-24 md:py-32">
+    <section id="approach" className="bg-[#fbfbfd] py-24 text-[#1d1d1f] border-t border-black/[0.04] md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <ScrollReveal animation="fade-up" duration={700}>
             <div>
-              <p className="eyebrow text-[#c91f26]">{processSection.eyebrow}</p>
-              <h2 className="mt-5 text-5xl font-extrabold tracking-[-0.055em] md:text-7xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
+                {processSection.eyebrow}
+              </p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.035em] text-[#1d1d1f] sm:text-5xl md:text-6xl">
                 Simple process.
                 <br />
                 Serious craft.
               </h2>
             </div>
           </ScrollReveal>
+          
           <ScrollReveal animation="fade-up" delay={150} duration={700}>
-            <p className="max-w-sm text-lg leading-relaxed text-[#526273]">
+            <p className="max-w-sm text-base leading-relaxed text-[#6e6e73] md:text-lg">
               {processSection.description}
             </p>
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {/* Apple-Style Process Cards Grid with Soft Ambient Shadows */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((item, index) => (
             <ScrollReveal
               key={item.title}
               animation="fade-up"
-              delay={index * 110}
+              delay={index * 100}
               duration={700}
             >
-              <article
-                className={`h-full rounded-xl border p-7 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl md:p-8 ${
-                  index === 1
-                    ? "border-[#164f86] bg-[#164f86] text-white shadow-md"
-                    : index === 3
-                      ? "border-[#c8dbe8] bg-[#dceaf4]"
-                      : "border-black/5 bg-white shadow-sm"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span
-                    className={`text-sm font-extrabold ${
-                      index === 1 ? "text-white/60" : "text-[#c91f26]"
-                    }`}
-                  >
-                    {item.number}
-                  </span>
-                  <span
-                    className={`size-2 rounded-full ${
-                      index === 1 ? "bg-[#dceaf4]" : "bg-[#c91f26]"
-                    }`}
-                  />
+              <article className="group flex h-full flex-col justify-between rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-bold text-[#c91f26]">
+                      {item.number}
+                    </span>
+                    <span className="size-2 rounded-full bg-[#c91f26] transition-transform duration-300 group-hover:scale-125" />
+                  </div>
+                  
+                  <h3 className="mt-14 text-2xl font-semibold tracking-tight text-[#1d1d1f] transition-colors group-hover:text-[#c91f26]">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="mt-3 text-sm leading-relaxed text-[#6e6e73]">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="mt-16 text-3xl font-extrabold tracking-[-0.04em]">
-                  {item.title}
-                </h3>
-                <p
-                  className={`mt-4 leading-relaxed ${
-                    index === 1 ? "text-white/70" : "text-[#526273]"
-                  }`}
-                >
-                  {item.description}
-                </p>
               </article>
             </ScrollReveal>
           ))}

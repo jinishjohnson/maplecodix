@@ -3,15 +3,46 @@ import { Icon } from "../components/Icon"
 import { ScrollReveal } from "../components/ScrollReveal"
 import { PageShell } from "../components/PageShell"
 import { SEO } from "../components/SEO"
+import { CustomQuoteModal } from "../components/CustomQuoteModal"
 import siteData from "../data/data.json"
 
-export type PackageCategory = "web" | "marketing"
+export type PackageCategory = "web" | "webapp" | "mobile" | "marketing"
 
 export const packageCategories = siteData.packageCategories
 export const packages = siteData.packages
 
+interface CategoryTabConfig {
+  id: PackageCategory
+  label: string
+  icon: "code" | "globe" | "mobile" | "marketing"
+}
+
+const CATEGORY_TABS: CategoryTabConfig[] = [
+  {
+    id: "web",
+    label: "Websites",
+    icon: "code",
+  },
+  {
+    id: "webapp",
+    label: "Web Applications",
+    icon: "globe",
+  },
+  {
+    id: "mobile",
+    label: "Mobile Apps",
+    icon: "mobile",
+  },
+  {
+    id: "marketing",
+    label: "Marketing & Growth",
+    icon: "marketing",
+  },
+]
+
 export function Packages() {
   const [activeCategory, setActiveCategory] = useState<PackageCategory>("web")
+  const [isCustomQuoteModalOpen, setIsCustomQuoteModalOpen] = useState(false)
   const seo = siteData.seo.packages
   const customQuote = siteData.packagesCustomQuote
 
@@ -30,75 +61,56 @@ export function Packages() {
         <section
           id="pricing-tiers"
           aria-label="Packages and pricing options"
-          className="py-16 md:py-24"
+          className="bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
         >
-          {/* Category Switcher Tabs */}
-          <div className="mx-auto mb-14 max-w-4xl px-5 text-center md:px-8">
-            <div className="inline-flex items-center rounded-2xl border border-black/10 bg-white p-1.5 shadow-md">
-              <button
-                type="button"
-                id="switch-web-dev"
-                onClick={() => setActiveCategory("web")}
-                className={`flex items-center gap-2.5 rounded-xl px-6 py-3 text-sm font-extrabold transition-all duration-300 md:px-8 md:text-base ${
-                  activeCategory === "web"
-                    ? "bg-[#071d35] text-white shadow-md ring-1 ring-[#071d35]"
-                    : "text-[#526273] hover:text-[#071d35]"
-                }`}
-                aria-pressed={activeCategory === "web"}
-              >
-                <Icon
-                  name="code"
-                  className={`size-4 transition-colors ${
-                    activeCategory === "web"
-                      ? "text-[#e24a50]"
-                      : "text-[#526273]"
-                  }`}
-                />
-                <span>Web Development</span>
-              </button>
-
-              <button
-                type="button"
-                id="switch-marketing"
-                onClick={() => setActiveCategory("marketing")}
-                className={`flex items-center gap-2.5 rounded-xl px-6 py-3 text-sm font-extrabold transition-all duration-300 md:px-8 md:text-base ${
-                  activeCategory === "marketing"
-                    ? "bg-[#c91f26] text-white shadow-md ring-1 ring-[#c91f26]"
-                    : "text-[#526273] hover:text-[#071d35]"
-                }`}
-                aria-pressed={activeCategory === "marketing"}
-              >
-                <Icon
-                  name="marketing"
-                  className={`size-4 transition-colors ${
-                    activeCategory === "marketing"
-                      ? "text-white"
-                      : "text-[#c91f26]"
-                  }`}
-                />
-                <span>Marketing</span>
-              </button>
+          {/* Apple-Style Segmented Tab Controller */}
+          <div className="mx-auto mb-16 max-w-5xl px-5 text-center md:px-8">
+            <div className="inline-flex flex-wrap items-center justify-center gap-1.5 rounded-full border border-black/[0.06] bg-white p-1.5 shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
+              {CATEGORY_TABS.map((tab) => {
+                const isActive = activeCategory === tab.id
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    id={`switch-${tab.id}`}
+                    onClick={() => setActiveCategory(tab.id)}
+                    className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition-all duration-300 md:text-sm cursor-pointer ${
+                      isActive
+                        ? "bg-[#1d1d1f] text-white shadow-sm ring-1 ring-[#1d1d1f]"
+                        : "text-[#6e6e73] hover:text-[#1d1d1f]"
+                    }`}
+                    aria-pressed={isActive}
+                  >
+                    <Icon
+                      name={tab.icon}
+                      className={`size-4 transition-colors ${
+                        isActive ? "text-[#ff4d4f]" : "text-[#86868b]"
+                      }`}
+                    />
+                    <span>{tab.label}</span>
+                  </button>
+                )
+              })}
             </div>
 
             {/* Subtitle Indicator */}
-            <div className="mt-5 flex items-center justify-center gap-2 text-sm text-[#526273]">
+            <div className="mt-6 flex items-center justify-center gap-2 text-sm text-[#6e6e73]">
               <span className="size-2 rounded-full bg-[#c91f26] animate-pulse" />
-              <span className="font-semibold text-[#071d35]">
+              <span className="font-semibold text-[#1d1d1f]">
                 {currentCategory.label}:
               </span>
               <span>{currentCategory.subtitle}</span>
             </div>
           </div>
 
-          {/* Package Grid */}
+          {/* Apple-Standard Package Cards Grid */}
           <div
             key={activeCategory}
-            className="mx-auto grid max-w-[90rem] gap-5 px-5 md:grid-cols-2 md:px-8 xl:grid-cols-4 xl:px-10"
+            className="mx-auto grid max-w-[90rem] gap-6 px-5 md:grid-cols-2 md:px-8 xl:grid-cols-4 xl:px-10"
           >
             {currentPackages.map((item, index) => {
               const hasTone = "tone" in item && Boolean(item.tone)
-              const isDark = "tone" in item && item.tone === "dark"
-              const isBlue = "tone" in item && item.tone === "blue"
+              const isDark = "tone" in item && (item.tone === "dark" || item.tone === "blue")
               const includesTitle =
                 "includesTitle" in item ? item.includesTitle : undefined
 
@@ -111,129 +123,152 @@ export function Packages() {
                 >
                   <article
                     id={`package-${activeCategory}-${index + 1}`}
-                    className={`relative flex h-full min-h-[42rem] flex-col rounded-xl border p-7 transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${
+                    className={`group relative flex h-full min-h-[42rem] flex-col justify-between rounded-[2rem] border p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 ${
                       isDark
-                        ? "border-[#071d35] bg-[#071d35] text-white shadow-lg"
-                        : isBlue
-                          ? "border-[#164f86] bg-[#164f86] text-white shadow-lg"
-                          : "border-black/8 bg-white shadow-sm"
+                        ? "border-white/10 bg-[#1d1d1f] text-white shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.3)]"
+                        : "border-black/[0.05] bg-white text-[#1d1d1f] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
                     }`}
                   >
-                    <span
-                      className={`w-fit rounded-lg px-3 py-1.5 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] ${
-                        hasTone
-                          ? "bg-white/15 text-white"
-                          : activeCategory === "marketing"
-                            ? "bg-[#fbeaec] text-[#c91f26]"
-                            : "bg-[#e8f1f8] text-[#155b96]"
-                      }`}
-                    >
-                      {item.badge}
-                    </span>
-                    <h2 className="mt-6 text-2xl font-extrabold tracking-[-0.04em]">
-                      {item.name}
-                    </h2>
-                    <p
-                      className={`mt-3 min-h-16 text-sm leading-relaxed ${
-                        hasTone ? "text-white/65" : "text-[#526273]"
-                      }`}
-                    >
-                      {item.description}
-                    </p>
-                    <div className="mt-5 flex items-end gap-2">
+                    <div>
+                      {/* Pill Badge */}
                       <span
-                        className={`pb-1 text-sm line-through ${
-                          hasTone ? "text-white/45" : "text-black/35"
+                        className={`inline-block rounded-full px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${
+                          isDark
+                            ? "bg-white/15 text-white"
+                            : "bg-[#f5f5f7] text-[#1d1d1f]"
                         }`}
                       >
-                        {item.originalPrice}
+                        {item.badge}
                       </span>
-                      <span className="text-4xl font-extrabold tracking-[-0.05em]">
-                        {item.price}
-                      </span>
-                    </div>
-                    <div
-                      className={`mt-7 border-t pt-6 ${
-                        hasTone ? "border-white/15" : "border-black/10"
-                      }`}
-                    >
-                      {includesTitle && (
-                        <p className="mb-4 text-sm font-extrabold">
-                          {includesTitle}
-                        </p>
-                      )}
-                      <ul className="space-y-3.5">
-                        {item.features.map((feature) => (
-                          <li
-                            className={`flex items-start gap-3 text-sm font-semibold leading-snug ${
-                              hasTone ? "text-white/85" : "text-[#42566a]"
-                            }`}
-                            key={feature}
-                          >
-                            <span
-                              className={`mt-0.5 grid size-5 shrink-0 place-items-center rounded-full text-[0.65rem] ${
-                                hasTone
-                                  ? "bg-[#dceaf4] text-[#071d35]"
-                                  : "bg-[#fbeaec] text-[#c91f26]"
+
+                      {/* Package Name */}
+                      <h2 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">
+                        {item.name}
+                      </h2>
+
+                      {/* Description */}
+                      <p
+                        className={`mt-3 min-h-14 text-sm leading-relaxed ${
+                          isDark ? "text-[#86868b]" : "text-[#6e6e73]"
+                        }`}
+                      >
+                        {item.description}
+                      </p>
+
+                      {/* Price Tag */}
+                      <div className="mt-6 flex items-baseline gap-2">
+                        <span
+                          className={`text-sm line-through ${
+                            isDark ? "text-white/40" : "text-[#86868b]"
+                          }`}
+                        >
+                          {item.originalPrice}
+                        </span>
+                        <span className="text-4xl font-bold tracking-tight md:text-5xl">
+                          {item.price}
+                        </span>
+                      </div>
+
+                      {/* Inclusions */}
+                      <div
+                        className={`mt-8 border-t pt-6 ${
+                          isDark ? "border-white/10" : "border-black/[0.06]"
+                        }`}
+                      >
+                        {includesTitle && (
+                          <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#c91f26]">
+                            {includesTitle}
+                          </p>
+                        )}
+                        <ul className="space-y-3">
+                          {item.features.map((feature) => (
+                            <li
+                              className={`flex items-start gap-2.5 text-xs font-medium leading-relaxed ${
+                                isDark ? "text-white/90" : "text-[#1d1d1f]"
                               }`}
+                              key={feature}
                             >
-                              ✓
-                            </span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
+                              <span
+                                className={`mt-0.5 grid size-4 shrink-0 place-items-center rounded-full text-[9px] font-bold ${
+                                  isDark
+                                    ? "bg-white/15 text-white"
+                                    : "bg-[#f5f5f7] text-[#c91f26]"
+                                }`}
+                              >
+                                ✓
+                              </span>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <a
-                      id={`cta-${activeCategory}-${item.name.toLowerCase().replace(/\s+/g, "-")}`}
-                      className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-bold transition hover:-translate-y-0.5 ${
-                        hasTone
-                          ? "bg-white text-[#071d35] hover:bg-[#dceaf4]"
-                          : "bg-[#071d35] text-white hover:bg-[#c91f26]"
-                      }`}
-                      href={`mailto:support@maplecodix.com?subject=${encodeURIComponent(`${item.name} (${currentCategory.label}) package enquiry`)}`}
-                    >
-                      Choose {item.name}{" "}
-                      <Icon name="arrow" className="size-4" />
-                    </a>
+
+                    {/* Apple-Style CTA Button */}
+                    <div className="mt-8 pt-6 border-t border-black/[0.04]">
+                      <a
+                        id={`cta-${activeCategory}-${item.name.toLowerCase().replace(/\s+/g, "-")}`}
+                        className={`flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-xs font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.99] cursor-pointer ${
+                          isDark
+                            ? "bg-white text-[#1d1d1f] hover:bg-[#f5f5f7] shadow-md"
+                            : "bg-[#1d1d1f] text-white hover:bg-[#c91f26] shadow-sm"
+                        }`}
+                        href={`mailto:support@maplecodix.com?subject=${encodeURIComponent(`${item.name} (${currentCategory.label}) package enquiry`)}`}
+                      >
+                        <span>Choose {item.name}</span>
+                        <Icon name="arrow" className="size-3.5" />
+                      </a>
+                    </div>
                   </article>
                 </ScrollReveal>
               )
             })}
           </div>
 
-          {/* Custom Quote Routing Banner */}
-          <div className="mx-auto mt-12 max-w-[90rem] px-5 md:px-8 xl:px-10">
+          {/* Apple-Style Custom Quote Banner */}
+          <div className="mx-auto mt-16 max-w-[90rem] px-5 md:px-8 xl:px-10">
             <ScrollReveal animation="zoom-in" duration={650}>
               <div
                 id="custom-quote-card"
-                className="relative overflow-hidden rounded-xl border border-[#155b96]/30 bg-[#eef5f9] p-7 shadow-[inset_5px_0_0_#155b96] transition duration-300 hover:shadow-lg md:flex md:items-center md:justify-between md:gap-10 md:p-9"
+                className="relative overflow-hidden rounded-[2.25rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_30px_rgba(0,0,0,0.04)] md:flex md:items-center md:justify-between md:gap-10 md:p-10"
               >
-                <div className="absolute -right-16 -top-20 size-56 rounded-full bg-[#d5e7f3]/60 blur-3xl" />
                 <div className="relative">
-                  <h3 className="text-2xl font-extrabold tracking-[-0.035em]">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
+                    Tailored Scoping
+                  </span>
+                  <h3 className="mt-2 text-2xl font-semibold tracking-tight text-[#1d1d1f] md:text-3xl">
                     {customQuote.title}
                   </h3>
-                  <p className="mt-3 max-w-4xl leading-relaxed text-[#526273]">
+                  <p className="mt-3 max-w-4xl leading-relaxed text-[#6e6e73]">
                     {customQuote.description}
                   </p>
                 </div>
-                <a
+                
+                <button
+                  type="button"
                   id="custom-quote-cta"
-                  className="relative mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-[#155b96] px-6 py-3.5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#071d35] md:mt-0"
-                  href={`mailto:support@maplecodix.com?subject=${encodeURIComponent(`Custom ${currentCategory.label} quote request`)}`}
+                  onClick={() => setIsCustomQuoteModalOpen(true)}
+                  className="mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-[#1d1d1f] px-7 py-3.5 text-xs font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#c91f26] hover:scale-[1.02] cursor-pointer md:mt-0"
                 >
-                  {customQuote.buttonLabel}{" "}
-                  <Icon name="arrow" className="size-4" />
-                </a>
+                  <span>{customQuote.buttonLabel}</span>
+                  <Icon name="arrow" className="size-3.5" />
+                </button>
               </div>
             </ScrollReveal>
           </div>
-          <p className="mx-auto mt-12 max-w-2xl px-5 text-center text-sm leading-relaxed text-[#526273]">
+          
+          <p className="mx-auto mt-12 max-w-2xl px-5 text-center text-xs leading-relaxed text-[#86868b]">
             {customQuote.disclaimer}
           </p>
         </section>
       </PageShell>
+
+      {/* Dedicated Custom Quote Routing Popup Screen */}
+      <CustomQuoteModal
+        isOpen={isCustomQuoteModalOpen}
+        onClose={() => setIsCustomQuoteModalOpen(false)}
+        initialCategory={activeCategory}
+      />
     </>
   )
 }

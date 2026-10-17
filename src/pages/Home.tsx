@@ -23,7 +23,7 @@ function Home() {
   return (
     <div
       id="top"
-      className="min-h-screen overflow-hidden bg-[#f7f9fb] text-[#071d35]"
+      className="min-h-screen overflow-hidden bg-[#fbfbfd] text-[#1d1d1f]"
     >
       <SEO
         title={seo.title}

@@ -57,7 +57,7 @@ export function ScrollToTop() {
       <button
         type="button"
         onClick={scrollToTop}
-        className="group relative flex size-12 items-center justify-center rounded-full bg-[#071d35] text-white shadow-[0_10px_25px_rgba(7,29,53,0.3)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#c91f26] hover:shadow-[0_12px_28px_rgba(201,31,38,0.4)] focus:outline-none focus:ring-2 focus:ring-[#c91f26] focus:ring-offset-2"
+        className="group relative flex size-12 items-center justify-center rounded-full bg-[#1d1d1f] text-white shadow-[0_8px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#c91f26] hover:shadow-[0_12px_28px_rgba(201,31,38,0.4)] focus:outline-none focus:ring-2 focus:ring-[#c91f26] focus:ring-offset-2"
         aria-label="Scroll back to top"
       >
         {/* Circular progress meter */}

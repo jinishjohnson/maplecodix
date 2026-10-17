@@ -1814,32 +1814,31 @@ export function BrandCalibrationSection() {
   return (
     <section
       id="brand-calibration"
-      className="relative overflow-hidden border-y border-black/5 bg-[#f7f9fb] py-24 text-[#071d35] md:py-32"
+      className="relative overflow-hidden border-y border-black/[0.04] bg-[#fbfbfd] py-24 text-[#1d1d1f] md:py-32"
     >
-      {/* Precision drafting grid & subtle ambient light glows */}
-      <div className="hero-grid absolute inset-0 opacity-40 pointer-events-none" />
-      <div className="pointer-events-none absolute -left-28 top-10 size-[32rem] rounded-full bg-[#cfe1f0]/45 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-10 size-[30rem] rounded-full bg-[#fbeaec]/65 blur-3xl" />
+      {/* Precision ambient light glows */}
+      <div className="pointer-events-none absolute -left-28 top-10 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/5 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-10 size-[32rem] rounded-full bg-gradient-to-tr from-[#0066cc]/5 to-transparent blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
         {/* Header Block with Eyebrow and Precision Branding */}
         <div className="flex flex-wrap items-center justify-between gap-4">
           <ScrollReveal animation="fade-down" delay={60} duration={600}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#c91f26] shadow-xs">
+            <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26] shadow-xs">
               <span className="size-2 rounded-full bg-[#c91f26] animate-pulse" />
               {calibration.eyebrow}
             </div>
           </ScrollReveal>
           <ScrollReveal animation="fade-down" delay={90} duration={600}>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#526273]">
-              02 / Precision Brand Systems
+            <span className="font-mono text-xs font-semibold tracking-wider text-[#86868b]">
+              02 / Brand Systems
             </span>
           </ScrollReveal>
         </div>
 
         <div className="mt-6 max-w-3xl">
           <ScrollReveal animation="fade-up" delay={120} duration={700}>
-            <h2 className="text-4xl font-extrabold tracking-[-0.045em] text-[#071d35] sm:text-5xl md:text-6xl lg:text-[3.65rem] leading-[1.02]">
+            <h2 className="text-4xl font-semibold tracking-[-0.035em] text-[#1d1d1f] sm:text-5xl md:text-6xl leading-[1.04]">
               {calibration.headingPrefix}
               <span className="text-[#c91f26]">
                 {calibration.headingHighlight1}
@@ -1853,19 +1852,18 @@ export function BrandCalibrationSection() {
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={180} duration={700}>
-            <p className="mt-5 text-lg leading-relaxed text-[#526273]">
+            <p className="mt-5 text-base leading-relaxed text-[#6e6e73] md:text-lg">
               {calibration.description}
             </p>
           </ScrollReveal>
         </div>
 
         {/* 
-          HORIZONTAL ROUND-CORNERED OUTLINE TABS
-          With icons, discipline labels, and item counts
+          APPLE-STYLE CATEGORY TABS (ROUNDED-FULL PILLS)
         */}
         <ScrollReveal animation="fade-up" delay={240} duration={700}>
           <div
-            className="mt-12 flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none"
+            className="mt-12 flex items-center gap-2.5 overflow-x-auto pb-2 no-scrollbar"
             style={{ scrollbarWidth: "none" }}
           >
             {categories.map((cat) => {
@@ -1875,36 +1873,24 @@ export function BrandCalibrationSection() {
                   key={cat.id}
                   type="button"
                   onClick={() => handleTabChange(cat.id)}
-                  className={`group flex shrink-0 items-center gap-3.5 rounded-2xl border px-4 py-3 text-left transition-all duration-300 ${
+                  className={`group flex shrink-0 items-center gap-2.5 rounded-full px-5 py-2.5 text-left transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? "border-[#c91f26] bg-white text-[#c91f26] shadow-[0_8px_24px_rgba(201,31,38,0.12)] ring-1 ring-[#c91f26]"
-                      : "border-black/10 bg-white/75 text-[#263f57] hover:border-black/20 hover:bg-white hover:text-[#071d35] hover:shadow-xs"
+                      ? "bg-[#1d1d1f] text-white shadow-sm ring-1 ring-[#1d1d1f]"
+                      : "bg-[#f5f5f7] text-[#6e6e73] hover:bg-[#e8e8ed] hover:text-[#1d1d1f]"
                   }`}
                 >
                   <span
-                    className={`grid size-9 place-items-center rounded-xl transition-colors ${
+                    className={`grid size-6 place-items-center rounded-full transition-colors ${
                       isActive
-                        ? "bg-[#c91f26] text-white shadow-xs"
-                        : "bg-[#071d35]/5 text-[#071d35] group-hover:bg-[#071d35]/10 group-hover:text-[#071d35]"
+                        ? "text-[#ff4d4f]"
+                        : "text-[#1d1d1f] group-hover:text-[#c91f26]"
                     }`}
                   >
                     {cat.icon}
                   </span>
-                  <div>
-                    <p
-                      className={`text-sm font-extrabold tracking-tight transition-colors ${
-                        isActive ? "text-[#c91f26]" : "text-[#071d35]"
-                      }`}
-                    >
-                      {cat.label}
-                    </p>
-                    <p className="text-[11px] font-semibold text-[#526273]/70">
-                      {cat.subtitle}
-                    </p>
-                  </div>
-                  {isActive && (
-                    <span className="ml-1 size-2 rounded-full bg-[#c91f26]" />
-                  )}
+                  <span className="text-xs font-semibold tracking-tight whitespace-nowrap">
+                    {cat.label}
+                  </span>
                 </button>
               )
             })}
@@ -1913,21 +1899,20 @@ export function BrandCalibrationSection() {
 
         {/* 
           CAROUSEL CONTROLS BAR
-          Active Category Label, Progress Count & Prev/Next Arrows
         */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-b border-black/8 pb-4">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-b border-black/[0.06] pb-4">
           <div className="flex items-center gap-3">
             <span className="size-2 rounded-full bg-[#c91f26]" />
-            <span className="text-sm font-bold text-[#071d35]">
+            <span className="text-sm font-semibold text-[#1d1d1f]">
               {currentCategory.label} Variations
             </span>
-            <span className="rounded-full bg-black/5 px-2.5 py-0.5 text-xs font-semibold text-[#526273]">
+            <span className="rounded-full bg-[#f5f5f7] px-2.5 py-0.5 text-xs font-medium text-[#86868b]">
               8 Curated Formats
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono font-bold text-[#526273]">
+            <span className="font-mono text-xs font-semibold text-[#86868b]">
               {String(activeIndex + 1).padStart(2, "0")} / 08
             </span>
 
@@ -1937,10 +1922,10 @@ export function BrandCalibrationSection() {
                 onClick={() => scrollCarousel("left")}
                 disabled={!canScrollLeft}
                 aria-label="Previous slide"
-                className={`grid size-10 place-items-center rounded-xl border transition-all ${
+                className={`grid size-9 place-items-center rounded-full border transition-all ${
                   canScrollLeft
-                    ? "border-black/10 bg-white text-[#071d35] hover:border-[#c91f26] hover:text-[#c91f26] hover:shadow-sm active:scale-95"
-                    : "border-black/5 bg-white/40 text-black/20 cursor-not-allowed"
+                    ? "border-black/10 bg-white text-[#1d1d1f] hover:bg-[#f5f5f7] hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                    : "border-black/5 bg-[#f5f5f7] text-black/20 cursor-not-allowed"
                 }`}
               >
                 <svg
@@ -1959,10 +1944,10 @@ export function BrandCalibrationSection() {
                 onClick={() => scrollCarousel("right")}
                 disabled={!canScrollRight}
                 aria-label="Next slide"
-                className={`grid size-10 place-items-center rounded-xl border transition-all ${
+                className={`grid size-9 place-items-center rounded-full border transition-all ${
                   canScrollRight
-                    ? "border-black/10 bg-white text-[#071d35] hover:border-[#c91f26] hover:text-[#c91f26] hover:shadow-sm active:scale-95"
-                    : "border-black/5 bg-white/40 text-black/20 cursor-not-allowed"
+                    ? "border-black/10 bg-white text-[#1d1d1f] hover:bg-[#f5f5f7] hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                    : "border-black/5 bg-[#f5f5f7] text-black/20 cursor-not-allowed"
                 }`}
               >
                 <svg
@@ -1981,11 +1966,11 @@ export function BrandCalibrationSection() {
 
         {/* 
           HORIZONTAL INTERACTIVE CAROUSEL DECK
-          Clean White Cards with Normal Borders, Centered Artwork & Bold Titles Underneath
+          Apple White Cards with Soft Ambient Shadows
         */}
         <div
           ref={carouselRef}
-          className="mt-6 flex gap-5 overflow-x-auto pb-6 pt-2 scroll-smooth snap-x snap-mandatory"
+          className="mt-8 flex gap-5 overflow-x-auto pb-6 pt-2 scroll-smooth snap-x snap-mandatory no-scrollbar"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {currentCategory.items.map((item, index) => {
@@ -2002,34 +1987,34 @@ export function BrandCalibrationSection() {
                     setSelectedCardId(item.id)
                   }
                 }}
-                className={`group relative flex min-w-[280px] sm:min-w-[320px] md:min-w-[340px] shrink-0 snap-start cursor-pointer flex-col items-center justify-between rounded-2xl border bg-white p-7 text-center transition-all duration-300 ${
+                className={`group relative flex min-w-[280px] sm:min-w-[320px] md:min-w-[340px] shrink-0 snap-start cursor-pointer flex-col items-center justify-between rounded-[2rem] border bg-white p-8 text-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   isSelected
-                    ? "border-[#c91f26] ring-2 ring-[#c91f26]/30 shadow-[0_20px_40px_rgba(201,31,38,0.14)] -translate-y-1.5"
-                    : "border-black/8 hover:-translate-y-1 hover:border-black/18 hover:shadow-[0_16px_36px_rgba(7,29,53,0.08)] shadow-[0_4px_20px_rgba(7,29,53,0.03)]"
+                    ? "border-[#c91f26] ring-2 ring-[#c91f26]/20 shadow-[0_24px_50px_rgba(201,31,38,0.12)] -translate-y-2"
+                    : "border-black/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:-translate-y-1.5 hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
                 }`}
               >
                 {/* Index tag & Active Pill */}
-                <div className="flex w-full items-center justify-between text-xs font-mono font-bold text-[#526273]/40">
+                <div className="flex w-full items-center justify-between text-xs font-mono font-medium text-[#86868b]">
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   {isSelected && (
-                    <span className="flex items-center gap-1 rounded-full bg-[#fbeaec] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#c91f26]">
+                    <span className="flex items-center gap-1 rounded-full bg-[#fbeaec] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#c91f26]">
                       Selected
                     </span>
                   )}
                 </div>
 
                 {/* Centered Graphic Artwork */}
-                <div className="flex h-36 w-full items-center justify-center py-2 transition-transform duration-300 group-hover:scale-105">
+                <div className="flex h-36 w-full items-center justify-center py-2 transition-transform duration-500 ease-out group-hover:scale-105">
                   {item.iconSvg}
                 </div>
 
                 {/* Clean Title Underneath */}
                 <div className="mt-4 w-full">
                   <h3
-                    className={`text-base font-bold tracking-tight transition-colors sm:text-lg ${
+                    className={`text-base font-semibold tracking-tight transition-colors sm:text-lg ${
                       isSelected
                         ? "text-[#c91f26]"
-                        : "text-[#071d35] group-hover:text-[#c91f26]"
+                        : "text-[#1d1d1f] group-hover:text-[#c91f26]"
                     }`}
                   >
                     {item.title}
@@ -2042,9 +2027,8 @@ export function BrandCalibrationSection() {
 
         {/* 
           BOTTOM PAGINATION TRACK & CALLOUT
-          Clickable Dots & Quick Project Action
         */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-6 border-t border-black/8 pt-6">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-6 border-t border-black/[0.06] pt-6">
           {/* Interactive Navigation Dots */}
           <div className="flex items-center gap-2">
             {currentCategory.items.map((item, index) => {
@@ -2067,12 +2051,12 @@ export function BrandCalibrationSection() {
 
           {/* Quick Action Button */}
           <div className="flex items-center gap-4">
-            <span className="text-xs font-semibold text-[#526273]">
+            <span className="text-xs text-[#6e6e73]">
               {calibration.note}
             </span>
             <a
               href={calibration.actionHref}
-              className="group inline-flex items-center gap-2 rounded-xl bg-[#071d35] px-4 py-2.5 text-xs font-bold text-white shadow-xs transition hover:bg-[#c91f26]"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#1d1d1f] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition hover:bg-[#c91f26] hover:scale-[1.02]"
             >
               <span>{calibration.actionLabel}</span>
               <svg

@@ -35,12 +35,26 @@ MapleCodix is a full-service digital studio specializing in:
 7. Creative Copywriting: Distinct brand voice and conversion-focused copy.
 
 Pricing Packages:
-- Startup Website: $99 (special offer, normally $399). 3 static pages, responsive design, 1 year free hosting, 5-day delivery.
-- Standard Plan: $399 (normally $699). Up to 10 static pages, basic SEO, 5 banners, 1 year free hosting.
-- Elite Package: $999 (normally $1199). Dynamic pages (up to 10), appointment booking system, payment gateway, mobile tuning.
-- Elite Plus Marketing: $1399 (normally $1699). Full custom dynamic build, CMS, Meta Ads setup, 15 Reels promotion, Google Analytics.
-- Social Starter: $199 (normally $499). 2 channels (Meta FB & IG), 8 posts, copy & hashtags.
-- Growth Accelerator: $499 (normally $899). Multi-channel paid ads, short-form reels, audience targeting.
+- Websites:
+  • Startup Website: $99 (special offer, normally $399). 3 static pages, responsive design, 1 year free hosting, 5-day delivery.
+  • Standard Plan: $399 (normally $699). Up to 10 static pages, basic SEO, 5 banners, 1 year free hosting.
+  • Elite Package: $999 (normally $1199). Dynamic pages (up to 10), appointment booking system, payment gateway, mobile tuning.
+  • Elite Plus Marketing: $1399 (normally $1699). Full custom dynamic build, CMS, Meta Ads setup, 15 Reels promotion, Google Analytics.
+- Web Applications (SaaS & Portals):
+  • Web App MVP: $999 (normally $1499). React 19 / Next.js, user auth, PostgreSQL/Supabase database, CRUD dashboard.
+  • Growth SaaS Platform: $1899 (normally $2499). Stripe recurring subscriptions, multi-tenancy, real-time WebSockets.
+  • Business Portal Pro: $2699 (normally $3499). CRM/ERP integrations, Redis background jobs, automated PDFs.
+  • Enterprise Cloud Suite: $3499 (normally $4499). AI pipelines, high-concurrency, SOC-2 security, 24/7 SLA.
+- Mobile Applications (iOS & Android):
+  • Mobile App MVP: $1299 (normally $1899). iOS & Android cross-platform React Native/Flutter, native device access, push notifications.
+  • Pro Mobile App: $2199 (normally $2999). In-app purchases, offline sync, 60fps animations, App Store & Google Play approval.
+  • Mobile + Web Suite: $2999 (normally $3999). Mobile apps + connected Web Admin Portal + real-time chat.
+  • Flagship Mobile Ecosystem: $3999 (normally $5499). AI smart features, biometric security vault, 90-day SLA.
+- Marketing:
+  • Social Starter: $199 (normally $499). 2 channels (Meta FB & IG), 8 posts, copy & hashtags.
+  • Growth Accelerator: $499 (normally $899). Multi-channel paid ads, short-form reels, audience targeting.
+  • Scale Pro Marketer: $999 (normally $1499). Google + Meta ads, 8 reels, email retargeting.
+  • Enterprise Brand Suite: $1699 (normally $2199). Full funnel machine, SEO, CRM integration.
 
 Studio Contact & 24*7 Support:
 - 24*7 Helpline & WhatsApp: +1 (506) 312-4135 (5063124135)
@@ -137,23 +151,71 @@ export async function generateAIResponse(
     query.includes("quote") ||
     query.includes("fee")
   ) {
+    // Specific: Mobile App Pricing
+    if (query.includes("mobile") || query.includes("ios") || query.includes("android") || query.includes("flutter")) {
+      return {
+        text:
+          `Here is our transparent Mobile Application Pricing lineup (iOS & Android):\n\n` +
+          `📱 **Mobile App MVP — $1,299** (Promo, Reg. $1,899)\n` +
+          `• Cross-platform iOS & Android codebase (React Native / Flutter)\n` +
+          `• User auth (Apple, Google, Biometrics), Supabase cloud database, push notifications, 4-week delivery.\n\n` +
+          `⚡ **Pro Mobile App — $2,199** (Reg. $2,999)\n` +
+          `• In-App purchases, offline-first SQLite sync, 60fps animations, guaranteed App Store & Google Play approval.\n\n` +
+          `🌐 **Mobile + Web Suite — $2,999** (Reg. $3,999)\n` +
+          `• Consumer iOS/Android mobile app paired with a connected staff Web Admin Portal & real-time chat.\n\n` +
+          `🏆 **Flagship Mobile Ecosystem — $3,999** (Reg. $5,499)\n` +
+          `• Enterprise architecture with AI features, biometric security vault, CI/CD store pipelines, 90-day warranty.\n\n` +
+          `Would you like to scope your mobile app features or book a discovery call?`,
+        actions: [
+          { label: "📦 View All Packages", actionType: "navigate", value: "/packages" },
+          { label: "💬 Scoping on WhatsApp", actionType: "whatsapp", value: "" },
+        ],
+        followUps: [
+          "What is included in the $1,299 Mobile MVP?",
+          "Can you build for both iOS and Android?",
+          "Do you handle Apple App Store submission?",
+        ],
+      }
+    }
+
+    // Specific: Web Application / SaaS Pricing
+    if (query.includes("saas") || query.includes("web app") || query.includes("webapp") || query.includes("portal") || query.includes("custom software")) {
+      return {
+        text:
+          `Here is our transparent Web Application & SaaS Pricing lineup:\n\n` +
+          `🚀 **Web App MVP — $999** (Promo, Reg. $1,499)\n` +
+          `• React 19 / Next.js frontend, PostgreSQL / Supabase architecture, user auth, core CRUD dashboard, 3-week delivery.\n\n` +
+          `💼 **Growth SaaS Platform — $1,899** (Reg. $2,499)\n` +
+          `• Multi-tenant architecture, Stripe recurring subscription billing, real-time WebSockets, transactional emails.\n\n` +
+          `🏢 **Business Portal Pro — $2,699** (Reg. $3,499)\n` +
+          `• Custom ERP/CRM integrations, automated background job queues (Redis), audit logs, automated PDF generation.\n\n` +
+          `🔥 **Enterprise Cloud Suite — $3,499** (Reg. $4,499)\n` +
+          `• AI pipeline integration (OpenAI/Gemini), microservices, SOC-2 security, zero-downtime CI/CD, priority 24/7 SLA.\n\n` +
+          `Which architecture tier best matches your software roadmap?`,
+        actions: [
+          { label: "📦 View All Packages", actionType: "navigate", value: "/packages" },
+          { label: "✉️ Request Technical Scope", actionType: "email", value: "support@maplecodix.com" },
+        ],
+        followUps: [
+          "How long does the Web App MVP take?",
+          "Can you integrate Stripe subscriptions?",
+          "Do you provide custom SaaS architecture?",
+        ],
+      }
+    }
+
     return {
       text:
-        `Here is our transparent package lineup designed for every stage:\n\n` +
-        `🚀 **Startup Website — $99** (Promo, Reg. $399)\n` +
-        `• 3 Static Webpages & Custom Design Layout\n` +
-        `• 1 Year Free Hosting & 5 Business Days Delivery\n` +
-        `• Perfect for new ventures needing a lightning-fast launch.\n\n` +
-        `⭐ **Standard Plan — $399** (Reg. $699)\n` +
-        `• Up to 10 Static Pages & 5 Custom Banners\n` +
-        `• Basic Technical SEO & Speed Optimization\n` +
-        `• Ideal for established small businesses & portfolios.\n\n` +
-        `💼 **Elite Package — $999** (Reg. $1199)\n` +
-        `• Dynamic Web Pages + Appointment Booking System\n` +
-        `• Payment Gateway & Conversion-focused Architecture\n\n` +
-        `🔥 **Elite Plus Marketing — $1399** (Reg. $1699)\n` +
-        `• Full CMS + High-end UI + Meta Ads Setup & 15 Reels Campaign.\n\n` +
-        `Which scale best matches your current roadmap?`,
+        `MapleCodix offers transparent, fixed-price packages across 4 core disciplines:\n\n` +
+        `🌐 **Websites (from $99):**\n` +
+        `• Startup ($99) · Standard ($399) · Elite ($999) · Elite Plus Marketing ($1,399)\n\n` +
+        `🚀 **Web Applications & SaaS (from $999):**\n` +
+        `• Web App MVP ($999) · Growth SaaS ($1,899) · Business Portal Pro ($2,699) · Enterprise Cloud Suite ($3,499)\n\n` +
+        `📱 **Mobile Applications (from $1,299):**\n` +
+        `• Mobile MVP ($1,299) · Pro Mobile ($2,199) · Mobile + Web Suite ($2,999) · Flagship Ecosystem ($3,999)\n\n` +
+        `📈 **Digital Marketing (from $199):**\n` +
+        `• Social Starter ($199) · Growth Accelerator ($499) · Scale Pro ($999) · Enterprise Brand Suite ($1,699)\n\n` +
+        `Which category would you like to explore in detail?`,
       actions: [
         {
           label: "📦 Compare All Packages",
@@ -167,9 +229,9 @@ export async function generateAIResponse(
         },
       ],
       followUps: [
+        "Tell me more about Web App packages",
+        "Tell me more about Mobile App packages",
         "What is included in the $99 Startup plan?",
-        "Can I upgrade my package later?",
-        "Do you provide custom SaaS quotes?",
       ],
     }
   }
@@ -191,14 +253,14 @@ export async function generateAIResponse(
         `• **Frontend Engine:** React 19, TypeScript, Tailwind CSS v4, Next.js / Vite for ultra-snappy reactive interfaces.\n` +
         `• **Backend & APIs:** Node.js, Python, Fast-API / Express, REST & GraphQL pipelines.\n` +
         `• **Data Architecture:** PostgreSQL, Supabase, Redis caching, robust schema migrations.\n` +
-        `• **Security & Auth:** JWT, OAuth, role-based access control (RBAC), and SOC-2 compliant practices.\n` +
-        `• **Estimated Timeline:** 4 to 10 weeks depending on custom workflows, billing integrations, and scope.\n\n` +
+        `• **Pricing Packages:** Web App MVP ($999), Growth SaaS ($1,899), Business Portal Pro ($2,699), Enterprise Cloud ($3,499).\n` +
+        `• **Estimated Timeline:** 3 to 8 weeks across iterative agile sprints.\n\n` +
         `Would you like to review architecture recommendations for your specific idea?`,
       actions: [
         {
-          label: "🚀 Explore Web Apps",
+          label: "📦 Compare Web App Packages",
           actionType: "navigate",
-          value: "/services",
+          value: "/packages",
         },
         {
           label: "✉️ Request Technical Scope",
@@ -288,20 +350,24 @@ export async function generateAIResponse(
         `We design and develop high-fidelity mobile applications across iOS and Android:\n\n` +
         `📱 **Tech Frameworks:** React Native and Flutter for cost-effective cross-platform parity with native 60fps fluidity.\n` +
         `✨ **Native Capabilities:** Push notifications, biometric auth (FaceID/Fingerprint), offline sync, location services, and Apple/Google Pay.\n` +
-        `📦 **Store Deployments:** End-to-end guidance through Apple App Store review guidelines and Google Play Console release manifests.\n` +
-        `⏱️ **Turnaround:** Typically 6 to 12 weeks for an MVP release.\n\n` +
+        `📦 **Transparent Pricing Packages:**\n` +
+        `• **Mobile App MVP ($1,299):** Cross-platform iOS/Android app, auth, Supabase, push notifications.\n` +
+        `• **Pro Mobile App ($2,199):** In-App purchases, offline sync, 60fps micro-interactions, store approval.\n` +
+        `• **Mobile + Web Suite ($2,999):** Mobile apps paired with staff Web Admin Portal & real-time chat.\n` +
+        `• **Flagship Ecosystem ($3,999):** AI features, biometric security, CI/CD store pipelines, 90-day SLA.\n` +
+        `⏱️ **Turnaround:** 4 to 8 weeks with TestFlight staging builds.\n\n` +
         `Are you targeting both iOS and Android, or starting with one?`,
       actions: [
         {
-          label: "📱 View Mobile Services",
+          label: "📦 Compare Mobile Packages",
           actionType: "navigate",
-          value: "/services",
+          value: "/packages",
         },
         { label: "💬 Chat on WhatsApp", actionType: "whatsapp", value: "" },
       ],
       followUps: [
         "Should I choose Flutter or React Native?",
-        "How much does a mobile app MVP cost?",
+        "What is included in the $1,299 Mobile MVP?",
         "Do you handle App Store submission?",
       ],
     }
