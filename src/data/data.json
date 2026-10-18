@@ -237,20 +237,14 @@
       },
       {
         "number": "05",
-        "title": "SEO Services",
-        "description": "Technical and content-led search strategies designed for sustainable organic growth.",
-        "icon": "search"
-      },
-      {
-        "number": "06",
-        "title": "Digital Marketing",
-        "description": "Data-informed campaigns that earn attention, build trust, and create measurable demand.",
+        "title": "Digital Marketing & SEO",
+        "description": "Data-informed campaigns and search visibility strategies designed for organic growth and measurable demand.",
         "icon": "marketing"
       },
       {
-        "number": "07",
-        "title": "Creative Copywriting",
-        "description": "Clear, distinctive brand language that sounds human and inspires people to act.",
+        "number": "06",
+        "title": "Creative Writing",
+        "description": "Clear, distinctive brand language and copy that sounds human and inspires people to act.",
         "icon": "pen"
       }
     ]
