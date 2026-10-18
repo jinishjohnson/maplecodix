@@ -1,9 +1,11 @@
+import { useState } from "react"
 import { ScrollReveal } from "./ScrollReveal"
 import siteData from "../data/data.json"
 import logoSrc from "../assets/maplecodix-logo.jpg"
 
 export function AboutSection() {
   const { aboutSection } = siteData
+  const [imgError, setImgError] = useState(false)
 
   return (
     <section id="about" className="bg-[#f5f5f7] py-24 text-[#1d1d1f] md:py-32">
@@ -11,13 +13,43 @@ export function AboutSection() {
         <ScrollReveal animation="fade-right" duration={800}>
           <div className="relative mx-auto max-w-md">
             {/* Pure White Apple Emblem Frame */}
-            <div className="aspect-square overflow-hidden rounded-[2.25rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)] transition-all duration-500">
-              <img
-                className="h-full w-full object-contain"
-                src={logoSrc}
-                alt="MapleCodix emblem"
-                loading="lazy"
-              />
+            <div className="aspect-square overflow-hidden rounded-[2.25rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)] transition-all duration-500 flex items-center justify-center">
+              {!imgError ? (
+                <img
+                  className="h-full w-full object-contain"
+                  src={logoSrc}
+                  alt="MapleCodix emblem"
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setImgError(true)}
+                />
+              ) : (
+                <div className="flex flex-col items-center justify-center text-center p-4">
+                  <svg
+                    className="size-32 drop-shadow-md"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M20 5L24 13L28 9L27 17L33 16L29 23L35 25L28 30L20 37L12 30L5 25L11 23L7 16L13 17L12 9L16 13L20 5Z"
+                      fill="#071d35"
+                    />
+                    <path
+                      d="M20 5L24 13L28 9L25 15L20 12L15 15L12 9L16 13L20 5Z"
+                      fill="#c91f26"
+                    />
+                    <path
+                      d="M16 17V27H19V22H21V27H24V17H21V20H19V17H16Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <span className="mt-4 text-2xl font-extrabold tracking-[-0.04em] text-[#071d35]">
+                    Maple<span className="text-[#c91f26]">Codix</span>
+                  </span>
+                </div>
+              )}
             </div>
             
             {/* Apple Space Black Badge */}
