@@ -12,6 +12,7 @@ export interface EnvConfig {
   whatsappPhone: string
   supportEmail: string
   supportPhone: string
+  web3formsAccessKey: string
 
   // Cryptography & Security
   encryptionKey: string
@@ -29,6 +30,7 @@ export const ENV: EnvConfig = {
   whatsappPhone: import.meta.env.VITE_WHATSAPP_PHONE || "15063124135",
   supportEmail: import.meta.env.VITE_SUPPORT_EMAIL || "support@maplecodix.com",
   supportPhone: import.meta.env.VITE_SUPPORT_PHONE || "+1 (506) 312-4135",
+  web3formsAccessKey: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "",
   encryptionKey:
     import.meta.env.VITE_DATA_ENCRYPTION_KEY ||
     "mc_sec_8f93e2b17a04c5d6e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1",

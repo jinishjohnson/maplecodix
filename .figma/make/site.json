@@ -1,7 +1,9 @@
 {
-  "description": "This platform offers comprehensive digital solutions including website development, e-commerce, mobile apps, SEO, and digital marketing for businesses.",
+  "title": "MapleCodix | Digital Studio — Websites, Web Apps & Growth",
+  "description": "MapleCodix is a premier Canadian digital engineering studio specializing in high-performance websites, custom web apps, and growth architecture.",
+  "language": "en",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,

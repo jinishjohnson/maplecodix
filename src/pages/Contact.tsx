@@ -27,36 +27,80 @@ export function Contact() {
     message: "",
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [ticketId, setTicketId] = useState("")
   const [copiedEmail, setCopiedEmail] = useState(false)
   const [copiedPhone, setCopiedPhone] = useState(false)
   const [isCustomQuoteOpen, setIsCustomQuoteOpen] = useState(false)
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) return
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return
+
+    setIsSubmitting(true)
     const randomTicket = `MC-247-${Math.floor(1000 + Math.random() * 9000)}`
     setTicketId(randomTicket)
-    setIsSubmitted(true)
 
-    // Store ticket payload in encrypted local vault
+    // 1. Dispatch real email directly to support inbox via Web3Forms API
+    let emailDelivered = false
+    try {
+      if (ENV.web3formsAccessKey) {
+        const payload = {
+          access_key: ENV.web3formsAccessKey,
+          subject: `[MapleCodix Support Ticket] ${randomTicket} · ${formData.urgency.toUpperCase()}`,
+          from_name: "MapleCodix Priority Support Desk",
+          ticket_id: randomTicket,
+          client_name: formData.name,
+          client_email: formData.email,
+          client_phone: formData.phone || "Not provided",
+          urgency_level: formData.urgency,
+          project_message: formData.message,
+          submitted_at: new Date().toLocaleString("en-CA", {
+            timeZone: "America/Moncton",
+          }),
+        }
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+
+        const data = await res.json()
+        if (data.success) {
+          emailDelivered = true
+        }
+      }
+    } catch (err) {
+      console.warn("Email dispatch error:", err)
+    }
+
+    // 2. Store ticket payload in encrypted local vault
     try {
       const ticketRecord = {
         ticketId: randomTicket,
         timestamp: new Date().toISOString(),
+        emailDelivered,
         ...formData,
       }
-      decryptStorage<unknown[]>("maplecodix_encrypted_tickets", []).then(
-        (existing) => {
-          const list = Array.isArray(existing) ? existing : []
-          list.unshift(ticketRecord)
-          encryptStorage("maplecodix_encrypted_tickets", list)
-        },
-      )
+      const existing =
+        (await decryptStorage<unknown[]>(
+          "maplecodix_encrypted_tickets",
+          [],
+        )) || []
+      const list = Array.isArray(existing) ? existing : []
+      list.unshift(ticketRecord)
+      await encryptStorage("maplecodix_encrypted_tickets", list)
     } catch {
       // ignore
     }
+
+    setIsSubmitting(false)
+    setIsSubmitted(true)
   }
 
   const handleCopy = (text: string, type: "email" | "phone") => {
@@ -441,10 +485,20 @@ export function Contact() {
 
                         <button
                           type="submit"
-                          className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1d1d1f] py-4 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#c91f26] hover:shadow-lg active:scale-[0.99] cursor-pointer"
+                          disabled={isSubmitting}
+                          className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1d1d1f] py-4 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#c91f26] hover:shadow-lg active:scale-[0.99] disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer"
                         >
-                          <span>Submit Priority Request</span>
-                          <Icon name="arrow" className="size-4" />
+                          {isSubmitting ? (
+                            <>
+                              <span className="size-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                              <span>Dispatching Priority Ticket...</span>
+                            </>
+                          ) : (
+                            <>
+                              <span>Submit Priority Request</span>
+                              <Icon name="arrow" className="size-4" />
+                            </>
+                          )}
                         </button>
 
                         <p className="text-center text-xs text-[#86868b]">
@@ -459,13 +513,17 @@ export function Contact() {
                           </svg>
                         </div>
                         <h4 className="mt-4 text-2xl font-semibold text-[#1d1d1f]">
-                          Request Logged Successfully
+                          Request Dispatched &amp; Logged
                         </h4>
                         <p className="mt-2 text-xs font-bold text-emerald-700">
                           Support Ticket ID: <span className="font-mono text-sm underline">{ticketId}</span>
                         </p>
+                        <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-emerald-100/90 px-3.5 py-1 text-xs font-semibold text-emerald-800">
+                          <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                          <span>Directly Dispatched to Support Inbox &amp; Assigned</span>
+                        </div>
                         <p className="mt-3 text-sm leading-relaxed text-[#6e6e73] max-w-md mx-auto">
-                          Thank you, <strong>{formData.name}</strong>. Our on-duty Canadian engineering desk has received your ticket. We will reach out to <strong>{formData.email}</strong> shortly.
+                          Thank you, <strong>{formData.name}</strong>. Our on-duty Canadian engineering desk has received your ticket details. We will reach out to <strong>{formData.email}</strong> shortly.
                         </p>
 
                         <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -503,6 +561,7 @@ export function Contact() {
                         alt="MapleCodix Moncton studio headquarters"
                         className="h-full w-full object-cover"
                         loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">

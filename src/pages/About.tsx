@@ -209,6 +209,7 @@ export function About() {
                       alt="MapleCodix discovery and product design workshop with tactile sketches and architecture blueprints"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -334,6 +335,7 @@ export function About() {
                       alt="Apple Studio Display and iPad Pro presenting sleek Figma design system tokens and micro-interactions"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -376,6 +378,7 @@ export function About() {
                       alt="Senior software engineer at MapleCodix coding high performance React and TypeScript architecture"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -512,6 +515,7 @@ export function About() {
                       alt="MapleCodix Canadian engineering team mapping system architecture and user flows on glass whiteboard"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -571,6 +575,7 @@ export function About() {
                       alt="MapleCodix Canadian digital headquarters in Moncton overlooking the skyline"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -667,6 +672,7 @@ export function About() {
                       alt="MapleCodix team celebrating launch of client mobile app and web platform"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 

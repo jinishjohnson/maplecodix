@@ -105,45 +105,85 @@ export function CustomQuoteModal({
     return `MCR-${randomCode}`
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!fullName.trim() || !email.trim()) return
 
     setIsSubmitting(true)
+    const ref = generateTicket()
+    setReferenceId(ref)
 
-    setTimeout(async () => {
-      const ref = generateTicket()
-      setReferenceId(ref)
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-
-      // Encrypt and store quote request in local encrypted vault
-      try {
-        const quoteRecord = {
-          ref,
-          timestamp: new Date().toISOString(),
-          category,
-          fullName,
-          email,
-          phone,
-          company,
-          budget,
-          timeline,
-          selectedRequirements,
-          projectOverview,
+    // 1. Dispatch quote email directly to inbox via Web3Forms
+    let emailDelivered = false
+    try {
+      if (ENV.web3formsAccessKey) {
+        const payload = {
+          access_key: ENV.web3formsAccessKey,
+          subject: `[MapleCodix Custom Quote Request] Ref ${ref} · ${category.toUpperCase()}`,
+          from_name: "MapleCodix Custom Scope Desk",
+          quote_reference: ref,
+          client_name: fullName,
+          client_email: email,
+          client_phone: phone || "Not provided",
+          company_name: company || "Independent / Startup",
+          project_category: category,
+          estimated_budget: budget,
+          target_timeline: timeline,
+          key_requirements: selectedRequirements.join(", "),
+          project_overview: projectOverview || "No additional notes provided",
+          submitted_at: new Date().toLocaleString("en-CA", {
+            timeZone: "America/Moncton",
+          }),
         }
-        const existing =
-          (await decryptStorage<unknown[]>(
-            "maplecodix_encrypted_quotes",
-            [],
-          )) || []
-        const list = Array.isArray(existing) ? existing : []
-        list.unshift(quoteRecord)
-        await encryptStorage("maplecodix_encrypted_quotes", list)
-      } catch {
-        // ignore
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+
+        const data = await res.json()
+        if (data.success) {
+          emailDelivered = true
+        }
       }
-    }, 600)
+    } catch (err) {
+      console.warn("Custom quote email dispatch warning:", err)
+    }
+
+    // 2. Encrypt and store quote request in local encrypted vault
+    try {
+      const quoteRecord = {
+        ref,
+        timestamp: new Date().toISOString(),
+        emailDelivered,
+        category,
+        fullName,
+        email,
+        phone,
+        company,
+        budget,
+        timeline,
+        selectedRequirements,
+        projectOverview,
+      }
+      const existing =
+        (await decryptStorage<unknown[]>(
+          "maplecodix_encrypted_quotes",
+          [],
+        )) || []
+      const list = Array.isArray(existing) ? existing : []
+      list.unshift(quoteRecord)
+      await encryptStorage("maplecodix_encrypted_quotes", list)
+    } catch {
+      // ignore
+    }
+
+    setIsSubmitting(false)
+    setIsSubmitted(true)
   }
 
   const handleCopyRef = () => {

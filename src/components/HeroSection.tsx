@@ -78,6 +78,11 @@ export function HeroSection() {
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   src={hero.showcase.image}
                   alt={hero.showcase.alt}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width={420}
+                  height={525}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
