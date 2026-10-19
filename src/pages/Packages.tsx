@@ -61,11 +61,11 @@ export function Packages() {
         <section
           id="pricing-tiers"
           aria-label="Packages and pricing options"
-          className="bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
+          className="relative bg-[#e9edf5] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
         >
           {/* Apple-Style Segmented Tab Controller */}
           <div className="mx-auto mb-16 max-w-5xl px-5 text-center md:px-8">
-            <div className="inline-flex flex-wrap items-center justify-center gap-1.5 rounded-full border border-black/[0.06] bg-white p-1.5 shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
+            <div className="inline-flex flex-wrap items-center justify-center gap-1.5 rounded-full border border-slate-200/90 bg-white p-1.5 shadow-[0_2px_12px_rgba(15,23,42,0.04)]">
               {CATEGORY_TABS.map((tab) => {
                 const isActive = activeCategory === tab.id
                 return (
@@ -76,8 +76,8 @@ export function Packages() {
                     onClick={() => setActiveCategory(tab.id)}
                     className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition-all duration-300 md:text-sm cursor-pointer ${
                       isActive
-                        ? "bg-[#1d1d1f] text-white shadow-sm ring-1 ring-[#1d1d1f]"
-                        : "text-[#6e6e73] hover:text-[#1d1d1f]"
+                        ? "bg-[#0f172a] text-white shadow-sm ring-1 ring-[#0f172a]"
+                        : "text-[#64748b] hover:text-[#0f172a]"
                     }`}
                     aria-pressed={isActive}
                   >
@@ -125,8 +125,8 @@ export function Packages() {
                     id={`package-${activeCategory}-${index + 1}`}
                     className={`group relative flex h-full min-h-[42rem] flex-col justify-between rounded-[2rem] border p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 ${
                       isDark
-                        ? "border-white/10 bg-[#1d1d1f] text-white shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.3)]"
-                        : "border-black/[0.05] bg-white text-[#1d1d1f] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
+                        ? "border-slate-800 bg-[#0f172a] text-white shadow-[0_20px_50px_rgba(15,23,42,0.22)] hover:shadow-[0_28px_60px_rgba(15,23,42,0.3)]"
+                        : "border-slate-200/90 bg-white text-[#1d1d1f] shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:border-slate-300 hover:shadow-[0_24px_60px_-12px_rgba(15,23,42,0.12)]"
                     }`}
                   >
                     <div>
@@ -135,7 +135,7 @@ export function Packages() {
                         className={`inline-block rounded-full px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${
                           isDark
                             ? "bg-white/15 text-white"
-                            : "bg-[#f5f5f7] text-[#1d1d1f]"
+                            : "bg-[#f1f5f9] text-[#1d1d1f]"
                         }`}
                       >
                         {item.badge}
@@ -230,7 +230,7 @@ export function Packages() {
             <ScrollReveal animation="zoom-in" duration={650}>
               <div
                 id="custom-quote-card"
-                className="relative overflow-hidden rounded-[2.25rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_30px_rgba(0,0,0,0.04)] md:flex md:items-center md:justify-between md:gap-10 md:p-10"
+                className="relative overflow-hidden rounded-[2.25rem] border border-slate-200/90 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:flex md:items-center md:justify-between md:gap-10 md:p-10"
               >
                 <div className="relative">
                   <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">

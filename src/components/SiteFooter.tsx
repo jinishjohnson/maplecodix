@@ -7,7 +7,7 @@ export function SiteFooter() {
   const { footer, site } = siteData
 
   return (
-    <footer className="border-t border-white/10 bg-[#1d1d1f] text-white">
+    <footer className="border-t border-slate-800 bg-[#0a0e17] text-white">
       <ScrollReveal animation="fade-up" duration={600}>
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 lg:px-10">
           {/* Main Footer Grid */}

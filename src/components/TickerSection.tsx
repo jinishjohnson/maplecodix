@@ -13,12 +13,12 @@ export function TickerSection({
 }: TickerSectionProps) {
   return (
     <ScrollReveal animation="fade" duration={700}>
-      <section className="border-y border-black/[0.05] bg-[#f5f5f7] py-5 overflow-hidden">
-        <div className="ticker flex min-w-max items-center gap-10 text-xs font-semibold uppercase tracking-[0.2em] text-[#1d1d1f]">
+      <section className="border-y border-slate-800/80 bg-[#0c131f] py-5 overflow-hidden shadow-inner">
+        <div className="ticker flex min-w-max items-center gap-10 text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
           {items.map((item, index) => (
             <span className="flex items-center gap-10" key={`${item}-${index}`}>
               <span>{item}</span>
-              <Icon name="spark" className="size-3.5 text-[#c91f26]" />
+              <Icon name="spark" className="size-3.5 text-[#ff4d4f]" />
             </span>
           ))}
         </div>

@@ -14,11 +14,78 @@ export interface ProcessSectionProps {
   steps?: ProcessStep[]
 }
 
+interface LogoCardTheme {
+  cardClass: string
+  topLineClass: string
+  numberClass: string
+  badgeText?: string
+  badgeClass?: string
+  dotClass: string
+  titleClass: string
+  descClass: string
+}
+
+// Color palette derived directly from MapleCodix logo:
+// 1. Tech Circuit Sapphire Blue (#0066cc)
+// 2. Signature Maple Crown Crimson Red (#c91f26)
+// 3. Maple Leaf Wings Midnight Navy Blue (#071d35)
+// 4. Center Diamond Faceted Silver Titanium (#475569)
+const LOGO_CARD_THEMES: LogoCardTheme[] = [
+  {
+    // 01 Discover - Tech Circuit Sapphire Blue
+    cardClass:
+      "border border-blue-200/90 bg-gradient-to-b from-[#f0f7ff] to-[#ddecfe] text-[#1d1d1f] shadow-[0_8px_30px_rgba(0,102,204,0.07)] hover:border-[#0066cc] hover:shadow-[0_20px_45px_rgba(0,102,204,0.18)]",
+    topLineClass: "bg-gradient-to-r from-[#0066cc] to-[#38bdf8]",
+    numberClass: "text-[#0066cc]",
+    badgeText: "Phase 01",
+    badgeClass: "bg-[#0066cc]/10 text-[#0066cc] border border-[#0066cc]/20",
+    dotClass: "bg-[#0066cc]",
+    titleClass: "text-[#1d1d1f] group-hover:text-[#0066cc]",
+    descClass: "text-[#4b5563]",
+  },
+  {
+    // 02 Design - Signature Maple Leaf Crown Crimson Red
+    cardClass:
+      "border border-rose-200/90 bg-gradient-to-b from-[#fff1f2] to-[#ffdce0] text-[#1d1d1f] shadow-[0_8px_30px_rgba(201,31,38,0.07)] hover:border-[#c91f26] hover:shadow-[0_20px_45px_rgba(201,31,38,0.18)]",
+    topLineClass: "bg-gradient-to-r from-[#c91f26] to-[#f43f5e]",
+    numberClass: "text-[#c91f26]",
+    badgeText: "Core Phase",
+    badgeClass: "bg-[#c91f26]/10 text-[#c91f26] border border-[#c91f26]/20",
+    dotClass: "bg-[#c91f26]",
+    titleClass: "text-[#1d1d1f] group-hover:text-[#c91f26]",
+    descClass: "text-[#4b5563]",
+  },
+  {
+    // 03 Build - Maple Leaf Wings Midnight Navy Blue
+    cardClass:
+      "border border-sky-300/80 bg-gradient-to-b from-[#edf3fa] to-[#d4e2f2] text-[#1d1d1f] shadow-[0_8px_30px_rgba(7,29,53,0.08)] hover:border-[#071d35] hover:shadow-[0_20px_45px_rgba(7,29,53,0.2)]",
+    topLineClass: "bg-gradient-to-r from-[#071d35] via-[#0f3460] to-[#1e40af]",
+    numberClass: "text-[#071d35]",
+    badgeText: "Phase 03",
+    badgeClass: "bg-[#071d35]/10 text-[#071d35] border border-[#071d35]/25",
+    dotClass: "bg-[#071d35]",
+    titleClass: "text-[#1d1d1f] group-hover:text-[#071d35]",
+    descClass: "text-[#334155]",
+  },
+  {
+    // 04 Grow - Center Diamond Faceted Silver Titanium
+    cardClass:
+      "border border-slate-300/90 bg-gradient-to-b from-[#f8fafc] to-[#e2e8f0] text-[#1d1d1f] shadow-[0_8px_30px_rgba(100,116,139,0.07)] hover:border-[#475569] hover:shadow-[0_20px_45px_rgba(100,116,139,0.18)]",
+    topLineClass: "bg-gradient-to-r from-[#64748b] to-[#94a3b8]",
+    numberClass: "text-[#475569]",
+    badgeText: "Continuous",
+    badgeClass: "bg-slate-500/10 text-[#475569] border border-slate-500/20",
+    dotClass: "bg-[#475569]",
+    titleClass: "text-[#1d1d1f] group-hover:text-[#1e293b]",
+    descClass: "text-[#475569]",
+  },
+]
+
 export function ProcessSection({ steps = processSteps }: ProcessSectionProps) {
   const { processSection } = siteData
 
   return (
-    <section id="approach" className="bg-[#fbfbfd] py-24 text-[#1d1d1f] border-t border-black/[0.04] md:py-32">
+    <section id="approach" className="relative bg-[#ffffff] py-24 text-[#1d1d1f] border-b border-slate-200/90 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <ScrollReveal animation="fade-up" duration={700}>
@@ -41,11 +108,10 @@ export function ProcessSection({ steps = processSteps }: ProcessSectionProps) {
           </ScrollReveal>
         </div>
 
-        {/* Apple-Style Process Cards Grid with Highlighted Accent Cards */}
+        {/* Process Cards Grid - Distinct Colors from the MapleCodix Logo */}
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((item, index) => {
-            const isDark = index === 1
-            const isTinted = index === 3
+            const theme = LOGO_CARD_THEMES[index % LOGO_CARD_THEMES.length]
 
             return (
               <ScrollReveal
@@ -55,57 +121,42 @@ export function ProcessSection({ steps = processSteps }: ProcessSectionProps) {
                 duration={700}
               >
                 <article
-                  className={`group flex h-full flex-col justify-between rounded-[2rem] p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 ${
-                    isDark
-                      ? "border border-white/[0.08] bg-[#1d1d1f] text-white shadow-[0_8px_32px_rgba(0,0,0,0.16)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
-                      : isTinted
-                        ? "border border-[#c91f26]/20 bg-[#fff5f6] text-[#1d1d1f] shadow-[0_4px_24px_rgba(201,31,38,0.06)] hover:border-[#c91f26]/35 hover:shadow-[0_24px_60px_rgba(201,31,38,0.12)]"
-                        : "border border-black/[0.05] bg-white text-[#1d1d1f] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
-                  }`}
+                  className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 ${theme.cardClass}`}
                 >
+                  {/* Subtle top rim light in brand logo accent */}
+                  <div
+                    className={`absolute inset-x-0 top-0 h-[2.5px] ${theme.topLineClass}`}
+                  />
+
                   <div>
+                    {/* Header: SF Mono Index & Status Badge */}
                     <div className="flex items-center justify-between">
-                      <span
-                        className={`font-mono text-xs font-bold ${
-                          isDark ? "text-[#ff4d4f]" : "text-[#c91f26]"
-                        }`}
-                      >
+                      <span className={`font-mono text-xs font-bold tracking-widest ${theme.numberClass}`}>
                         {item.number}
                       </span>
                       <div className="flex items-center gap-2">
-                        {isDark && (
-                          <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/90">
-                            Core Phase
-                          </span>
-                        )}
-                        {isTinted && (
-                          <span className="rounded-full bg-[#c91f26]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#c91f26]">
-                            Continuous
+                        {theme.badgeText && (
+                          <span
+                            className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${theme.badgeClass}`}
+                          >
+                            {theme.badgeText}
                           </span>
                         )}
                         <span
-                          className={`size-2 rounded-full transition-transform duration-300 group-hover:scale-125 ${
-                            isDark ? "bg-[#ff4d4f]" : "bg-[#c91f26]"
-                          }`}
+                          className={`size-2 rounded-full transition-transform duration-300 group-hover:scale-125 ${theme.dotClass}`}
                         />
                       </div>
                     </div>
 
+                    {/* Headline Title */}
                     <h3
-                      className={`mt-14 text-2xl font-bold tracking-tight transition-colors ${
-                        isDark
-                          ? "text-white group-hover:text-[#ff4d4f]"
-                          : "text-[#1d1d1f] group-hover:text-[#c91f26]"
-                      }`}
+                      className={`mt-14 text-2xl font-bold tracking-tight transition-colors duration-300 ${theme.titleClass}`}
                     >
                       {item.title}
                     </h3>
 
-                    <p
-                      className={`mt-3 text-sm leading-relaxed ${
-                        isDark ? "text-[#a1a1a6]" : "text-[#6e6e73]"
-                      }`}
-                    >
+                    {/* Secondary Description */}
+                    <p className={`mt-3 text-sm leading-relaxed ${theme.descClass}`}>
                       {item.description}
                     </p>
                   </div>

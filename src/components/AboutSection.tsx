@@ -8,12 +8,12 @@ export function AboutSection() {
   const [imgError, setImgError] = useState(false)
 
   return (
-    <section id="about" className="bg-[#f5f5f7] py-24 text-[#1d1d1f] md:py-32">
+    <section id="about" className="relative bg-[#e9edf5] py-24 text-[#1d1d1f] border-b border-slate-200/90 md:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 md:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-10">
         <ScrollReveal animation="fade-right" duration={800}>
           <div className="relative mx-auto max-w-md">
             {/* Pure White Apple Emblem Frame */}
-            <div className="aspect-square overflow-hidden rounded-[2.25rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)] transition-all duration-500 flex items-center justify-center">
+            <div className="aspect-square overflow-hidden rounded-[2.25rem] border border-slate-200/90 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:shadow-[0_24px_60px_-12px_rgba(15,23,42,0.12)] transition-all duration-500 flex items-center justify-center">
               {!imgError ? (
                 <img
                   className="h-full w-full object-contain"
@@ -53,7 +53,7 @@ export function AboutSection() {
             </div>
             
             {/* Apple Space Black Badge */}
-            <div className="absolute -bottom-3 -right-3 rounded-2xl border border-white/10 bg-[#1d1d1f] p-5 text-white shadow-xl">
+            <div className="absolute -bottom-3 -right-3 rounded-2xl border border-slate-800 bg-[#0f172a] p-5 text-white shadow-xl">
               <p className="text-3xl font-bold tracking-tight text-white">
                 {aboutSection.badge.title}
               </p>
@@ -80,7 +80,7 @@ export function AboutSection() {
           </ScrollReveal>
 
           {/* Apple Pillar Cards */}
-          <div className="mt-10 grid gap-4 border-t border-black/[0.06] pt-8 sm:grid-cols-3">
+          <div className="mt-10 grid gap-4 border-t border-slate-200/80 pt-8 sm:grid-cols-3">
             {aboutSection.pillars.map((pillar, idx) => (
               <ScrollReveal
                 key={pillar.number}
@@ -88,7 +88,7 @@ export function AboutSection() {
                 delay={idx * 110}
                 duration={650}
               >
-                <div className="rounded-2xl border border-black/[0.05] bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]">
+                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-[0_4px_16px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
                   <p className="font-mono text-xs font-bold tracking-wider text-[#c91f26]">
                     {pillar.number}
                   </p>

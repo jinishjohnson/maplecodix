@@ -10,7 +10,7 @@ export interface PageShellProps {
 
 export function PageShell({ children, intro }: PageShellProps) {
   return (
-    <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f]">
+    <div className="min-h-screen bg-white text-[#1d1d1f]">
       <SiteHeader />
       <main>
         {intro && <PageIntro {...intro} />}

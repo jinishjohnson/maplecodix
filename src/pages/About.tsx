@@ -122,7 +122,7 @@ export function About() {
         {/* APPLE-STANDARD STICKY STORY MODE CONTROLLER */}
         <section
           aria-label="Story mode chapter navigation"
-          className="sticky top-20 z-30 border-b border-black/[0.06] bg-white/80 py-3 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all"
+          className="sticky top-20 z-30 border-b border-slate-200/90 bg-white/95 py-3 backdrop-blur-xl shadow-xs transition-all"
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-5 md:px-8 lg:px-10">
             <div className="flex items-center gap-2">
@@ -143,16 +143,14 @@ export function About() {
                     key={ch.id}
                     type="button"
                     onClick={() => scrollToChapter(ch.id)}
-                    className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300 sm:px-3.5 ${
-                      isActive
-                        ? "bg-[#1d1d1f] text-white shadow-sm ring-1 ring-[#1d1d1f]"
-                        : "bg-[#f5f5f7] text-[#6e6e73] hover:bg-[#e8e8ed] hover:text-[#1d1d1f]"
-                    }`}
+                    className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300 sm:px-3.5 ${isActive
+                        ? "bg-[#0f172a] text-white shadow-sm ring-1 ring-[#0f172a]"
+                        : "bg-[#f1f5f9] text-[#475569] border border-slate-200/60 hover:bg-[#e2e8f0] hover:text-[#0f172a]"
+                      }`}
                   >
                     <span
-                      className={`font-mono text-[10px] font-semibold ${
-                        isActive ? "text-[#ff4d4f]" : "text-[#86868b]"
-                      }`}
+                      className={`font-mono text-[10px] font-semibold ${isActive ? "text-[#ff4d4f]" : "text-[#86868b]"
+                        }`}
                     >
                       {ch.number}
                     </span>
@@ -176,7 +174,7 @@ export function About() {
         {/* 
           STORY HERO PROLOGUE (Apple Standard Typography)
         */}
-        <section className="bg-[#fbfbfd] py-16 text-center border-b border-black/[0.04] md:py-24">
+        <section className="relative bg-gradient-to-b from-[#ffffff] to-[#f8fafc] py-16 text-center border-b border-slate-200/90 md:py-24">
           <div className="mx-auto max-w-4xl px-5">
             <ScrollReveal animation="fade-up">
               <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">
@@ -197,7 +195,7 @@ export function About() {
         */}
         <section
           id="chapter-genesis"
-          className="scroll-mt-36 py-20 bg-white md:py-28"
+          className="scroll-mt-36 py-20 bg-[#e9edf5] border-b border-slate-200/90 md:py-28"
           aria-label="Chapter 01 The Genesis"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
@@ -213,7 +211,7 @@ export function About() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
+
                     {/* Floating Frosted Badge */}
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/20 bg-white/90 p-4 backdrop-blur-md shadow-md sm:bottom-6 sm:left-6 sm:right-6">
                       <div>
@@ -275,7 +273,7 @@ export function About() {
         */}
         <section
           id="chapter-design-system"
-          className="scroll-mt-36 bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
+          className="scroll-mt-36 bg-[#ffffff] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
           aria-label="Chapter 02 The Design System"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
@@ -338,7 +336,7 @@ export function About() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
+
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/20 bg-white/90 p-4 backdrop-blur-md shadow-md sm:bottom-6 sm:left-6 sm:right-6">
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-[#0066cc]">
@@ -364,7 +362,7 @@ export function About() {
         */}
         <section
           id="chapter-code-craft"
-          className="scroll-mt-36 bg-white py-20 text-[#1d1d1f] md:py-28"
+          className="scroll-mt-36 bg-[#e9edf5] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
           aria-label="Chapter 03 The Craft"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
@@ -380,7 +378,7 @@ export function About() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
+
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/20 bg-white/90 p-4 backdrop-blur-md shadow-md sm:bottom-6 sm:left-6 sm:right-6">
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-[#c91f26]">
@@ -453,7 +451,7 @@ export function About() {
         */}
         <section
           id="chapter-collaboration"
-          className="scroll-mt-36 bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
+          className="scroll-mt-36 bg-[#ffffff] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
           aria-label="Chapter 04 Team Collaboration"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
@@ -516,7 +514,7 @@ export function About() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
+
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/20 bg-white/90 p-4 backdrop-blur-md shadow-md sm:bottom-6 sm:left-6 sm:right-6">
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-[#c91f26]">
@@ -542,7 +540,7 @@ export function About() {
         */}
         <section
           id="chapter-studio"
-          className="scroll-mt-36 bg-white py-20 text-[#1d1d1f] md:py-28"
+          className="scroll-mt-36 bg-[#e9edf5] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
           aria-label="Chapter 05 The Studio"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
@@ -575,7 +573,7 @@ export function About() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
+
                     {/* Studio Information Overlay Card */}
                     <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6 rounded-2xl border border-white/20 bg-white/95 p-6 md:p-8 backdrop-blur-xl shadow-xl">
                       <div>
@@ -655,7 +653,7 @@ export function About() {
         */}
         <section
           id="chapter-launch"
-          className="scroll-mt-36 bg-[#fbfbfd] py-20 text-[#1d1d1f] md:py-28"
+          className="scroll-mt-36 bg-[#ffffff] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
           aria-label="Chapter 06 Next Horizon"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
@@ -671,7 +669,7 @@ export function About() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
+
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/20 bg-white/90 p-4 backdrop-blur-md shadow-md sm:bottom-6 sm:left-6 sm:right-6">
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-[#c91f26]">
@@ -748,7 +746,7 @@ export function About() {
           APPLE-STYLE SOCIAL MEDIA & COMMUNITY SECTION
           ========================================================================
         */}
-        <SocialSection />
+        {/* <SocialSection /> */}
       </PageShell>
 
       {/* Custom Quote Routing Modal */}

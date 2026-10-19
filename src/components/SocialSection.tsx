@@ -78,7 +78,7 @@ export function SocialSection() {
   }
 
   return (
-    <section id="social" className="bg-[#fbfbfd] py-24 text-[#1d1d1f] border-t border-black/[0.04] md:py-32">
+    <section id="social" className="relative bg-[#e9edf5] py-24 text-[#1d1d1f] border-b border-slate-200/90 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <ScrollReveal animation="fade-up" duration={700}>
@@ -114,13 +114,13 @@ export function SocialSection() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col justify-between rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.1)] focus:outline-none focus:ring-2 focus:ring-[#c91f26]"
+                className="group flex h-full flex-col justify-between rounded-[2rem] border border-slate-200/90 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-slate-300 hover:shadow-[0_24px_60px_-12px_rgba(15,23,42,0.12)] focus:outline-none focus:ring-2 focus:ring-[#c91f26]"
               >
                 <div>
                   {/* Top Bar: Icon & Category Badge */}
                   <div className="flex items-center justify-between">
                     {renderIcon(item.id)}
-                    <span className="rounded-full bg-black/[0.04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#6e6e73] transition-colors group-hover:bg-[#c91f26]/10 group-hover:text-[#c91f26]">
+                    <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#6e6e73] transition-colors group-hover:bg-[#c91f26]/10 group-hover:text-[#c91f26]">
                       {item.badge}
                     </span>
                   </div>
@@ -145,11 +145,11 @@ export function SocialSection() {
                 </div>
 
                 {/* Bottom Action Link */}
-                <div className="mt-8 flex items-center justify-between border-t border-black/[0.05] pt-4">
+                <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-4">
                   <span className="text-xs font-bold text-[#1d1d1f] transition-colors group-hover:text-[#c91f26]">
                     {item.actionText}
                   </span>
-                  <span className="grid size-7 place-items-center rounded-full bg-[#f5f5f7] text-xs font-bold text-[#1d1d1f] transition-all duration-300 group-hover:bg-[#c91f26] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <span className="grid size-7 place-items-center rounded-full bg-[#f1f5f9] text-xs font-bold text-[#1d1d1f] transition-all duration-300 group-hover:bg-[#c91f26] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     ↗
                   </span>
                 </div>

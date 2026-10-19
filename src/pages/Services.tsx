@@ -79,7 +79,7 @@ export function Services() {
         <section
           id="capabilities-overview"
           aria-label="Capabilities overview and filter"
-          className="sticky top-20 z-30 border-b border-black/[0.06] bg-white/80 py-4 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
+          className="sticky top-20 z-30 border-b border-slate-200/90 bg-white/95 py-4 backdrop-blur-xl shadow-xs"
         >
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 md:px-8 lg:px-10">
             {/* Category Filter Pills */}
@@ -99,8 +99,8 @@ export function Services() {
                     onClick={() => setActiveFilter(category.id)}
                     className={`rounded-full px-4 py-2 text-xs font-medium transition-all duration-300 md:text-sm whitespace-nowrap ${
                       isActive
-                        ? "bg-[#1d1d1f] text-white shadow-sm ring-1 ring-[#1d1d1f]"
-                        : "bg-[#f5f5f7] text-[#6e6e73] hover:bg-[#e8e8ed] hover:text-[#1d1d1f]"
+                        ? "bg-[#0f172a] text-white shadow-sm ring-1 ring-[#0f172a]"
+                        : "bg-[#f1f5f9] text-[#475569] border border-slate-200/60 hover:bg-[#e2e8f0] hover:text-[#0f172a]"
                     }`}
                   >
                     {category.label}
@@ -127,7 +127,7 @@ export function Services() {
         <section
           id="detailed-capabilities"
           aria-label="Detailed service specifications"
-          className="bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
+          className="relative bg-[#e9edf5] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
             <div className="mb-14">
@@ -154,12 +154,12 @@ export function Services() {
                 >
                   <article
                     id={`service-${service.id}`}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-black/[0.05] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-slate-300 hover:shadow-[0_24px_60px_-12px_rgba(15,23,42,0.12)]"
                   >
                     {/* Header Bar with Category Badge & Number */}
-                    <div className="flex items-center justify-between border-b border-black/[0.04] bg-[#fbfbfd] px-7 py-4.5">
+                    <div className="flex items-center justify-between border-b border-slate-100 bg-[#f8fafc] px-7 py-4.5">
                       <div className="flex items-center gap-3">
-                        <span className="grid size-10 place-items-center rounded-2xl bg-[#f5f5f7] text-[#1d1d1f] shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:bg-[#c91f26] group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(201,31,38,0.25)]">
+                        <span className="grid size-10 place-items-center rounded-2xl bg-[#f1f5f9] text-[#1d1d1f] shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:bg-[#c91f26] group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(201,31,38,0.25)]">
                           <Icon
                             name={service.icon as IconName}
                             className="size-5"
@@ -275,7 +275,7 @@ export function Services() {
         <section
           id="architecture-inspector"
           aria-label="Interactive architecture and delivery inspector"
-          className="bg-[#1d1d1f] py-24 text-white md:py-32"
+          className="relative bg-[#0c131f] py-24 text-white border-b border-slate-800 md:py-32"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -454,7 +454,7 @@ export function Services() {
         <section
           id="service-faqs"
           aria-label="Frequently asked questions about services"
-          className="bg-[#fbfbfd] py-24 md:py-32"
+          className="relative bg-[#ffffff] py-24 border-b border-slate-200/90 md:py-32"
         >
           <div className="mx-auto max-w-4xl px-5 md:px-8">
             <div className="text-center">
@@ -478,7 +478,7 @@ export function Services() {
                 return (
                   <div
                     key={faq.id}
-                    className="overflow-hidden rounded-2xl border border-black/[0.05] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)]"
+                    className="overflow-hidden rounded-2xl border border-slate-200/90 bg-[#f8fafc] shadow-[0_4px_16px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(15,23,42,0.06)] hover:bg-white"
                   >
                     <button
                       type="button"
@@ -535,7 +535,7 @@ export function Services() {
         <section
           id="tech-stack-cloud"
           aria-label="Technology and engineering ecosystem"
-          className="border-t border-black/[0.05] bg-[#f5f5f7] py-20 md:py-28"
+          className="border-t border-slate-200/90 bg-[#e9edf5] py-20 md:py-28"
         >
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
             <div className="text-center">
@@ -587,9 +587,13 @@ export function Services() {
         <section
           id="services-cta"
           aria-label="Start a project CTA"
-          className="mx-5 my-16 overflow-hidden rounded-[2.5rem] bg-[#1d1d1f] py-20 text-white shadow-[0_25px_60px_rgba(0,0,0,0.18)] sm:mx-8 md:py-28 lg:mx-10"
+          className="relative mx-5 my-20 overflow-hidden rounded-[2.5rem] border border-slate-800 bg-gradient-to-br from-[#0c131f] via-[#111827] to-[#0a0e17] py-20 text-white shadow-[0_30px_80px_rgba(0,0,0,0.28)] sm:mx-8 md:py-28 lg:mx-10"
         >
-          <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
+          {/* Ambient glows inside CTA */}
+          <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#c91f26]/20 blur-3xl" />
+          <div className="pointer-events-none absolute -left-20 -bottom-20 size-80 rounded-full bg-[#0066cc]/15 blur-3xl" />
+
+          <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
             <ScrollReveal animation="zoom-in" duration={700}>
               <span className="mx-auto grid size-12 place-items-center rounded-2xl bg-white/10 text-white">
                 <Icon name="spark" className="size-6" />

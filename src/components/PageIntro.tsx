@@ -8,10 +8,10 @@ export interface PageIntroProps {
 
 export function PageIntro({ eyebrow, title, description }: PageIntroProps) {
   return (
-    <section className="relative overflow-hidden bg-[#fbfbfd] pb-20 pt-36 text-[#1d1d1f] border-b border-black/[0.05] md:pb-28 md:pt-44">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#ffffff] via-[#f8fafc] to-[#eef2f7] pb-20 pt-36 text-[#1d1d1f] border-b border-slate-200/90 md:pb-28 md:pt-44">
       {/* Subtle Apple ambient radial lighting */}
-      <div className="pointer-events-none absolute -right-32 top-10 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/5 via-[#0066cc]/5 to-transparent blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 bottom-0 size-80 rounded-full bg-gradient-to-tr from-[#f5f5f7] to-transparent blur-2xl" />
+      <div className="pointer-events-none absolute -right-32 top-10 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/8 via-[#0066cc]/6 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-0 size-80 rounded-full bg-gradient-to-tr from-[#0066cc]/5 via-[#c91f26]/5 to-transparent blur-2xl" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
         <ScrollReveal animation="fade-down" delay={60}>

@@ -24,7 +24,7 @@ function Home() {
   return (
     <div
       id="top"
-      className="min-h-screen overflow-hidden bg-[#fbfbfd] text-[#1d1d1f]"
+      className="min-h-screen overflow-hidden bg-white text-[#1d1d1f]"
     >
       <SEO
         title={seo.title}
@@ -55,7 +55,7 @@ function Home() {
         <ProcessSection />
 
         {/* Social Media & Community Section */}
-        <SocialSection />
+        {/* <SocialSection /> */}
 
         {/* CTA Section */}
         <CtaSection />

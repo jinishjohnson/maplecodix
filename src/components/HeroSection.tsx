@@ -10,16 +10,16 @@ export function HeroSection() {
   const [isCustomQuoteModalOpen, setIsCustomQuoteModalOpen] = useState(false)
 
   return (
-    <section className="relative min-h-[820px] overflow-hidden bg-[#fbfbfd] pb-24 pt-36 lg:min-h-[760px] lg:pb-28 lg:pt-44 border-b border-black/[0.04]">
+    <section className="relative min-h-[820px] overflow-hidden bg-gradient-to-b from-[#ffffff] via-[#fbfcfe] to-[#f1f4f9] pb-24 pt-36 lg:min-h-[760px] lg:pb-28 lg:pt-44 border-b border-slate-200/90">
       {/* Subtle Apple ambient radial lighting */}
-      <div className="pointer-events-none absolute -right-28 top-16 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/5 via-[#0066cc]/5 to-transparent blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 bottom-0 size-96 rounded-full bg-gradient-to-tr from-[#f5f5f7] to-transparent blur-2xl" />
+      <div className="pointer-events-none absolute -right-28 top-16 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/8 via-[#0066cc]/6 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-0 size-96 rounded-full bg-gradient-to-tr from-[#0066cc]/5 via-[#c91f26]/5 to-transparent blur-2xl" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
         <div>
           {/* Apple Pill Badge */}
           <ScrollReveal animation="fade-down" delay={60} duration={600}>
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-4 py-1.5 text-xs font-semibold text-[#1d1d1f] shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-white px-4 py-1.5 text-xs font-semibold text-[#1d1d1f] shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
               <span className="grid size-5 place-items-center rounded-full bg-[#c91f26]/10 text-[#c91f26]">
                 <Icon name="spark" className="size-3" />
               </span>

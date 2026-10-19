@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react"
 import { Icon } from "./Icon"
 import siteData from "../data/data.json"
+import { ENV } from "../config/env"
+import { encryptStorage, decryptStorage } from "../utils/crypto"
 
 export interface CustomQuoteModalProps {
   isOpen: boolean
@@ -109,11 +111,38 @@ export function CustomQuoteModal({
 
     setIsSubmitting(true)
 
-    setTimeout(() => {
+    setTimeout(async () => {
       const ref = generateTicket()
       setReferenceId(ref)
       setIsSubmitting(false)
       setIsSubmitted(true)
+
+      // Encrypt and store quote request in local encrypted vault
+      try {
+        const quoteRecord = {
+          ref,
+          timestamp: new Date().toISOString(),
+          category,
+          fullName,
+          email,
+          phone,
+          company,
+          budget,
+          timeline,
+          selectedRequirements,
+          projectOverview,
+        }
+        const existing =
+          (await decryptStorage<unknown[]>(
+            "maplecodix_encrypted_quotes",
+            [],
+          )) || []
+        const list = Array.isArray(existing) ? existing : []
+        list.unshift(quoteRecord)
+        await encryptStorage("maplecodix_encrypted_quotes", list)
+      } catch {
+        // ignore
+      }
     }, 600)
   }
 
@@ -145,10 +174,11 @@ export function CustomQuoteModal({
     return encodeURIComponent(lines.join("\n"))
   }
 
-  const cleanPhone = (siteData.site.whatsapp?.phoneNumber || "+15063124135").replace(
-    /[^0-9]/g,
-    "",
-  )
+  const cleanPhone = (
+    ENV.whatsappPhone ||
+    siteData.site.whatsapp?.phoneNumber ||
+    "15063124135"
+  ).replace(/[^0-9]/g, "")
   const whatsappUrl = `https://wa.me/${cleanPhone}?text=${buildWhatsAppMessage()}`
 
   return (

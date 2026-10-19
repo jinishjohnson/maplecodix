@@ -1,4 +1,5 @@
 import siteData from "../data/data.json"
+import { ENV } from "../config/env"
 
 export type AIMode = "advisor" | "architect" | "growth"
 
@@ -72,11 +73,17 @@ export async function generateAIResponse(
 ): Promise<AIResponseOutput> {
   const query = userQuery.trim().toLowerCase()
 
-  // 1. If user provided a custom Gemini API Key, attempt to query Google Gemini directly
-  if (apiKey && apiKey.trim().length > 10) {
+  // Check for API key in user settings or .env configuration
+  const effectiveApiKey =
+    apiKey && apiKey.trim().length > 10
+      ? apiKey.trim()
+      : (ENV.geminiApiKey || "").trim()
+
+  // 1. If user provided a Gemini API Key or configured in .env, query Google Gemini directly over HTTPS
+  if (effectiveApiKey && effectiveApiKey.length > 10) {
     try {
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey.trim()}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${effectiveApiKey}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

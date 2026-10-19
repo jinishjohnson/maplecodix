@@ -6,6 +6,8 @@ import { SEO } from "../components/SEO"
 import { CustomQuoteModal } from "../components/CustomQuoteModal"
 import { SocialSection } from "../components/SocialSection"
 import siteData from "../data/data.json"
+import { ENV } from "../config/env"
+import { encryptStorage, decryptStorage } from "../utils/crypto"
 
 export function Contact() {
   const seo = siteData.seo.contact || {
@@ -37,6 +39,24 @@ export function Contact() {
     const randomTicket = `MC-247-${Math.floor(1000 + Math.random() * 9000)}`
     setTicketId(randomTicket)
     setIsSubmitted(true)
+
+    // Store ticket payload in encrypted local vault
+    try {
+      const ticketRecord = {
+        ticketId: randomTicket,
+        timestamp: new Date().toISOString(),
+        ...formData,
+      }
+      decryptStorage<unknown[]>("maplecodix_encrypted_tickets", []).then(
+        (existing) => {
+          const list = Array.isArray(existing) ? existing : []
+          list.unshift(ticketRecord)
+          encryptStorage("maplecodix_encrypted_tickets", list)
+        },
+      )
+    } catch {
+      // ignore
+    }
   }
 
   const handleCopy = (text: string, type: "email" | "phone") => {
@@ -86,7 +106,7 @@ export function Contact() {
         */}
         <section
           aria-label="Support status bar"
-          className="sticky top-20 z-30 border-b border-black/[0.06] bg-white/80 py-3.5 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
+          className="sticky top-20 z-30 border-b border-slate-200/90 bg-white/95 py-3.5 backdrop-blur-xl shadow-xs"
         >
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 md:px-8 lg:px-10">
             <div className="flex items-center gap-3">
@@ -121,7 +141,7 @@ export function Contact() {
               </button>
 
               <a
-                href="https://wa.me/15063124135"
+                href={`https://wa.me/${ENV.whatsappPhone}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:brightness-105 transition-all"
@@ -139,7 +159,7 @@ export function Contact() {
           Clean white cards with soft ambient drop shadows on off-white canvas
           ========================================================================
         */}
-        <section className="bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28">
+        <section className="relative bg-[#e9edf5] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28">
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
             <ScrollReveal animation="fade-up" duration={700}>
               <div className="mx-auto max-w-2xl text-center">
@@ -158,7 +178,7 @@ export function Contact() {
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {/* Channel 1: Phone & WhatsApp */}
               <ScrollReveal animation="fade-up" delay={50} duration={600}>
-                <div className="group relative flex h-full flex-col justify-between rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]">
+                <div className="group relative flex h-full flex-col justify-between rounded-[2rem] border border-slate-200/90 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-slate-300 hover:shadow-[0_24px_60px_-12px_rgba(15,23,42,0.12)]">
                   <div>
                     <div className="flex size-13 items-center justify-center rounded-2xl bg-[#25D366]/10 text-[#25D366] transition-transform duration-300 group-hover:scale-105">
                       <svg className="size-6 fill-current" viewBox="0 0 24 24">
@@ -322,13 +342,13 @@ export function Contact() {
           APPLE-STYLE INTERACTIVE SUPPORT DESK & OFFICE WORKBENCH
           ========================================================================
         */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="relative bg-[#ffffff] py-20 border-b border-slate-200/90 md:py-28">
           <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
               {/* Left Column: Form (7 cols) */}
               <div className="lg:col-span-7">
                 <ScrollReveal animation="fade-right" duration={700}>
-                  <div className="rounded-[2.25rem] border border-black/[0.05] bg-[#fbfbfd] p-8 shadow-[0_4px_30px_rgba(0,0,0,0.04)] md:p-12">
+                  <div className="rounded-[2.25rem] border border-slate-200/90 bg-[#f8fafc] p-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:p-12">
                     <div className="flex items-center justify-between border-b border-black/[0.06] pb-6">
                       <div>
                         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c91f26]">Priority Desk</span>
@@ -450,7 +470,7 @@ export function Contact() {
 
                         <div className="mt-6 flex flex-wrap justify-center gap-3">
                           <a
-                            href={`https://wa.me/15063124135?text=${encodeURIComponent(`Hi MapleCodix, I just submitted Ticket ${ticketId} regarding ${formData.urgency}`)}`}
+                            href={`https://wa.me/${ENV.whatsappPhone}?text=${encodeURIComponent(`Hi MapleCodix, I just submitted Ticket ${ticketId} regarding ${formData.urgency}`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:brightness-105"
@@ -586,7 +606,7 @@ export function Contact() {
           APPLE-STYLE SUPPORT ACCORDION (FAQS)
           ========================================================================
         */}
-        <section className="bg-[#fbfbfd] py-20 border-t border-black/[0.04] md:py-28">
+        <section className="relative bg-[#ffffff] py-20 border-b border-slate-200/90 md:py-28">
           <div className="mx-auto max-w-4xl px-5 md:px-8">
             <ScrollReveal animation="fade-up" duration={700}>
               <div className="text-center">
@@ -622,7 +642,7 @@ export function Contact() {
                 const isOpen = openFaqIndex === idx
                 return (
                   <ScrollReveal key={idx} animation="fade-up" delay={idx * 60} duration={500}>
-                    <div className="overflow-hidden rounded-2xl border border-black/[0.05] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+                    <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-[#f8fafc] shadow-[0_4px_16px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(15,23,42,0.06)] hover:bg-white">
                       <button
                         type="button"
                         onClick={() => toggleFaq(idx)}
@@ -632,11 +652,10 @@ export function Contact() {
                           {item.q}
                         </span>
                         <span
-                          className={`grid size-8 shrink-0 place-items-center rounded-full border transition-all duration-300 ${
-                            isOpen
+                          className={`grid size-8 shrink-0 place-items-center rounded-full border transition-all duration-300 ${isOpen
                               ? "rotate-180 border-[#1d1d1f] bg-[#1d1d1f] text-white"
                               : "border-black/10 bg-[#f5f5f7] text-[#6e6e73]"
-                          }`}
+                            }`}
                         >
                           <svg
                             className="size-4"

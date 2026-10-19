@@ -21,7 +21,7 @@ export function ServicesSection({ items = services }: ServicesSectionProps) {
   const { servicesSection } = siteData
 
   return (
-    <section id="services" className="bg-[#f5f5f7] py-24 text-[#1d1d1f] md:py-32">
+    <section id="services" className="relative bg-[#e9edf5] py-24 text-[#1d1d1f] border-b border-slate-200/90 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
 
         {/* Apple-Style Section Header */}
@@ -69,7 +69,7 @@ export function ServicesSection({ items = services }: ServicesSectionProps) {
             >
               <Link
                 to="/services"
-                className="service-card group relative flex h-full min-h-[19rem] flex-col justify-between overflow-hidden rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-black/[0.09] hover:shadow-[0_28px_60px_-15px_rgba(0,0,0,0.11)] sm:min-h-[21rem] md:p-9 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0066cc]/40"
+                className="service-card group relative flex h-full min-h-[19rem] flex-col justify-between overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-slate-300 hover:shadow-[0_28px_60px_-15px_rgba(15,23,42,0.12)] sm:min-h-[21rem] md:p-9 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0066cc]/40"
               >
                 {/* Subtle top Apple-tint ambient gradient that brightens on hover */}
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#fbfbfd] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -80,7 +80,7 @@ export function ServicesSection({ items = services }: ServicesSectionProps) {
                 <div className="relative z-10 flex h-full flex-col justify-between transition-all duration-300">
                   {/* Card Header: Icon & Number */}
                   <div className="flex items-start justify-between">
-                    <span className="grid size-13 place-items-center rounded-2xl bg-[#f5f5f7] text-[#1d1d1f] shadow-xs transition-all duration-300 ease-out group-hover:scale-105 group-hover:bg-[#c91f26] group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(201,31,38,0.25)]">
+                    <span className="grid size-13 place-items-center rounded-2xl bg-[#f1f5f9] text-[#1d1d1f] shadow-xs transition-all duration-300 ease-out group-hover:scale-105 group-hover:bg-[#c91f26] group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(201,31,38,0.25)]">
                       <Icon name={service.icon} className="size-6 transition-transform duration-300 group-hover:scale-105" />
                     </span>
                     <span className="font-mono text-xs font-semibold tracking-wider text-[#86868b] transition-colors duration-300 group-hover:text-[#1d1d1f]">

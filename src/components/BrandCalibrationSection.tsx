@@ -1814,11 +1814,11 @@ export function BrandCalibrationSection() {
   return (
     <section
       id="brand-calibration"
-      className="relative overflow-hidden border-y border-black/[0.04] bg-[#fbfbfd] py-24 text-[#1d1d1f] md:py-32"
+      className="relative overflow-hidden border-b border-slate-200/90 bg-[#ffffff] py-24 text-[#1d1d1f] md:py-32"
     >
       {/* Precision ambient light glows */}
-      <div className="pointer-events-none absolute -left-28 top-10 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/5 to-transparent blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-10 size-[32rem] rounded-full bg-gradient-to-tr from-[#0066cc]/5 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -left-28 top-10 size-[36rem] rounded-full bg-gradient-to-br from-[#c91f26]/8 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-10 size-[32rem] rounded-full bg-gradient-to-tr from-[#0066cc]/8 to-transparent blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
         {/* Header Block with Eyebrow and Precision Branding */}
@@ -1875,8 +1875,8 @@ export function BrandCalibrationSection() {
                   onClick={() => handleTabChange(cat.id)}
                   className={`group flex shrink-0 items-center gap-2.5 rounded-full px-5 py-2.5 text-left transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? "bg-[#1d1d1f] text-white shadow-sm ring-1 ring-[#1d1d1f]"
-                      : "bg-[#f5f5f7] text-[#6e6e73] hover:bg-[#e8e8ed] hover:text-[#1d1d1f]"
+                      ? "bg-[#0f172a] text-white shadow-sm ring-1 ring-[#0f172a]"
+                      : "bg-[#f1f5f9] text-[#475569] border border-slate-200/60 hover:bg-[#e2e8f0] hover:text-[#0f172a]"
                   }`}
                 >
                   <span
@@ -1989,8 +1989,8 @@ export function BrandCalibrationSection() {
                 }}
                 className={`group relative flex min-w-[280px] sm:min-w-[320px] md:min-w-[340px] shrink-0 snap-start cursor-pointer flex-col items-center justify-between rounded-[2rem] border bg-white p-8 text-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   isSelected
-                    ? "border-[#c91f26] ring-2 ring-[#c91f26]/20 shadow-[0_24px_50px_rgba(201,31,38,0.12)] -translate-y-2"
-                    : "border-black/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:-translate-y-1.5 hover:border-black/[0.09] hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
+                    ? "border-[#c91f26] ring-2 ring-[#c91f26]/20 shadow-[0_24px_50px_rgba(201,31,38,0.12)] -translate-y-2 bg-gradient-to-b from-white to-[#fff8f8]"
+                    : "border-slate-200/90 shadow-[0_6px_25px_rgba(15,23,42,0.05)] hover:-translate-y-1.5 hover:border-slate-300 hover:shadow-[0_24px_60px_-12px_rgba(15,23,42,0.1)]"
                 }`}
               >
                 {/* Index tag & Active Pill */}

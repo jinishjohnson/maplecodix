@@ -6,8 +6,12 @@ export function CtaSection() {
   const { ctaSection } = siteData
 
   return (
-    <section className="mx-5 my-16 overflow-hidden rounded-[2.5rem] bg-[#1d1d1f] py-20 text-white shadow-[0_25px_60px_rgba(0,0,0,0.18)] sm:mx-8 md:py-28 lg:mx-10">
-      <div className="mx-auto max-w-5xl px-5 text-center md:px-8">
+    <section className="relative mx-5 my-20 overflow-hidden rounded-[2.5rem] border border-slate-800 bg-gradient-to-br from-[#0c131f] via-[#111827] to-[#0a0e17] py-20 text-white shadow-[0_30px_80px_rgba(0,0,0,0.28)] sm:mx-8 md:py-28 lg:mx-10">
+      {/* Ambient glows inside keynote CTA */}
+      <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#c91f26]/20 blur-3xl" />
+      <div className="pointer-events-none absolute -left-20 -bottom-20 size-80 rounded-full bg-[#0066cc]/15 blur-3xl" />
+
+      <div className="relative mx-auto max-w-5xl px-5 text-center md:px-8">
         <ScrollReveal animation="zoom-in" duration={750}>
           <span className="mx-auto grid size-12 place-items-center rounded-2xl bg-white/10 text-white transition-transform duration-300 hover:scale-110">
             <Icon name="spark" className="size-6" />
@@ -22,7 +26,7 @@ export function CtaSection() {
             {ctaSection.description}
           </p>
           <a
-            className="group mt-10 inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#1d1d1f] shadow-lg transition-all duration-300 hover:bg-[#f5f5f7] hover:scale-[1.02] active:scale-[0.99]"
+            className="group mt-10 inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#0f172a] shadow-lg transition-all duration-300 hover:bg-[#c91f26] hover:text-white hover:scale-[1.02] active:scale-[0.99]"
             href={ctaSection.buttonHref}
           >
             <span>{ctaSection.buttonText}</span>

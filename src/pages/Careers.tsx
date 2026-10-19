@@ -22,7 +22,7 @@ export function Careers() {
         <section
           id="careers-content"
           aria-label="MapleCodix career opportunities"
-          className="bg-[#f5f5f7] py-20 text-[#1d1d1f] md:py-28"
+          className="relative bg-[#e9edf5] py-20 text-[#1d1d1f] border-b border-slate-200/90 md:py-28"
         >
           <div className="mx-auto max-w-5xl px-5 md:px-8">
             {/* Apple-Style Values Cards */}
@@ -36,7 +36,7 @@ export function Careers() {
                 >
                   <div
                     id={`career-value-${index + 1}`}
-                    className="h-full rounded-[2rem] border border-black/[0.05] bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.09)]"
+                    className="h-full rounded-[2rem] border border-slate-200/90 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-12px_rgba(15,23,42,0.12)] hover:border-slate-300"
                   >
                     <span className="font-mono text-xs font-bold tracking-wider text-[#c91f26]">
                       0{index + 1}
@@ -72,7 +72,7 @@ export function Careers() {
                 >
                   <a
                     id={`job-role-${index + 1}`}
-                    className="group flex items-center justify-between rounded-2xl border border-black/[0.05] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-black/[0.09] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] md:p-7"
+                    className="group flex items-center justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_4px_16px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_30px_rgba(15,23,42,0.08)] md:p-7"
                     href={`mailto:careers@maplecodix.com?subject=${encodeURIComponent(`Application: ${role}`)}`}
                   >
                     <div>
@@ -84,7 +84,7 @@ export function Careers() {
                       </p>
                     </div>
                     
-                    <span className="grid size-10 place-items-center rounded-full bg-[#f5f5f7] text-[#1d1d1f] shadow-xs transition-all duration-300 group-hover:bg-[#c91f26] group-hover:text-white group-hover:scale-105">
+                    <span className="grid size-10 place-items-center rounded-full bg-[#f1f5f9] text-[#1d1d1f] shadow-xs transition-all duration-300 group-hover:bg-[#c91f26] group-hover:text-white group-hover:scale-105">
                       <Icon name="arrow" className="size-4" />
                     </span>
                   </a>

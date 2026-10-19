@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router"
 import siteData from "../data/data.json"
+import { ENV } from "../config/env"
+import {
+  encryptStorage,
+  decryptStorage,
+  readEncryptedStorageSync,
+} from "../utils/crypto"
 import {
   generateAIResponse,
   type AIMode,
@@ -47,22 +53,19 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
   const [showSettings, setShowSettings] = useState(false)
   const [mode, setMode] = useState<AIMode>("advisor")
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
-    try {
-      const saved = localStorage.getItem("maplecodix_chat_history")
-      if (saved) {
-        const parsed = JSON.parse(saved)
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed
-      }
-    } catch {
-      // fallback
-    }
-    return INITIAL_MESSAGES
+    return (
+      readEncryptedStorageSync<ChatMessage[]>(
+        "maplecodix_chat_history",
+        INITIAL_MESSAGES,
+      ) || INITIAL_MESSAGES
+    )
   })
   const [inputText, setInputText] = useState("")
   const [isTyping, setIsTyping] = useState(false)
-  const [apiKey, setApiKey] = useState(
-    () => localStorage.getItem("maplecodix_gemini_key") || "",
-  )
+  const [apiKey, setApiKey] = useState(() => {
+    const stored = readEncryptedStorageSync<string>("maplecodix_gemini_key", "")
+    return stored || ENV.geminiApiKey || ""
+  })
   const [tempApiKey, setTempApiKey] = useState("")
   const [soundEnabled, setSoundEnabled] = useState(true)
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -72,13 +75,26 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const popupRef = useRef<HTMLDivElement>(null)
 
-  // Persist messages
+  // Asynchronously decrypt and sync chat history & API key on mount
   useEffect(() => {
-    try {
-      localStorage.setItem("maplecodix_chat_history", JSON.stringify(messages))
-    } catch {
-      // ignore
-    }
+    decryptStorage<ChatMessage[]>("maplecodix_chat_history").then((saved) => {
+      if (saved && Array.isArray(saved) && saved.length > 0) {
+        setMessages(saved)
+      }
+    })
+
+    decryptStorage<string>("maplecodix_gemini_key").then((savedKey) => {
+      if (savedKey) {
+        setApiKey(savedKey)
+      } else if (ENV.geminiApiKey) {
+        setApiKey(ENV.geminiApiKey)
+      }
+    })
+  }, [])
+
+  // Persist messages encrypted with AES-256 GCM
+  useEffect(() => {
+    encryptStorage("maplecodix_chat_history", messages)
   }, [messages])
 
   // Auto scroll to bottom
@@ -270,9 +286,9 @@ export function AIChatBot({ className = "" }: AIChatBotProps) {
   // Save API key
   const handleSaveApiKey = () => {
     const trimmed = tempApiKey.trim()
-    setApiKey(trimmed)
+    setApiKey(trimmed || ENV.geminiApiKey || "")
     if (trimmed) {
-      localStorage.setItem("maplecodix_gemini_key", trimmed)
+      encryptStorage("maplecodix_gemini_key", trimmed)
     } else {
       localStorage.removeItem("maplecodix_gemini_key")
     }
