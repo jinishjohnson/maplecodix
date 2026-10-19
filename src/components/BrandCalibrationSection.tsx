@@ -20,8 +20,7 @@ interface CategoryConfig {
 
 export function BrandCalibrationSection() {
   const [activeTab, setActiveTab] = useState<ServiceCategory>("logo-design")
-  const [selectedCardId, setSelectedCardId] =
-    useState<string>("typographic-logo")
+  const [selectedCardId, setSelectedCardId] = useState<string>("iconic-logo")
   const carouselRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false)
@@ -1785,7 +1784,7 @@ export function BrandCalibrationSection() {
   const handleTabChange = (tabId: ServiceCategory) => {
     setActiveTab(tabId)
     const targetCat = categories.find((c) => c.id === tabId)
-    setSelectedCardId(targetCat?.items[1]?.id || targetCat?.items[0]?.id || "")
+    setSelectedCardId(targetCat?.items[0]?.id || "")
     setActiveIndex(0)
     if (carouselRef.current) {
       carouselRef.current.scrollTo({ left: 0, behavior: "smooth" })
