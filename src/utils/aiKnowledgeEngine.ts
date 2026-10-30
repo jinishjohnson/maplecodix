@@ -38,7 +38,7 @@ MapleCodix is a full-service digital studio specializing in:
 Pricing Packages:
 - Websites:
   • Startup Website: $99 (special offer, normally $399). 3 static pages, responsive design, 1 year free hosting, 5-day delivery.
-  • Standard Plan: $399 (normally $699). Up to 10 static pages, basic SEO, 5 banners, 1 year free hosting.
+  • Standard Plan: $399 (normally $699). Up to 10 static pages, Free 2-time theme change, basic SEO, 5 banners, 1 year free hosting.
   • Elite Package: $999 (normally $1199). Dynamic pages (up to 10), appointment booking system, payment gateway, mobile tuning.
   • Elite Plus Marketing: $1399 (normally $1699). Full custom dynamic build, CMS, Meta Ads setup, 15 Reels promotion, Google Analytics.
 - Web Applications (SaaS & Portals):
